@@ -173,7 +173,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>Mục tiêu của chúng ta là phân loại bài báo vào một trong các danh mục dựa trên văn bản.</p>
 <h2 id="bieu-dien-van-ban">Biểu diễn văn bản</h2>
 <p>Nếu giải quyết các nhiệm vụ Xử lý Ngôn ngữ Tự nhiên (NLP) bằng mạng nơ-ron, một cách để biểu diễn văn bản dưới dạng tensors. Máy tính đã đại diện các ký tự văn bản dưới dạng số, ánh xạ đến các phông chữ trên màn hình của bạn bằng các mã hóa như ASCII hoặc UTF-8.</p>
-<p><img alt="Hình ảnh hiển thị sơ đồ ánh xạ một ký tự sang đại diện ASCII và nhị phân" src=../../../lessons/5-NLP/13-TextRep/"../../../translated_images/vi/ascii-character-map.18ed6aa7f3b0a7ff.webp" width="50%"/></p>
+<p><img alt="Hình ảnh hiển thị sơ đồ ánh xạ một ký tự sang đại diện ASCII và nhị phân" src="../../../translated_images/vi/ascii-character-map.18ed6aa7f3b0a7ff.webp" width="50%"/></p>
 <blockquote>
 <p><a href="https://www.seobility.net/en/wiki/ASCII">Nguồn hình ảnh</a></p>
 </blockquote>
@@ -189,7 +189,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>Trong một số trường hợp, xem xét sử dụng tri-grams -- tổ hợp ba từ -- nữa. Do đó, cách tiếp cận này thường được gọi là <strong>n-grams</strong>. Ngoài ra, nó cũng hợp lý khi sử dụng n-grams với biểu diễn cấp ký tự, trong trường hợp này n-grams sẽ tương ứng với các âm tiết khác nhau.</p>
 <h2 id="bag-of-words-va-tfidf">Bag-of-Words và TF/IDF</h2>
 <p>Khi giải quyết các nhiệm vụ như phân loại văn bản, có khả năng biểu diễn văn bản bằng một vector kích thước cố định, mà sử dụng làm đầu vào cho bộ phân loại cuối cùng. Một trong những cách đơn giản nhất để làm điều đó là kết hợp tất cả các đại diện từ riêng lẻ, ví dụ bằng cách cộng chúng lại. Nếu chúng ta cộng các mã hóa one-hot của mỗi từ, có một vector tần suất, cho thấy mỗi từ xuất hiện bao nhiêu lần trong văn bản. Cách biểu diễn văn bản này được gọi là <strong>bag of words</strong> (BoW).</p>
-<p><img src=../../../lessons/5-NLP/13-TextRep/"../../../translated_images/vi/bow.3811869cff59368d.webp" width="90%"/></p>
+<p><img src="../../../translated_images/vi/bow.3811869cff59368d.webp" width="90%"/></p>
 <blockquote>
 <p>Hình ảnh của tác giả</p>
 </blockquote>

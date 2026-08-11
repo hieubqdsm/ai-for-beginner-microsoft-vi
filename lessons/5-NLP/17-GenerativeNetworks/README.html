@@ -183,7 +183,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>Ta sẽ huấn luyện RNN này để sinh văn bản từng bước. Ở mỗi bước, lấy một chuỗi ký tự có độ dài <code>nchars</code>, và yêu cầu mạng sinh ký tự đầu ra tiếp theo cho mỗi ký tự đầu vào:</p>
 <p><img alt="Hình ảnh minh họa RNN sinh từ 'HELLO'." src="../../../translated_images/vi/rnn-generate.56c54afb52f9781d.webp" /></p>
 <p>Khi sinh văn bản (trong quá trình suy luận), ta bắt đầu với một <strong>gợi ý</strong> (prompt), được truyền qua các cell RNN để tạo trạng thái trung gian, rồi từ trạng thái này bắt đầu quá trình sinh. Văn bản được sinh từng ký tự một, và truyền trạng thái cùng ký tự vừa sinh vào cell RNN tiếp theo để sinh ký tự kế tiếp, cho đến khi đủ số ký tự.</p>
-<p><img src=../../../lessons/5-NLP/17-GenerativeNetworks/"../../../translated_images/vi/rnn-generate-inf.5168dc65e0370eea.webp" width="60%"/></p>
+<p><img src="../../../translated_images/vi/rnn-generate-inf.5168dc65e0370eea.webp" width="60%"/></p>
 <blockquote>
 <p>Hình ảnh của tác giả</p>
 </blockquote>
