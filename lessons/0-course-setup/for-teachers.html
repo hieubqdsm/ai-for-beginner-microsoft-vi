@@ -62,12 +62,19 @@ body {
 }
 .sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
 .sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+/* Layout: sidebar fixed ben trai, content CAN GIUA vung con lai */
 .main {
   margin-left: 280px;
-  padding: 40px 56px 80px;
-  max-width: 980px;
+  padding: 40px 32px 80px;
+  /* khong co max-width o day - de content tu can giua */
+  display: flex;
+  justify-content: center;  /* can giua nam ngang */
 }
-.content { max-width: 820px; }
+.content {
+  width: 100%;
+  max-width: 900px;  /* doc tot tren moi man hinh */
+  min-width: 0;       /* fix flex overflow */
+}
 .content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
 .content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
 .content h3 { margin-top: 28px; }
@@ -104,7 +111,7 @@ body {
 <script>
 window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script id="MathJax-script" async src="../../assets/mathjax/mathjax-tex-svg.js"></script>
 </head>
 <body>
 <aside class="sidebar">
