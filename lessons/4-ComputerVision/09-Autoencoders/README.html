@@ -191,7 +191,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <li>Chúng ta lấy mẫu một vector <code>sample</code> từ phân phối N(z<sub>mean</sub>,exp(z<sub>log_sigma</sub>))</li>
 <li>Bộ giải mã cố gắng giải mã hình ảnh gốc bằng cách sử dụng <code>sample</code> làm vector đầu vào</li>
 </ul>
-<p><img src="../../../translated_images/vi/vae.464c465a5b6a9e25.webp" width="50%"></p>
+<p><img src=../../../lessons/4-ComputerVision/09-Autoencoders/"../../../translated_images/vi/vae.464c465a5b6a9e25.webp" width="50%"></p>
 <blockquote>
 <p>Hình ảnh từ <a href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html">bài viết blog này</a> của Isaak Dykeman</p>
 </blockquote>
@@ -201,12 +201,12 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <li><strong>Mất mát KL</strong>, đảm bảo rằng phân phối biến ẩn gần với phân phối chuẩn. Nó dựa trên khái niệm <a href="https://www.countbayesie.com/blog/2017/5/9/kullback-leibler-divergence-explained">Kullback-Leibler divergence</a> - một thước đo để ước tính mức độ tương đồng giữa hai phân phối thống kê.</li>
 </ul>
 <p>Một lợi thế quan trọng của VAEs là chúng cho phép chúng ta tạo ra hình ảnh mới một cách tương đối dễ dàng, vì phân phối nào để lấy mẫu các vector ẩn. Ví dụ, nếu chúng ta huấn luyện VAE với vector ẩn 2D trên MNIST, thay đổi các thành phần của vector ẩn để tạo ra các chữ số khác nhau:</p>
-<p><img alt="vaemnist" src="../../../translated_images/vi/vaemnist.cab9e602dc08dc50.webp" width="50%"/></p>
+<p><img alt="vaemnist" src=../../../lessons/4-ComputerVision/09-Autoencoders/"../../../translated_images/vi/vaemnist.cab9e602dc08dc50.webp" width="50%"/></p>
 <blockquote>
 <p>Hình ảnh bởi <a href="http://soshnikov.com">Dmitry Soshnikov</a></p>
 </blockquote>
 <p>Quan sát cách các hình ảnh hòa trộn vào nhau, khi chúng ta bắt đầu lấy các vector ẩn từ các phần khác nhau của không gian tham số tiềm ẩn. có thể trực quan hóa không gian này trong 2D:</p>
-<p><img alt="vaemnist cluster" src="../../../translated_images/vi/vaemnist-diag.694315f775d5d666.webp" width="50%"/> </p>
+<p><img alt="vaemnist cluster" src=../../../lessons/4-ComputerVision/09-Autoencoders/"../../../translated_images/vi/vaemnist-diag.694315f775d5d666.webp" width="50%"/> </p>
 <blockquote>
 <p>Hình ảnh bởi <a href="http://soshnikov.com">Dmitry Soshnikov</a></p>
 </blockquote>

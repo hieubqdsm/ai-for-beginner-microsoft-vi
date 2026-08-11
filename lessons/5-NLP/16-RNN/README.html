@@ -177,7 +177,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <h2 id="cau-truc-cua-mot-cell-rnn">Cấu trúc của một cell RNN</h2>
 <p>Hãy xem cách một cell RNN đơn giản được tổ chức. Nó nhận trạng thái trước đó S<sub>i-1</sub> và token hiện tại X<sub>i</sub> làm đầu vào, và phải tạo ra trạng thái đầu ra S<sub>i</sub> (đôi khi ta cũng quan tâm đến một đầu ra khác Y<sub>i</sub>, như trong trường hợp các mạng sinh).</p>
 <p>Một cell RNN đơn giản có hai ma trận trọng số bên trong: một ma trận biến đổi token đầu vào (gọi là W), và một ma trận khác biến đổi trạng thái đầu vào (H). Trong trường hợp này, đầu ra của mạng được tính bằng &sigma;(W&times;X<sub>i</sub>+H&times;S<sub>i-1</sub>+b), trong đó &sigma; là hàm kích hoạt và b là hệ số điều chỉnh (bias).</p>
-<p><img alt="Cấu trúc RNN Cell" src="../../../translated_images/vi/rnn-anatomy.79ee3f3920b3294b.webp" width="50%"/></p>
+<p><img alt="Cấu trúc RNN Cell" src=../../../lessons/5-NLP/16-RNN/"../../../translated_images/vi/rnn-anatomy.79ee3f3920b3294b.webp" width="50%"/></p>
 <blockquote>
 <p>Hình ảnh của tác giả</p>
 </blockquote>

@@ -13196,7 +13196,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hu%E1%BA%A5n-luy%E1%BB%87n-RNN-sinh-%C4%91%E1%BB%83-t%E1%BA%A1o-ti%C3%AAu-%C4%91%E1%BB%81">Huấn luyện RNN sinh để tạo tiêu đề<a class="anchor-link" href="#Hu%E1%BA%A5n-luy%E1%BB%87n-RNN-sinh-%C4%91%E1%BB%83-t%E1%BA%A1o-ti%C3%AAu-%C4%91%E1%BB%81">¶</a></h2><p>Cách chúng ta sẽ huấn luyện RNN để tạo tiêu đề tin tức như sau. Ở mỗi bước, chúng ta sẽ lấy một tiêu đề, tiêu đề này sẽ được đưa vào RNN, và với mỗi ký tự đầu vào, chúng ta sẽ yêu cầu mạng tạo ra ký tự đầu ra tiếp theo:</p>
-<p><img alt="Hình ảnh minh họa việc RNN tạo ra từ 'HELLO'." src="../../../../../translated_images/vi/rnn-generate.56c54afb52f9781d.webp"/></p>
+<p><img alt="Hình ảnh minh họa việc RNN tạo ra từ 'HELLO'." src="../../../translated_images/vi/rnn-generate.56c54afb52f9781d.webp"/></p>
 <p>Đối với ký tự cuối cùng của chuỗi, chúng ta sẽ yêu cầu mạng tạo ra token <code>&lt;eos&gt;</code>.</p>
 <p>Điểm khác biệt chính của RNN sinh mà chúng ta sử dụng ở đây là chúng ta sẽ lấy đầu ra từ mỗi bước của RNN, chứ không chỉ từ ô cuối cùng. Điều này có thể thực hiện được bằng cách chỉ định tham số <code>return_sequences</code> cho ô RNN.</p>
 <p>Do đó, trong quá trình huấn luyện, đầu vào của mạng sẽ là một chuỗi các ký tự được mã hóa với độ dài nhất định, và đầu ra sẽ là một chuỗi có cùng độ dài, nhưng được dịch chuyển một phần tử và kết thúc bằng <code>&lt;eos&gt;</code>. Minibatch sẽ bao gồm một số chuỗi như vậy, và chúng ta sẽ cần sử dụng <strong>padding</strong> để căn chỉnh tất cả các chuỗi.</p>

@@ -13093,12 +13093,12 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Ph%C3%A2n-%C4%91o%E1%BA%A1n-ng%E1%BB%AF-ngh%C4%A9a">Phân đoạn ngữ nghĩa<a class="anchor-link" href="#Ph%C3%A2n-%C4%91o%E1%BA%A1n-ng%E1%BB%AF-ngh%C4%A9a">¶</a></h1><p><strong>Phân đoạn</strong> là một trong những nhiệm vụ chính của thị giác máy tính. Đối với <strong>mỗi</strong> pixel của hình ảnh, bạn phải xác định lớp (bao gồm cả nền). Phân đoạn ngữ nghĩa chỉ cho biết lớp của pixel, trong khi phân đoạn đối tượng chia các lớp thành các đối tượng khác nhau.</p>
 <p>Ví dụ, trong phân đoạn đối tượng, mười chiếc xe là các <strong>đối tượng khác nhau</strong>, còn trong phân đoạn ngữ nghĩa, <strong>tất cả</strong> các xe đều thuộc một lớp.</p>
-<img alt="No description has been provided for this image" src="images/instance_vs_semantic.jpeg" width="50%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/instance_vs_semantic.jpeg" width="50%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://nirmalamurali.medium.com/image-classification-vs-semantic-segmentation-vs-instance-segmentation-625c33a08d50">bài viết blog này</a></p>
 </blockquote>
 <p>Hầu hết các kiến trúc đều có cùng cấu trúc. Phần đầu tiên là <strong>bộ mã hóa</strong> để trích xuất các đặc trưng từ hình ảnh đầu vào, phần thứ hai là <strong>bộ giải mã</strong> để chuyển đổi các đặc trưng này thành hình ảnh với cùng chiều cao và chiều rộng, cùng một số kênh, có thể bằng số lượng lớp.</p>
-<img alt="No description has been provided for this image" src="images/segm.png" width="80%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/segm.png" width="80%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://arxiv.org/pdf/2001.05566.pdf">ấn phẩm này</a></p>
 </blockquote>
@@ -13267,7 +13267,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="SegNet">SegNet<a class="anchor-link" href="#SegNet">¶</a></h2><p>Kiến trúc mã hóa - giải mã đơn giản với các lớp tích chập, pooling trong phần mã hóa và các lớp tích chập, upsampling trong phần giải mã.</p>
-<img alt="No description has been provided for this image" src="images/segnet.png" width="80%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/segnet.png" width="80%"/>
 <ul>
 <li>Badrinarayanan, V., Kendall, A., &amp; Cipolla, R. (2015). <a href="https://arxiv.org/pdf/1511.00561.pdf">SegNet: Một kiến trúc mã hóa - giải mã tích chập sâu cho phân đoạn hình ảnh</a></li>
 </ul>
@@ -13638,7 +13638,7 @@ Epoch 100/100
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="U-Net">U-Net<a class="anchor-link" href="#U-Net">¶</a></h2><p>Kiến trúc rất đơn giản sử dụng các kết nối bỏ qua. Các kết nối bỏ qua ở mỗi cấp độ tích chập giúp mạng không bị mất thông tin về các đặc trưng từ đầu vào gốc tại cấp độ này.</p>
 <p>U-Net thường sử dụng một bộ mã hóa mặc định để trích xuất đặc trưng, ví dụ như resnet50.</p>
-<img alt="No description has been provided for this image" src="images/unet.png" width="70%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/unet.png" width="70%"/>
 <ul>
 <li>Ronneberger, Olaf, Philipp Fischer, và Thomas Brox. <a href="https://arxiv.org/pdf/1505.04597.pdf">U-Net: Mạng tích chập cho phân đoạn hình ảnh y sinh.</a></li>
 </ul>

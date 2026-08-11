@@ -13208,7 +13208,7 @@ Character with code 13 is c
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hu%E1%BA%A5n-luy%E1%BB%87n-RNN-t%E1%BA%A1o-sinh">Huấn luyện RNN tạo sinh<a class="anchor-link" href="#Hu%E1%BA%A5n-luy%E1%BB%87n-RNN-t%E1%BA%A1o-sinh">¶</a></h2><p>Cách chúng ta sẽ huấn luyện RNN để tạo văn bản như sau. Ở mỗi bước, chúng ta sẽ lấy một chuỗi ký tự có độ dài <code>nchars</code>, và yêu cầu mạng tạo ra ký tự đầu ra tiếp theo cho mỗi ký tự đầu vào:</p>
-<p><img alt="Hình minh họa ví dụ RNN tạo ra từ 'HELLO'." src="../../../../../translated_images/vi/rnn-generate.56c54afb52f9781d.webp"/></p>
+<p><img alt="Hình minh họa ví dụ RNN tạo ra từ 'HELLO'." src="../../../translated_images/vi/rnn-generate.56c54afb52f9781d.webp"/></p>
 <p>Tùy thuộc vào tình huống thực tế, chúng ta cũng có thể muốn bao gồm một số ký tự đặc biệt, chẳng hạn như <em>kết thúc chuỗi</em> <code>&lt;eos&gt;</code>. Trong trường hợp của chúng ta, mục tiêu là huấn luyện mạng để tạo văn bản liên tục, vì vậy chúng ta sẽ cố định kích thước của mỗi chuỗi bằng số lượng token <code>nchars</code>. Do đó, mỗi ví dụ huấn luyện sẽ bao gồm <code>nchars</code> đầu vào và <code>nchars</code> đầu ra (là chuỗi đầu vào được dịch sang trái một ký tự). Minibatch sẽ bao gồm một số chuỗi như vậy.</p>
 <p>Cách chúng ta tạo minibatch là lấy mỗi văn bản tin tức có độ dài <code>l</code>, và tạo tất cả các kết hợp đầu vào-đầu ra có thể từ nó (sẽ có <code>l-nchars</code> kết hợp như vậy). Những kết hợp này sẽ tạo thành một minibatch, và kích thước của các minibatch sẽ khác nhau ở mỗi bước huấn luyện.</p>
 </div>

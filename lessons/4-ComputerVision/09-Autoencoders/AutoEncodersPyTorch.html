@@ -13101,7 +13101,7 @@ div#notebook {
 <p>Khi huấn luyện CNN, một trong những vấn đề là chúng ta cần rất nhiều dữ liệu được gán nhãn. Trong trường hợp phân loại hình ảnh, chúng ta cần phân chia hình ảnh vào các lớp khác nhau, điều này đòi hỏi công sức thủ công.</p>
 <p>Tuy nhiên, chúng ta có thể muốn sử dụng dữ liệu thô (chưa được gán nhãn) để huấn luyện các bộ trích xuất đặc trưng của CNN, điều này được gọi là <strong>học tự giám sát</strong>. Thay vì sử dụng nhãn, chúng ta sẽ sử dụng hình ảnh huấn luyện làm cả đầu vào và đầu ra của mạng. Ý tưởng chính của <strong>autoencoder</strong> là chúng ta sẽ có một <strong>mạng mã hóa</strong> để chuyển đổi hình ảnh đầu vào thành một <strong>không gian tiềm ẩn</strong> nào đó (thông thường chỉ là một vector có kích thước nhỏ hơn), sau đó là <strong>mạng giải mã</strong>, với mục tiêu tái tạo lại hình ảnh gốc.</p>
 <p>Vì chúng ta đang huấn luyện autoencoder để nắm bắt càng nhiều thông tin từ hình ảnh gốc càng tốt nhằm tái tạo chính xác, mạng sẽ cố gắng tìm <strong>biểu diễn</strong> tốt nhất của hình ảnh đầu vào để nắm bắt ý nghĩa.</p>
-<p><img alt="Sơ đồ AutoEncoder" src="../../../../../translated_images/vi/autoencoder_schema.5e6fc9ad98a5eb61.webp"/></p>
+<p><img alt="Sơ đồ AutoEncoder" src="../../../translated_images/vi/autoencoder_schema.5e6fc9ad98a5eb61.webp"/></p>
 <blockquote>
 <p>Hình ảnh từ <a href="https://blog.keras.io/building-autoencoders-in-keras.html">blog Keras</a></p>
 </blockquote>
@@ -13782,7 +13782,7 @@ div#notebook {
 <li>Chúng ta lấy mẫu một vector <code>sample(z_val in code)</code> từ phân phối $N(\mathrm{z\_mean},e^{\mathrm{z\_log\_sigma}})$</li>
 <li>Bộ giải mã cố gắng giải mã hình ảnh gốc bằng cách sử dụng <code>sample</code> làm vector đầu vào</li>
 </ul>
-<img alt="No description has been provided for this image" src="images/vae.png" width="50%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/09-Autoencoders/images/vae.png" width="50%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html">bài viết trên blog này</a> của Isaak Dykeman</p>
 </blockquote>
@@ -14041,7 +14041,7 @@ div#notebook {
 <p>Adversarial Auto-Encoders là một <strong>sự kết hợp</strong> giữa Generative Adversarial Networks và Variational Auto-Encoders.</p>
 <p>Encoder sẽ đóng vai trò là generator, còn discriminator sẽ học cách phân biệt giữa hình ảnh thực mà encoder tạo ra và hình ảnh được tạo ra. Đầu ra của encoder là một phân phối, từ đầu ra này, decoder sẽ cố gắng giải mã hình ảnh.</p>
 <p>Trong phương pháp này, chúng ta có <strong>ba hàm mất mát</strong>: mất mát của generator, mất mát của discriminator từ GAN và mất mát tái tạo từ VAE.</p>
-<img alt="No description has been provided for this image" src="images/aae.png" width="50%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/09-Autoencoders/images/aae.png" width="50%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://blog.paperspace.com/adversarial-autoencoders-with-pytorch/">bài viết blog này</a> của Felipe Ducau</p>
 </blockquote>

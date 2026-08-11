@@ -13100,7 +13100,7 @@ div#notebook {
 <p>Khi huấn luyện CNNs, một trong những vấn đề là chúng ta cần rất nhiều dữ liệu được gắn nhãn. Trong trường hợp phân loại hình ảnh, chúng ta cần phân chia hình ảnh vào các lớp khác nhau, điều này đòi hỏi công sức thủ công.</p>
 <p>Tuy nhiên, chúng ta có thể muốn sử dụng dữ liệu thô (chưa được gắn nhãn) để huấn luyện các bộ trích xuất đặc trưng của CNN, điều này được gọi là <strong>học tự giám sát</strong>. Thay vì sử dụng nhãn, chúng ta sẽ sử dụng hình ảnh huấn luyện làm cả đầu vào và đầu ra của mạng. Ý tưởng chính của <strong>autoencoder</strong> là chúng ta sẽ có một <strong>mạng mã hóa</strong> để chuyển đổi hình ảnh đầu vào thành một <strong>không gian tiềm ẩn</strong> nào đó (thường chỉ là một vector có kích thước nhỏ hơn), sau đó là <strong>mạng giải mã</strong>, với mục tiêu là tái tạo lại hình ảnh gốc.</p>
 <p>Vì chúng ta đang huấn luyện autoencoder để nắm bắt càng nhiều thông tin từ hình ảnh gốc càng tốt nhằm tái tạo chính xác, mạng sẽ cố gắng tìm <strong>embedding</strong> tốt nhất của các hình ảnh đầu vào để nắm bắt ý nghĩa.</p>
-<p><img alt="Sơ đồ AutoEncoder" src="../../../../../translated_images/vi/autoencoder_schema.5e6fc9ad98a5eb61.webp"/></p>
+<p><img alt="Sơ đồ AutoEncoder" src="../../../translated_images/vi/autoencoder_schema.5e6fc9ad98a5eb61.webp"/></p>
 <p><em>Hình ảnh từ <a href="https://blog.keras.io/building-autoencoders-in-keras.html">blog Keras</a></em></p>
 <p>Hầu hết các ví dụ dưới đây được lấy cảm hứng từ <a href="https://blog.keras.io/building-autoencoders-in-keras.html">bài viết này</a>.</p>
 </div>
@@ -13783,7 +13783,7 @@ Epoch 25/25
 <li>Chúng ta lấy mẫu một vector <code>sample</code> từ phân phối $N(\mathrm{z\_mean},e^{\mathrm{z\_log\_sigma}})$</li>
 <li>Bộ giải mã cố gắng giải mã hình ảnh gốc bằng cách sử dụng <code>sample</code> làm vector đầu vào</li>
 </ul>
-<img alt="No description has been provided for this image" src="images/vae.png" width="50%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/09-Autoencoders/images/vae.png" width="50%"/>
 </div>
 </div>
 </div>

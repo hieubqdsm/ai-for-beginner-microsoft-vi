@@ -13098,7 +13098,7 @@ div#notebook {
 <li><strong>Phân đoạn theo thực thể</strong> chia các lớp thành các thực thể khác nhau.</li>
 </ul>
 <p>Ví dụ, trong phân đoạn theo thực thể, 10 con cừu được xem là các đối tượng khác nhau, trong khi trong phân đoạn ngữ nghĩa, tất cả các con cừu được biểu diễn bởi một lớp duy nhất.</p>
-<img alt="No description has been provided for this image" src="images/instance_vs_semantic.jpeg" width="50%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/instance_vs_semantic.jpeg" width="50%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://nirmalamurali.medium.com/image-classification-vs-semantic-segmentation-vs-instance-segmentation-625c33a08d50">bài viết blog này</a></p>
 </blockquote>
@@ -13107,7 +13107,7 @@ div#notebook {
 <li><strong>Bộ mã hóa (Encoder)</strong> trích xuất các đặc trưng từ hình ảnh đầu vào.</li>
 <li><strong>Bộ giải mã (Decoder)</strong> chuyển đổi các đặc trưng đó thành <strong>hình ảnh mặt nạ</strong>, với kích thước và số lượng kênh tương ứng với số lượng lớp.</li>
 </ul>
-<img alt="No description has been provided for this image" src="images/segm.png" width="80%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/segm.png" width="80%"/>
 <blockquote>
 <p>Hình ảnh từ <a href="https://arxiv.org/pdf/2001.05566.pdf">ấn phẩm này</a></p>
 </blockquote>
@@ -13282,7 +13282,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="SegNet">SegNet<a class="anchor-link" href="#SegNet">¶</a></h2><p>Kiến trúc mã hóa-giải mã đơn giản nhất được gọi là <strong>SegNet</strong>. Nó sử dụng CNN tiêu chuẩn với các lớp tích chập và pooling trong phần mã hóa, và CNN giải mã với các lớp tích chập và upsampling trong phần giải mã. SegNet cũng dựa vào chuẩn hóa batch để huấn luyện mạng nhiều lớp một cách hiệu quả.</p>
-<img alt="No description has been provided for this image" src="images/segnet.png" width="80%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/segnet.png" width="80%"/>
 <blockquote>
 <p>Hình ảnh từ bài báo này: Badrinarayanan, V., Kendall, A., &amp; Cipolla, R. (2015). <a href="https://arxiv.org/pdf/1511.00561.pdf">SegNet: A deep convolutional
 encoder-decoder architecture for image segmentation</a></p>
@@ -13516,7 +13516,7 @@ encoder-decoder architecture for image segmentation</a></p>
 <h2 id="U-Net">U-Net<a class="anchor-link" href="#U-Net">¶</a></h2><p>Kiến trúc SegNet rất tự nhiên, nhưng không phải là chính xác nhất. Thực tế, chúng ta đầu tiên áp dụng kiến trúc CNN dạng kim tự tháp lên hình ảnh gốc, điều này làm giảm độ chính xác không gian của các đặc trưng hình ảnh. Sau đó, khi chúng ta tái tạo lại hình ảnh, chúng ta không thể tái tạo đúng vị trí các điểm ảnh.</p>
 <p>Điều này dẫn đến ý tưởng về <strong>kết nối bỏ qua</strong> giữa các lớp tích chập trong bộ mã hóa và bộ giải mã. Kiến trúc này rất phổ biến trong phân đoạn ngữ nghĩa và được gọi là <strong>U-Net</strong>. Các kết nối bỏ qua ở mỗi cấp độ tích chập giúp mạng không mất thông tin về các đặc trưng từ đầu vào gốc tại cấp độ đó.</p>
 <p>Chúng ta sẽ sử dụng kiến trúc CNN khá đơn giản ở đây, nhưng U-Net cũng có thể sử dụng bộ mã hóa phức tạp hơn để trích xuất đặc trưng, chẳng hạn như ResNet-50.</p>
-<img alt="No description has been provided for this image" src="images/unet.png" width="70%"/>
+<img alt="No description has been provided for this image" src="../../../lessons/4-ComputerVision/12-Segmentation/images/unet.png" width="70%"/>
 <blockquote>
 <p>Hình ảnh từ bài báo: Ronneberger, Olaf, Philipp Fischer, và Thomas Brox. <a href="https://arxiv.org/pdf/1505.04597.pdf">U-Net: Convolutional networks for biomedical image segmentation.</a></p>
 </blockquote>

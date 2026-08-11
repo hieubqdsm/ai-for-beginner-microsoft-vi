@@ -13146,7 +13146,7 @@ Vocab size =  95812
 <h2 id="Nh%C3%BAng-l%C3%A0-g%C3%AC?">Nhúng là gì?<a class="anchor-link" href="#Nh%C3%BAng-l%C3%A0-g%C3%AC?">¶</a></h2><p>Ý tưởng của <strong>nhúng</strong> là biểu diễn các từ bằng các vector dày đặc có kích thước thấp hơn, phản ánh phần nào ý nghĩa ngữ nghĩa của một từ. Chúng ta sẽ thảo luận sau về cách xây dựng các nhúng từ có ý nghĩa, nhưng hiện tại hãy chỉ nghĩ về nhúng như một cách để giảm kích thước của vector từ.</p>
 <p>Vì vậy, lớp nhúng sẽ nhận một từ làm đầu vào và tạo ra một vector đầu ra với <code>embedding_size</code> được chỉ định. Theo một cách nào đó, nó rất giống với lớp <code>Linear</code>, nhưng thay vì nhận vector mã hóa một-hot, nó sẽ có thể nhận số thứ tự của từ làm đầu vào.</p>
 <p>Bằng cách sử dụng lớp nhúng làm lớp đầu tiên trong mạng của chúng ta, chúng ta có thể chuyển từ mô hình túi từ (<strong>bag-of-words</strong>) sang mô hình túi nhúng (<strong>embedding bag</strong>), nơi chúng ta đầu tiên chuyển đổi mỗi từ trong văn bản thành nhúng tương ứng, sau đó tính toán một hàm tổng hợp nào đó trên tất cả các nhúng đó, chẳng hạn như <code>sum</code>, <code>average</code> hoặc <code>max</code>.</p>
-<p><img alt="Hình ảnh minh họa một bộ phân loại nhúng cho năm từ trong chuỗi." src="../../../../../translated_images/vi/embedding-classifier-example.b77f021a7ee67eee.webp"/></p>
+<p><img alt="Hình ảnh minh họa một bộ phân loại nhúng cho năm từ trong chuỗi." src="../../../translated_images/vi/embedding-classifier-example.b77f021a7ee67eee.webp"/></p>
 <p>Mạng neural phân loại của chúng ta sẽ bắt đầu với lớp nhúng, sau đó là lớp tổng hợp, và cuối cùng là bộ phân loại tuyến tính ở trên cùng:</p>
 </div>
 </div>
@@ -13258,7 +13258,7 @@ Vocab size =  95812
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="L%E1%BB%9Bp-EmbeddingBag-v%C3%A0-Bi%E1%BB%83u-di%E1%BB%85n-Chu%E1%BB%97i-C%C3%B3-%C4%90%E1%BB%99-D%C3%A0i-Bi%E1%BA%BFn-%C4%90%E1%BB%95i">Lớp EmbeddingBag và Biểu diễn Chuỗi Có Độ Dài Biến Đổi<a class="anchor-link" href="#L%E1%BB%9Bp-EmbeddingBag-v%C3%A0-Bi%E1%BB%83u-di%E1%BB%85n-Chu%E1%BB%97i-C%C3%B3-%C4%90%E1%BB%99-D%C3%A0i-Bi%E1%BA%BFn-%C4%90%E1%BB%95i">¶</a></h3><p>Trong kiến trúc trước, chúng ta cần đệm tất cả các chuỗi để có cùng độ dài nhằm đưa chúng vào một minibatch. Đây không phải là cách hiệu quả nhất để biểu diễn các chuỗi có độ dài biến đổi - một cách tiếp cận khác là sử dụng <strong>vector offset</strong>, chứa các điểm bắt đầu của tất cả các chuỗi được lưu trữ trong một vector lớn.</p>
-<p><img alt="Hình ảnh minh họa biểu diễn chuỗi bằng offset" src="../../../../../translated_images/vi/offset-sequence-representation.eb73fcefb29b46ee.webp"/></p>
+<p><img alt="Hình ảnh minh họa biểu diễn chuỗi bằng offset" src="../../../translated_images/vi/offset-sequence-representation.eb73fcefb29b46ee.webp"/></p>
 <blockquote>
 <p><strong>Note</strong>: Trong hình trên, chúng ta minh họa một chuỗi ký tự, nhưng trong ví dụ của chúng ta, chúng ta đang làm việc với các chuỗi từ. Tuy nhiên, nguyên tắc chung của việc biểu diễn chuỗi bằng vector offset vẫn giữ nguyên.</p>
 </blockquote>
@@ -13393,7 +13393,7 @@ Vocab size =  95812
 <li><strong>Continuous skip-gram</strong> thì ngược lại với CBoW. Mô hình sử dụng cửa sổ ngữ cảnh xung quanh để dự đoán từ hiện tại.</li>
 </ul>
 <p>CBoW nhanh hơn, trong khi skip-gram chậm hơn nhưng làm tốt hơn trong việc biểu diễn các từ ít xuất hiện.</p>
-<p><img alt="Hình ảnh minh họa cả hai thuật toán CBoW và Skip-Gram để chuyển đổi từ thành vector." src="../../../../../translated_images/vi/example-algorithms-for-converting-words-to-vectors.fbe9207a726922f6.webp"/></p>
+<p><img alt="Hình ảnh minh họa cả hai thuật toán CBoW và Skip-Gram để chuyển đổi từ thành vector." src="../../../translated_images/vi/example-algorithms-for-converting-words-to-vectors.fbe9207a726922f6.webp"/></p>
 <p>Để thử nghiệm với nhúng word2vec được tiền huấn luyện trên tập dữ liệu Google News, chúng ta có thể sử dụng thư viện <strong>gensim</strong>. Dưới đây là cách tìm các từ giống nhất với 'neural'</p>
 <blockquote>
 <p><strong>Note:</strong> Khi bạn lần đầu tiên tạo vector từ, việc tải xuống chúng có thể mất một chút thời gian!</p>

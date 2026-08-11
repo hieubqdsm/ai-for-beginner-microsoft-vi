@@ -185,7 +185,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <li><strong>Tri thức</strong> là thông tin được tích hợp vào mô hình thế giới của chúng ta. Ví dụ, khi ta học về máy tính, ta bắt đầu có ý niệm về cách nó hoạt động, giá cả và ứng dụng. Mạng lưới các khái niệm liên quan này tạo thành tri thức của chúng ta.</li>
 <li><strong>Trí tuệ</strong> là một cấp độ cao hơn trong hiểu biết về thế giới, đại diện cho <em>meta-knowledge</em>, ví dụ như cách và khi nào nên sử dụng tri thức.</li>
 </ul>
-<p><img src="../../translated_images/vi/DIKW_Pyramid.94126f7d2bd8db5b.webp" width="30%"/></p>
+<p><img src=../../lessons/2-Symbolic/"../../translated_images/vi/DIKW_Pyramid.94126f7d2bd8db5b.webp" width="30%"/></p>
 <p><em>Hình ảnh <a href="https://commons.wikimedia.org/w/index.php?curid=37705247">từ Wikipedia</a>, Tác giả Longlivetheux - Tác phẩm riêng, CC BY-SA 4.0</em></p>
 <p>Do đó, vấn đề <strong>biểu diễn tri thức</strong> là tìm cách hiệu quả để biểu diễn tri thức bên trong máy tính dưới dạng dữ liệu, nhằm làm cho tri thức có thể sử dụng tự động. Điều này có thể xem như một phổ:</p>
 <p><img alt="Phổ biểu diễn tri thức" src="../../translated_images/vi/knowledge-spectrum.b60df631852c0217.webp" /></p>
@@ -387,7 +387,7 @@ THEN the animal is a carnivore
 </ul>
 <p>Một khái niệm cốt lõi trong Semantic Web là khái niệm <strong>Ontology</strong>. Nó chỉ việc định nghĩa rõ ràng một miền vấn đề sử dụng một số cách biểu diễn kiến thức chính thức. Ontology đơn giản nhất có thể chỉ là một hệ thống phân cấp các đối tượng trong miền vấn đề, nhưng các ontology phức tạp hơn sẽ bao gồm các quy tắc có thể dùng để suy luận.</p>
 <p>Trong Semantic Web, tất cả các biểu diễn đều dựa trên các bộ ba. Mỗi đối tượng và mỗi quan hệ đều được xác định duy nhất bằng URI. Ví dụ, nếu ta muốn phát biểu sự thật rằng Chương trình học AI này đã được Dmitry Soshnikov phát triển vào ngày 1 tháng 1 năm 2022 - đây là các bộ ba mà ta có thể sử dụng:</p>
-<p><img src="../../translated_images/vi/triplet.4b9b332587593298.webp" width="30%"/></p>
+<p><img src=../../lessons/2-Symbolic/"../../translated_images/vi/triplet.4b9b332587593298.webp" width="30%"/></p>
 <div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>http://github.com/microsoft/ai-for-beginners http://www.example.com/terms/creation-date “Jan 1, 2022”
 http://github.com/microsoft/ai-for-beginners http://purl.org/dc/elements/1.1/creator http://soshnikov.com
 </code></pre></div>
@@ -396,7 +396,7 @@ http://github.com/microsoft/ai-for-beginners http://purl.org/dc/elements/1.1/cre
 <p>✅ Ở đây <code>http://www.example.com/terms/creation-date</code> và <code>http://purl.org/dc/elements/1.1/creator</code> là những URI phổ biến và được chấp nhận rộng rãi để biểu đạt khái niệm <em>người tạo</em> và <em>ngày tạo</em>.</p>
 </blockquote>
 <p>Trong trường hợp phức tạp hơn, nếu ta muốn định nghĩa một danh sách các người tạo, ta có thể sử dụng một số cấu trúc dữ liệu được định nghĩa trong RDF.</p>
-<p><img src="../../translated_images/vi/triplet-complex.32094972c7b4441b.webp" width="40%"/></p>
+<p><img src=../../lessons/2-Symbolic/"../../translated_images/vi/triplet-complex.32094972c7b4441b.webp" width="40%"/></p>
 <blockquote>
 <p>Các sơ đồ trên bởi <a href="http://soshnikov.com">Dmitry Soshnikov</a></p>
 </blockquote>
@@ -421,7 +421,7 @@ http://github.com/microsoft/ai-for-beginners http://purl.org/dc/elements/1.1/cre
 <blockquote>
 <p>✅ Nếu bạn muốn thử nghiệm xây dựng ontology của riêng mình hoặc mở các ontology hiện có, có một công cụ chỉnh sửa ontology trực quan tuyệt vời gọi là <a href="https://protege.stanford.edu/">Protégé</a>. Tải về hoặc sử dụng trực tuyến.</p>
 </blockquote>
-<p><img src="../../translated_images/vi/protege.274177ceeac13b38.webp" width="70%"/></p>
+<p><img src=../../lessons/2-Symbolic/"../../translated_images/vi/protege.274177ceeac13b38.webp" width="70%"/></p>
 <p><em>Trình chỉnh sửa Web Protégé mở với ontology gia đình Romanov. Ảnh chụp màn hình bởi Dmitry Soshnikov</em></p>
 <h2 id="bai-tap-ontology-gia-inh">✍️ Bài tập: Ontology Gia đình</h2>
 <p>Xem <a href="https://github.com/Ezana135/AI-For-Beginners/blob/main/lessons/2-Symbolic/FamilyOntology.ipynb">FamilyOntology.ipynb</a> để có ví dụ về việc sử dụng các kỹ thuật Semantic Web để suy luận về các mối quan hệ gia đình. lấy một cây gia đình được biểu diễn theo định dạng GEDCOM thông dụng và một ontology về các mối quan hệ gia đình để xây dựng một đồ thị tất cả các mối quan hệ gia đình cho một tập cá thể cho trước.</p>
