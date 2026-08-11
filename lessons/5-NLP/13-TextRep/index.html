@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đại diện Văn bản dưới dạng Tensors</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+/* Layout: sidebar fixed ben trai, content CAN GIUA vung con lai */
+.main {
+  margin-left: 280px;
+  padding: 40px 32px 80px;
+  /* khong co max-width o day - de content tu can giua */
+  display: flex;
+  justify-content: center;  /* can giua nam ngang */
+}
+.content {
+  width: 100%;
+  max-width: 900px;  /* doc tot tren moi man hinh */
+  min-width: 0;       /* fix flex overflow */
+}
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="../../../assets/mathjax/mathjax-tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../../examples/index.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../../lessons/1-Intro/index.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../../lessons/2-Symbolic/index.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/03-Perceptron/index.html">Perceptron</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/04-OwnFramework/index.html">MLP & tự xây framework</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/05-Frameworks/index.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../../lessons/4-ComputerVision/06-IntroCV/index.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/07-ConvNets/index.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/08-TransferLearning/index.html">Transfer Learning</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/09-Autoencoders/index.html">Autoencoders & VAE</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/10-GANs/index.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/11-ObjectDetection/index.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/12-Segmentation/index.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../../lessons/5-NLP/13-TextRep/index.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../../lessons/5-NLP/14-Embeddings/index.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../../lessons/5-NLP/15-LanguageModeling/index.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../../lessons/5-NLP/16-RNN/index.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../../lessons/5-NLP/17-GenerativeNetworks/index.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../../lessons/5-NLP/18-Transformers/index.html">Transformers & BERT</a></li>
+    <li><a href="../../../lessons/5-NLP/19-NER/index.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../../lessons/5-NLP/20-LangModels/index.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../../lessons/6-Other/21-GeneticAlgorithms/index.html">Thuật toán di truyền</a></li>
+    <li><a href="../../../lessons/6-Other/22-DeepRL/index.html">Học tăng cường sâu</a></li>
+    <li><a href="../../../lessons/6-Other/23-MultiagentSystems/index.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../../lessons/7-Ethics/index.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../../lessons/X-Extras/X1-MultiModal/index.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="ai-dien-van-ban-duoi-dang-tensors">Đại diện Văn bản dưới dạng Tensors</h1>
+<h2 id="cau-hoi-truoc-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/25">Câu hỏi trước bài giảng</a></h2>
+<h2 id="phan-loai-van-ban">Phân loại văn bản</h2>
+<p>Trong phần đầu tiên của mục này, tập trung vào nhiệm vụ <strong>phân loại văn bản</strong>. sử dụng Bộ dữ liệu <a href="https://www.kaggle.com/amananandrai/ag-news-classification-dataset">AG News</a>, chứa các bài báo như sau:</p>
+<ul>
+<li>Danh mục: Khoa học/Công nghệ  </li>
+<li>Tiêu đề: Công ty Ky. Nhận được tài trợ để nghiên cứu Peptides (AP)  </li>
+<li>Nội dung: AP - Một công ty được thành lập bởi một nhà nghiên cứu hóa học tại Đại học Louisville đã nhận được tài trợ để phát triển...</li>
+</ul>
+<p>Mục tiêu của chúng ta là phân loại bài báo vào một trong các danh mục dựa trên văn bản.</p>
+<h2 id="bieu-dien-van-ban">Biểu diễn văn bản</h2>
+<p>Nếu giải quyết các nhiệm vụ Xử lý Ngôn ngữ Tự nhiên (NLP) bằng mạng nơ-ron, một cách để biểu diễn văn bản dưới dạng tensors. Máy tính đã đại diện các ký tự văn bản dưới dạng số, ánh xạ đến các phông chữ trên màn hình của bạn bằng các mã hóa như ASCII hoặc UTF-8.</p>
+<p><img alt="Hình ảnh hiển thị sơ đồ ánh xạ một ký tự sang đại diện ASCII và nhị phân" src="../../../translated_images/vi/ascii-character-map.18ed6aa7f3b0a7ff.webp" width="50%"/></p>
+<blockquote>
+<p><a href="https://www.seobility.net/en/wiki/ASCII">Nguồn hình ảnh</a></p>
+</blockquote>
+<p>Là con người, hiểu mỗi chữ cái <strong>đại diện</strong> cho điều gì, và cách tất cả các ký tự kết hợp lại để tạo thành các từ trong một câu. Tuy nhiên, máy tính tự nó không có sự hiểu biết như vậy, và mạng nơ-ron phải học ý nghĩa trong quá trình huấn luyện.</p>
+<p>Do đó, sử dụng các cách tiếp cận khác nhau khi biểu diễn văn bản:</p>
+<ul>
+<li><strong>Biểu diễn cấp ký tự</strong>, khi chúng ta biểu diễn văn bản bằng cách coi mỗi ký tự là một số. Với <em>C</em> ký tự khác nhau trong tập văn bản của chúng ta, từ <em>Hello</em> sẽ được đại diện bằng tensor 5x<em>C</em>. Mỗi chữ cái sẽ tương ứng với một cột tensor trong mã hóa one-hot.  </li>
+<li><strong>Biểu diễn cấp từ</strong>, trong đó chúng ta tạo một <strong>từ vựng</strong> của tất cả các từ trong văn bản, và sau đó đại diện các từ bằng mã hóa one-hot. Cách tiếp cận này tốt hơn phần nào, vì mỗi chữ cái tự nó không mang nhiều ý nghĩa, và do đó bằng cách sử dụng các khái niệm ngữ nghĩa cấp cao hơn - từ - chúng ta đơn giản hóa nhiệm vụ cho mạng nơ-ron. Tuy nhiên, với kích thước từ điển lớn, xử lý các tensors thưa thớt có độ chiều cao.</li>
+</ul>
+<p>Dù sử dụng cách biểu diễn nào, trước tiên chuyển đổi văn bản thành một chuỗi <strong>token</strong>, mỗi token là một ký tự, một từ, hoặc đôi khi là một phần của từ. Sau đó, chuyển đổi token thành một số, thường sử dụng <strong>từ vựng</strong>, và số này có thể được đưa vào mạng nơ-ron bằng mã hóa one-hot.</p>
+<h2 id="n-grams">N-Grams</h2>
+<p>Trong ngôn ngữ tự nhiên, ý nghĩa chính xác của từ chỉ có thể được xác định trong ngữ cảnh. Ví dụ, ý nghĩa của <em>mạng nơ-ron</em> và <em>mạng đánh cá</em> hoàn toàn khác nhau. Một trong những cách để tính đến điều này là xây dựng mô hình của chúng ta dựa trên các cặp từ, và coi các cặp từ là các token từ vựng riêng biệt. Theo cách này, câu <em>I like to go fishing</em> sẽ được đại diện bằng chuỗi token sau: <em>I like</em>, <em>like to</em>, <em>to go</em>, <em>go fishing</em>. Vấn đề với cách tiếp cận này là kích thước từ điển tăng lên đáng kể, và các tổ hợp như <em>go fishing</em> và <em>go shopping</em> được biểu diễn bằng các token khác nhau, không chia sẻ bất kỳ sự tương đồng ngữ nghĩa nào mặc dù cùng động từ.</p>
+<p>Trong một số trường hợp, xem xét sử dụng tri-grams -- tổ hợp ba từ -- nữa. Do đó, cách tiếp cận này thường được gọi là <strong>n-grams</strong>. Ngoài ra, nó cũng hợp lý khi sử dụng n-grams với biểu diễn cấp ký tự, trong trường hợp này n-grams sẽ tương ứng với các âm tiết khác nhau.</p>
+<h2 id="bag-of-words-va-tfidf">Bag-of-Words và TF/IDF</h2>
+<p>Khi giải quyết các nhiệm vụ như phân loại văn bản, có khả năng biểu diễn văn bản bằng một vector kích thước cố định, mà sử dụng làm đầu vào cho bộ phân loại cuối cùng. Một trong những cách đơn giản nhất để làm điều đó là kết hợp tất cả các đại diện từ riêng lẻ, ví dụ bằng cách cộng chúng lại. Nếu chúng ta cộng các mã hóa one-hot của mỗi từ, có một vector tần suất, cho thấy mỗi từ xuất hiện bao nhiêu lần trong văn bản. Cách biểu diễn văn bản này được gọi là <strong>bag of words</strong> (BoW).</p>
+<p><img src="../../../translated_images/vi/bow.3811869cff59368d.webp" width="90%"/></p>
+<blockquote>
+<p>Hình ảnh của tác giả</p>
+</blockquote>
+<p>BoW về cơ bản đại diện cho các từ xuất hiện trong văn bản và số lượng của chúng, điều này thực sự có thể là một chỉ báo tốt về nội dung văn bản. Ví dụ, bài báo về chính trị có khả năng chứa các từ như <em>president</em> và <em>country</em>, trong khi bài viết khoa học có thể có các từ như <em>collider</em>, <em>discovered</em>, v.v. Do đó, tần suất từ trong nhiều trường hợp có thể là một chỉ báo tốt về nội dung văn bản.</p>
+<p>Vấn đề với BoW là một số từ phổ biến, như <em>and</em>, <em>is</em>, v.v. xuất hiện trong hầu hết các văn bản, và chúng có tần suất cao nhất, che khuất các từ thực sự quan trọng. giảm tầm quan trọng của những từ này bằng cách tính đến tần suất mà các từ xuất hiện trong toàn bộ tập hợp tài liệu. Đây là ý tưởng chính đằng sau cách tiếp cận TF/IDF, được trình bày chi tiết hơn trong các notebook đính kèm bài học này.</p>
+<p>Tuy nhiên, không cách tiếp cận nào trong số này có thể hoàn toàn tính đến <strong>ngữ nghĩa</strong> của văn bản. các mô hình mạng nơ-ron mạnh mẽ hơn để làm điều này, điều mà thảo luận sau trong phần này.</p>
+<h2 id="bai-tap-ai-dien-van-ban">✍️ Bài tập: Đại diện Văn bản</h2>
+<p>Tiếp tục học trong các notebook sau:</p>
+<ul>
+<li><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/13-TextRep/TextRepresentationPyTorch.ipynb">Đại diện Văn bản với PyTorch</a>  </li>
+<li><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/13-TextRep/TextRepresentationTF.ipynb">Đại diện Văn bản với TensorFlow</a>  </li>
+</ul>
+<h2 id="ket-luan">Kết luận</h2>
+<p>Cho đến nay, nghiên cứu các kỹ thuật có thể thêm trọng số tần suất vào các từ khác nhau. Tuy nhiên, chúng không thể đại diện ý nghĩa hoặc thứ tự. Như nhà ngôn ngữ học nổi tiếng J. R. Firth đã nói vào năm 1935, “Ý nghĩa đầy đủ của một từ luôn mang tính ngữ cảnh, và không nghiên cứu ý nghĩa nào ngoài ngữ cảnh có thể được coi là nghiêm túc.” học sau trong khóa học cách nắm bắt thông tin ngữ cảnh từ văn bản bằng cách sử dụng mô hình ngôn ngữ.</p>
+<h2 id="thu-thach">🚀 Thử thách</h2>
+<p>Thử một số bài tập khác sử dụng bag-of-words và các mô hình dữ liệu khác nhau. Bạn có thể lấy cảm hứng từ <a href="https://www.kaggle.com/competitions/word2vec-nlp-tutorial/overview/part-1-for-beginners-bag-of-words">cuộc thi này trên Kaggle</a></p>
+<h2 id="cau-hoi-sau-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/26">Câu hỏi sau bài giảng</a></h2>
+<h2 id="on-tap-tu-hoc">Ôn tập &amp; Tự học</h2>
+<p>Luyện tập kỹ năng của bạn với các kỹ thuật embedding văn bản và bag-of-words trên <a href="https://docs.microsoft.com/learn/modules/intro-natural-language-processing-pytorch/?WT.mc_id=academic-77998-cacaste">Microsoft Learn</a></p>
+<h2 id="bai-tap-notebook"><a href="/lessons/5-NLP/13-TextRep/assignment.html">Bài tập: Notebook</a></h2>
+<hr />
+  </article>
+</main>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phát Hiện Đối Tượng</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+/* Layout: sidebar fixed ben trai, content CAN GIUA vung con lai */
+.main {
+  margin-left: 280px;
+  padding: 40px 32px 80px;
+  /* khong co max-width o day - de content tu can giua */
+  display: flex;
+  justify-content: center;  /* can giua nam ngang */
+}
+.content {
+  width: 100%;
+  max-width: 900px;  /* doc tot tren moi man hinh */
+  min-width: 0;       /* fix flex overflow */
+}
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="../../../assets/mathjax/mathjax-tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../../examples/index.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../../lessons/1-Intro/index.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../../lessons/2-Symbolic/index.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/03-Perceptron/index.html">Perceptron</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/04-OwnFramework/index.html">MLP & tự xây framework</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/05-Frameworks/index.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../../lessons/4-ComputerVision/06-IntroCV/index.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/07-ConvNets/index.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/08-TransferLearning/index.html">Transfer Learning</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/09-Autoencoders/index.html">Autoencoders & VAE</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/10-GANs/index.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/11-ObjectDetection/index.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/12-Segmentation/index.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../../lessons/5-NLP/13-TextRep/index.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../../lessons/5-NLP/14-Embeddings/index.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../../lessons/5-NLP/15-LanguageModeling/index.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../../lessons/5-NLP/16-RNN/index.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../../lessons/5-NLP/17-GenerativeNetworks/index.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../../lessons/5-NLP/18-Transformers/index.html">Transformers & BERT</a></li>
+    <li><a href="../../../lessons/5-NLP/19-NER/index.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../../lessons/5-NLP/20-LangModels/index.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../../lessons/6-Other/21-GeneticAlgorithms/index.html">Thuật toán di truyền</a></li>
+    <li><a href="../../../lessons/6-Other/22-DeepRL/index.html">Học tăng cường sâu</a></li>
+    <li><a href="../../../lessons/6-Other/23-MultiagentSystems/index.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../../lessons/7-Ethics/index.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../../lessons/X-Extras/X1-MultiModal/index.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="phat-hien-oi-tuong">Phát Hiện Đối Tượng</h1>
+<p>Các mô hình phân loại hình ảnh mà làm việc trước đây nhận một hình ảnh và đưa ra kết quả phân loại, chẳng hạn như lớp 'số' trong bài toán MNIST. Tuy nhiên, trong nhiều trường hợp, chỉ muốn biết rằng một bức ảnh có chứa các đối tượng - mà còn muốn xác định vị trí chính xác của chúng. Đây chính là mục đích của <strong>phát hiện đối tượng</strong>.</p>
+<h2 id="cau-hoi-truoc-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/21">Câu hỏi trước bài giảng</a></h2>
+<p><img alt="Phát Hiện Đối Tượng" src="../../../translated_images/vi/Screen_Shot_2016-11-17_at_11.14.54_AM.b4bb3769353287be.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://pjreddie.com/darknet/yolov2/">trang web YOLO v2</a></p>
+</blockquote>
+<h2 id="mot-cach-tiep-can-on-gian-e-phat-hien-oi-tuong">Một Cách Tiếp Cận Đơn Giản Để Phát Hiện Đối Tượng</h2>
+<p>Giả sử tìm một con mèo trong một bức ảnh, một cách tiếp cận rất đơn giản để phát hiện đối tượng sẽ là:</p>
+<ol>
+<li>Chia bức ảnh thành nhiều ô nhỏ.</li>
+<li>Chạy phân loại hình ảnh trên từng ô.</li>
+<li>Những ô có kết quả kích hoạt đủ cao có thể được coi là chứa đối tượng cần tìm.</li>
+</ol>
+<p><img alt="Phát Hiện Đối Tượng Đơn Giản" src="../../../translated_images/vi/naive-detection.e7f1ba220ccd08c6.webp" /></p>
+<blockquote>
+<p><em>Hình ảnh từ <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection.ipynb">Notebook Bài Tập</a></em></p>
+</blockquote>
+<p>Tuy nhiên, cách tiếp cận này còn xa mới đạt được lý tưởng, vì nó chỉ cho phép thuật toán xác định hộp bao đối tượng một cách rất không chính xác. Để có vị trí chính xác hơn, chạy một loại <strong>hồi quy</strong> để dự đoán tọa độ của các hộp bao - và để làm điều đó, các tập dữ liệu cụ thể.</p>
+<h2 id="hoi-quy-cho-phat-hien-oi-tuong">Hồi Quy Cho Phát Hiện Đối Tượng</h2>
+<p><a href="https://towardsdatascience.com/object-detection-with-neural-networks-a4e2c46b4491">Bài viết blog này</a> cung cấp một giới thiệu nhẹ nhàng về việc phát hiện hình dạng.</p>
+<h2 id="tap-du-lieu-cho-phat-hien-oi-tuong">Tập Dữ Liệu Cho Phát Hiện Đối Tượng</h2>
+<p>Bạn có thể gặp các tập dữ liệu sau cho nhiệm vụ này:</p>
+<ul>
+<li><a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a> - 20 lớp</li>
+<li><a href="http://cocodataset.org/#home">COCO</a> - Các Đối Tượng Thông Thường Trong Ngữ Cảnh. 80 lớp, hộp bao và mặt nạ phân đoạn</li>
+</ul>
+<p><img alt="COCO" src="../../../translated_images/vi/coco-examples.71bc60380fa6cceb.webp" /></p>
+<h2 id="cac-chi-so-anh-gia-phat-hien-oi-tuong">Các Chỉ Số Đánh Giá Phát Hiện Đối Tượng</h2>
+<h3 id="intersection-over-union">Intersection over Union</h3>
+<p>Trong khi đối với phân loại hình ảnh, việc đo lường hiệu suất của thuật toán khá dễ dàng, thì đối với phát hiện đối tượng, đo lường cả độ chính xác của lớp, cũng như độ chính xác của vị trí hộp bao được suy ra. Đối với yếu tố sau, chỉ số <strong>Intersection over Union</strong> (IoU), đo lường mức độ chồng lấp giữa hai hộp (hoặc hai khu vực bất kỳ).</p>
+<p><img alt="IoU" src="../../../translated_images/vi/iou_equation.9a4751d40fff4e11.webp" /></p>
+<blockquote>
+<p><em>Hình 2 từ <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">bài viết blog xuất sắc về IoU này</a></em></p>
+</blockquote>
+<p>Ý tưởng rất đơn giản - chúng ta chia diện tích giao nhau giữa hai hình cho diện tích hợp của chúng. Đối với hai khu vực giống hệt nhau, IoU sẽ là 1, trong khi đối với các khu vực hoàn toàn không giao nhau, nó sẽ là 0. Trong các trường hợp khác, nó sẽ dao động từ 0 đến 1. Chúng ta thường chỉ xem xét các hộp bao có IoU vượt qua một giá trị nhất định.</p>
+<h3 id="o-chinh-xac-trung-binh">Độ Chính Xác Trung Bình</h3>
+<p>Giả sử đo lường mức độ nhận diện tốt của một lớp đối tượng $C$ nào đó. Để đo lường điều này, chỉ số <strong>Độ Chính Xác Trung Bình</strong> (Average Precision - AP), được tính như sau:</p>
+<ol>
+<li>Xem xét đường cong Precision-Recall thể hiện độ chính xác phụ thuộc vào giá trị ngưỡng phát hiện (từ 0 đến 1).</li>
+<li>Tùy thuộc vào ngưỡng, phát hiện được nhiều hoặc ít đối tượng trong hình ảnh, và các giá trị precision và recall khác nhau.</li>
+<li>Đường cong sẽ trông như thế này:</li>
+</ol>
+<p><img src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecall.png"/></p>
+<blockquote>
+<p><em>Hình ảnh từ <a href="http://github.com/shwars/NeuroWorkshop">NeuroWorkshop</a></em></p>
+</blockquote>
+<p>Độ Chính Xác Trung Bình cho một lớp $C$ là diện tích dưới đường cong này. Cụ thể hơn, trục Recall thường được chia thành 10 phần, và Precision được tính trung bình trên tất cả các điểm đó:</p>
+<p>$$
+AP = {1\over11}\sum_{i=0}^{10}\mbox{Precision}(\mbox{Recall}={i\over10})
+$$</p>
+<h3 id="ap-va-iou">AP và IoU</h3>
+<p>Chúng ta chỉ xem xét các phát hiện mà IoU vượt qua một giá trị nhất định. Ví dụ, trong tập dữ liệu PASCAL VOC, thường giả định $\mbox{IoU Threshold} = 0.5$, trong khi trong COCO, AP được đo lường cho các giá trị khác nhau của $\mbox{IoU Threshold}$.</p>
+<p><img src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecallIoU.png"/></p>
+<blockquote>
+<p><em>Hình ảnh từ <a href="http://github.com/shwars/NeuroWorkshop">NeuroWorkshop</a></em></p>
+</blockquote>
+<h3 id="o-chinh-xac-trung-binh-tong-hop-map">Độ Chính Xác Trung Bình Tổng Hợp - mAP</h3>
+<p>Chỉ số chính cho Phát Hiện Đối Tượng được gọi là <strong>Độ Chính Xác Trung Bình Tổng Hợp</strong> (Mean Average Precision - mAP). Đây là giá trị của Độ Chính Xác Trung Bình, được tính trung bình trên tất cả các lớp đối tượng, và đôi khi cũng trên cả $\mbox{IoU Threshold}$. Quá trình tính toán <strong>mAP</strong> được mô tả chi tiết hơn
+<a href="https://medium.com/@timothycarlen/understanding-the-map-evaluation-metric-for-object-detection-a07fe6962cf3">trong bài viết blog này</a>), và cũng <a href="https://gist.github.com/tarlen5/008809c3decf19313de216b9208f3734">ở đây với các ví dụ mã</a>.</p>
+<h2 id="cac-phuong-phap-phat-hien-oi-tuong-khac-nhau">Các Phương Pháp Phát Hiện Đối Tượng Khác Nhau</h2>
+<p>Có hai loại thuật toán phát hiện đối tượng chính:</p>
+<ul>
+<li><strong>Mạng Đề Xuất Vùng</strong> (R-CNN, Fast R-CNN, Faster R-CNN). Ý tưởng chính là tạo ra các <strong>Vùng Quan Tâm</strong> (ROI) và chạy CNN trên chúng, tìm kiếm kích hoạt tối đa. Điều này hơi giống với cách tiếp cận đơn giản, ngoại trừ việc các ROI được tạo ra một cách thông minh hơn. Một trong những nhược điểm lớn của các phương pháp này là chúng chậm, vì cần nhiều lần chạy bộ phân loại CNN trên hình ảnh.</li>
+<li>Các phương pháp <strong>Một Lần Duy Nhất</strong> (YOLO, SSD, RetinaNet). Trong các kiến trúc này, thiết kế mạng để dự đoán cả lớp và ROI trong một lần chạy.</li>
+</ul>
+<h3 id="r-cnn-cnn-dua-tren-vung">R-CNN: CNN Dựa Trên Vùng</h3>
+<p><a href="http://islab.ulsan.ac.kr/files/announcement/513/rcnn_pami.pdf">R-CNN</a> sử dụng <a href="http://www.huppelen.nl/publications/selectiveSearchDraft.pdf">Selective Search</a> để tạo ra cấu trúc phân cấp của các vùng ROI, sau đó được đưa qua các bộ trích xuất đặc trưng CNN và các bộ phân loại SVM để xác định lớp đối tượng, và hồi quy tuyến tính để xác định tọa độ <em>hộp bao</em>. <a href="https://arxiv.org/pdf/1506.01497v1.pdf">Bài báo chính thức</a></p>
+<p><img alt="RCNN" src="../../../translated_images/vi/rcnn1.cae407020dfb1d1f.webp" /></p>
+<blockquote>
+<p><em>Hình ảnh từ van de Sande et al. ICCV’11</em></p>
+</blockquote>
+<p><img alt="RCNN-1" src="../../../translated_images/vi/rcnn2.2d9530bb83516484.webp" /></p>
+<blockquote>
+<p><em>Hình ảnh từ <a href="https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e">bài blog này</a></em></p>
+</blockquote>
+<h3 id="f-rcnn-fast-r-cnn">F-RCNN - Fast R-CNN</h3>
+<p>Phương pháp này tương tự như R-CNN, nhưng các vùng được xác định sau khi các lớp tích chập đã được áp dụng.</p>
+<p><img alt="FRCNN" src="../../../translated_images/vi/f-rcnn.3cda6d9bb4188875.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf">Bài báo chính thức</a>, <a href="https://arxiv.org/pdf/1504.08083.pdf">arXiv</a>, 2015</p>
+</blockquote>
+<h3 id="faster-r-cnn">Faster R-CNN</h3>
+<p>Ý tưởng chính của phương pháp này là sử dụng mạng nơ-ron để dự đoán các ROI - được gọi là <em>Mạng Đề Xuất Vùng</em> (Region Proposal Network). <a href="https://arxiv.org/pdf/1506.01497.pdf">Bài báo</a>, 2016</p>
+<p><img alt="FasterRCNN" src="../../../translated_images/vi/faster-rcnn.8d46c099b87ef30a.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://arxiv.org/pdf/1506.01497.pdf">bài báo chính thức</a></p>
+</blockquote>
+<h3 id="r-fcn-mang-tich-chap-hoan-toan-dua-tren-vung">R-FCN: Mạng Tích Chập Hoàn Toàn Dựa Trên Vùng</h3>
+<p>Thuật toán này thậm chí còn nhanh hơn Faster R-CNN. Ý tưởng chính là:</p>
+<ol>
+<li>Chúng ta trích xuất đặc trưng bằng ResNet-101.</li>
+<li>Các đặc trưng được xử lý bởi <strong>Bản Đồ Điểm Nhạy Cảm Vị Trí</strong>. Mỗi đối tượng từ $C$ lớp được chia thành các vùng $k\times k$, và chúng ta huấn luyện để dự đoán các phần của đối tượng.</li>
+<li>Đối với mỗi phần từ các vùng $k\times k$, tất cả các mạng bỏ phiếu cho các lớp đối tượng, và lớp đối tượng có số phiếu cao nhất được chọn.</li>
+</ol>
+<p><img alt="r-fcn image" src="../../../translated_images/vi/r-fcn.13eb88158b99a3da.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://arxiv.org/abs/1605.06409">bài báo chính thức</a></p>
+</blockquote>
+<h3 id="yolo-you-only-look-once">YOLO - You Only Look Once</h3>
+<p>YOLO là một thuật toán một lần duy nhất thời gian thực. Ý tưởng chính là:</p>
+<ul>
+<li>Hình ảnh được chia thành các vùng $S\times S$.</li>
+<li>Đối với mỗi vùng, <strong>CNN</strong> dự đoán $n$ đối tượng có thể, tọa độ <em>hộp bao</em> và <em>độ tin cậy</em> = <em>xác suất</em> * IoU.</li>
+</ul>
+<p><img alt="YOLO" src="../../../translated_images/vi/yolo.a2648ec82ee8bb4e.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://arxiv.org/abs/1506.02640">bài báo chính thức</a></p>
+</blockquote>
+<h3 id="cac-thuat-toan-khac">Các Thuật Toán Khác</h3>
+<ul>
+<li>RetinaNet: <a href="https://arxiv.org/abs/1708.02002">bài báo chính thức</a></li>
+<li><a href="https://pytorch.org/vision/stable/_modules/torchvision/models/detection/retinanet.html">Triển khai PyTorch trong Torchvision</a></li>
+<li><a href="https://github.com/fizyr/keras-retinanet">Triển khai Keras</a></li>
+<li><a href="https://keras.io/examples/vision/retinanet/">Phát hiện đối tượng với RetinaNet</a> trong Keras Samples</li>
+<li>SSD (Single Shot Detector): <a href="https://arxiv.org/abs/1512.02325">bài báo chính thức</a></li>
+</ul>
+<h2 id="bai-tap-phat-hien-oi-tuong">✍️ Bài Tập: Phát Hiện Đối Tượng</h2>
+<p>Tiếp tục học trong notebook sau:</p>
+<p><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection.ipynb">ObjectDetection.ipynb</a></p>
+<h2 id="ket-luan">Kết Luận</h2>
+<p>Trong bài học này, bạn đã có một cái nhìn tổng quan nhanh về tất cả các cách khác nhau mà phát hiện đối tượng có thể được thực hiện!</p>
+<h2 id="thu-thach">🚀 Thử Thách</h2>
+<p>Đọc qua các bài viết và notebook về YOLO và thử nghiệm chúng:</p>
+<ul>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/12/practical-guide-object-detection-yolo-framewor-python/">Bài blog hay</a> mô tả YOLO</li>
+<li><a href="https://pjreddie.com/darknet/yolo/">Trang web chính thức</a></li>
+<li>Yolo: <a href="https://github.com/experiencor/keras-yolo2">Triển khai Keras</a>, <a href="https://github.com/experiencor/basic-yolo-keras/blob/master/Yolo%20Step-by-Step.ipynb">notebook từng bước</a></li>
+<li>Yolo v2: <a href="https://github.com/experiencor/keras-yolo2">Triển khai Keras</a>, <a href="https://github.com/experiencor/keras-yolo2/blob/master/Yolo%20Step-by-Step.ipynb">notebook từng bước</a></li>
+</ul>
+<h2 id="cau-hoi-sau-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/22">Câu hỏi sau bài giảng</a></h2>
+<h2 id="on-tap-tu-hoc">Ôn Tập &amp; Tự Học</h2>
+<ul>
+<li><a href="https://tjmachinelearning.com/lectures/1718/obj/">Phát Hiện Đối Tượng</a> của Nikhil Sardana</li>
+<li><a href="https://lilianweng.github.io/lil-log/2018/12/27/object-detection-part-4.html">So sánh tốt về các thuật toán phát hiện đối tượng</a></li>
+<li><a href="https://medium.com/comet-app/review-of-deep-learning-algorithms-for-object-detection-c1f3d437b852">Đánh giá các thuật toán học sâu cho phát hiện đối tượng</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/10/a-step-by-step-introduction-to-the-basic-object-detection-algorithms-part-1/">Giới thiệu từng bước về các thuật toán phát hiện đối tượng cơ bản</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2018/11/implementation-faster-r-cnn-python-object-detection/">Triển khai Faster R-CNN trong Python cho phát hiện đối tượng</a></li>
+</ul>
+<h2 id="bai-tap-phat-hien-oi-tuong_1"><a href="/lessons/4-ComputerVision/11-ObjectDetection/lab/index.html">Bài tập: Phát Hiện Đối Tượng</a></h2>
+<hr />
+  </article>
+</main>
+</body>
+</html>

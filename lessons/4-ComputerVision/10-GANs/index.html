@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mạng Generative Adversarial (GAN)</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+/* Layout: sidebar fixed ben trai, content CAN GIUA vung con lai */
+.main {
+  margin-left: 280px;
+  padding: 40px 32px 80px;
+  /* khong co max-width o day - de content tu can giua */
+  display: flex;
+  justify-content: center;  /* can giua nam ngang */
+}
+.content {
+  width: 100%;
+  max-width: 900px;  /* doc tot tren moi man hinh */
+  min-width: 0;       /* fix flex overflow */
+}
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="../../../assets/mathjax/mathjax-tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../../examples/index.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../../lessons/1-Intro/index.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../../lessons/2-Symbolic/index.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/03-Perceptron/index.html">Perceptron</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/04-OwnFramework/index.html">MLP & tự xây framework</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/05-Frameworks/index.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../../lessons/4-ComputerVision/06-IntroCV/index.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/07-ConvNets/index.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/08-TransferLearning/index.html">Transfer Learning</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/09-Autoencoders/index.html">Autoencoders & VAE</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/10-GANs/index.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/11-ObjectDetection/index.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/12-Segmentation/index.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../../lessons/5-NLP/13-TextRep/index.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../../lessons/5-NLP/14-Embeddings/index.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../../lessons/5-NLP/15-LanguageModeling/index.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../../lessons/5-NLP/16-RNN/index.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../../lessons/5-NLP/17-GenerativeNetworks/index.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../../lessons/5-NLP/18-Transformers/index.html">Transformers & BERT</a></li>
+    <li><a href="../../../lessons/5-NLP/19-NER/index.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../../lessons/5-NLP/20-LangModels/index.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../../lessons/6-Other/21-GeneticAlgorithms/index.html">Thuật toán di truyền</a></li>
+    <li><a href="../../../lessons/6-Other/22-DeepRL/index.html">Học tăng cường sâu</a></li>
+    <li><a href="../../../lessons/6-Other/23-MultiagentSystems/index.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../../lessons/7-Ethics/index.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../../lessons/X-Extras/X1-MultiModal/index.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="mang-generative-adversarial-gan">Mạng Generative Adversarial (GAN)</h1>
+<p>Trong phần trước, tìm hiểu về <strong>mô hình sinh</strong>: các mô hình có thể tạo ra hình ảnh mới tương tự như những hình ảnh trong tập dữ liệu huấn luyện. VAE là một ví dụ điển hình của mô hình sinh.</p>
+<h2 id="cau-hoi-truoc-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/19">Câu hỏi trước bài giảng</a></h2>
+<p>Tuy nhiên, nếu chúng ta cố gắng tạo ra thứ gì đó thực sự ý nghĩa, như một bức tranh với độ phân giải hợp lý, bằng VAE, thấy rằng việc huấn luyện không hội tụ tốt. Đối với trường hợp này, nên tìm hiểu về một kiến trúc khác được thiết kế đặc biệt cho các mô hình sinh - <strong>Mạng Generative Adversarial</strong>, hay GAN.</p>
+<p>Ý tưởng chính của GAN là có hai mạng nơ-ron được huấn luyện đối kháng lẫn nhau:</p>
+<p><img src="../../../translated_images/vi/gan_architecture.8f3a5ab62b8d5d69.webp" width="70%"/></p>
+<blockquote>
+<p>Hình ảnh bởi <a href="http://soshnikov.com">Dmitry Soshnikov</a></p>
+<p>✅ Một chút từ vựng:
+* <strong>Generator</strong> là một mạng nhận một vector ngẫu nhiên và tạo ra hình ảnh như kết quả
+* <strong>Discriminator</strong> là một mạng nhận một hình ảnh và phải xác định xem đó là hình ảnh thật (từ tập dữ liệu huấn luyện) hay là hình ảnh được tạo bởi generator. Nó về cơ bản là một bộ phân loại hình ảnh.</p>
+</blockquote>
+<h3 id="discriminator">Discriminator</h3>
+<p>Kiến trúc của discriminator không khác gì so với một mạng phân loại hình ảnh thông thường. Trong trường hợp đơn giản nhất, nó có thể là một bộ phân loại fully-connected, nhưng thường sẽ là một <a href="/lessons/4-ComputerVision/07-ConvNets/index.html">mạng tích chập</a>.</p>
+<blockquote>
+<p>✅ Một GAN dựa trên mạng tích chập được gọi là <a href="https://arxiv.org/pdf/1511.06434.pdf">DCGAN</a></p>
+</blockquote>
+<p>Một CNN discriminator bao gồm các lớp sau: một số lớp tích chập+kết hợp (với kích thước không gian giảm dần) và một hoặc nhiều lớp fully-connected để tạo “vector đặc trưng”, cuối cùng là bộ phân loại nhị phân.</p>
+<blockquote>
+<p>✅ 'Pooling' trong ngữ cảnh này là một kỹ thuật giảm kích thước hình ảnh. “Các lớp pooling giảm kích thước dữ liệu bằng cách kết hợp đầu ra của các cụm neuron tại một lớp thành một neuron duy nhất ở lớp tiếp theo.” - <a href="https://wikipedia.org/wiki/Convolutional_neural_network#Pooling_layers">nguồn</a></p>
+</blockquote>
+<h3 id="generator">Generator</h3>
+<p>Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần <em>decoder</em> của <a href="/lessons/4-ComputerVision/09-Autoencoders/index.html">autoencoder</a>.</p>
+<blockquote>
+<p>✅ Vì lớp tích chập được triển khai như một bộ lọc tuyến tính quét qua hình ảnh, deconvolution về cơ bản tương tự như tích chập và có thể được triển khai bằng cùng logic lớp.</p>
+</blockquote>
+<p><img src="../../../translated_images/vi/gan_arch_detail.46b95fd366f8e543.webp" width="70%"/></p>
+<blockquote>
+<p>Hình ảnh bởi <a href="http://soshnikov.com">Dmitry Soshnikov</a></p>
+</blockquote>
+<h3 id="huan-luyen-gan">Huấn luyện GAN</h3>
+<p>GAN được gọi là <strong>đối kháng</strong> vì có sự cạnh tranh liên tục giữa generator và discriminator. Trong quá trình cạnh tranh này, cả generator và discriminator đều cải thiện, do đó mạng học cách tạo ra hình ảnh ngày càng tốt hơn.</p>
+<p>Quá trình huấn luyện diễn ra trong hai giai đoạn:</p>
+<ul>
+<li><strong>Huấn luyện discriminator</strong>. Nhiệm vụ này khá đơn giản: chúng ta tạo một batch hình ảnh bằng generator, gán nhãn 0, tức là hình ảnh giả, và lấy một batch hình ảnh từ tập dữ liệu đầu vào (với nhãn 1, hình ảnh thật). Chúng ta thu được một <em>discriminator loss</em> và thực hiện backprop.</li>
+<li><strong>Huấn luyện generator</strong>. Điều này hơi phức tạp hơn một chút, vì biết đầu ra mong đợi cho generator trực tiếp. Chúng ta lấy toàn bộ mạng GAN bao gồm generator nối tiếp với discriminator, cung cấp cho nó một số vector ngẫu nhiên và mong đợi kết quả là 1 (tương ứng với hình ảnh thật). Sau đó, đóng băng các tham số của discriminator (không muốn nó được huấn luyện ở bước này) và thực hiện backprop.</li>
+</ul>
+<p>Trong quá trình này, cả generator và discriminator loss đều không giảm đáng kể. Trong tình huống lý tưởng, chúng nên dao động, tương ứng với việc cả hai mạng cải thiện hiệu suất của mình.</p>
+<h2 id="bai-tap-gans">✍️ Bài tập: GANs</h2>
+<ul>
+<li><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/GANTF.ipynb">Notebook GAN trong TensorFlow/Keras</a></li>
+<li><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/GANPyTorch.ipynb">Notebook GAN trong PyTorch</a></li>
+</ul>
+<h3 id="cac-van-e-khi-huan-luyen-gan">Các vấn đề khi huấn luyện GAN</h3>
+<p>GAN được biết đến là đặc biệt khó huấn luyện. Dưới đây là một số vấn đề:</p>
+<ul>
+<li><strong>Mode Collapse</strong>. Thuật ngữ này ám chỉ việc generator học cách tạo ra một hình ảnh thành công duy nhất để đánh lừa discriminator, thay vì tạo ra nhiều hình ảnh khác nhau.</li>
+<li><strong>Nhạy cảm với siêu tham số</strong>. Thường bạn có thể thấy rằng GAN không hội tụ chút nào, và sau đó đột ngột giảm tốc độ học dẫn đến hội tụ.</li>
+<li>Giữ <strong>cân bằng</strong> giữa generator và discriminator. Trong nhiều trường hợp, discriminator loss có thể giảm xuống 0 tương đối nhanh, dẫn đến generator không thể tiếp tục huấn luyện. Để khắc phục điều này, thử đặt các tốc độ học khác nhau cho generator và discriminator, hoặc bỏ qua việc huấn luyện discriminator nếu loss đã quá thấp.</li>
+<li>Huấn luyện cho <strong>độ phân giải cao</strong>. Phản ánh cùng vấn đề như với autoencoders, vấn đề này xảy ra vì việc tái tạo quá nhiều lớp của mạng tích chập dẫn đến các lỗi. Vấn đề này thường được giải quyết bằng cách <strong>phát triển dần</strong>, khi đầu tiên một vài lớp được huấn luyện trên hình ảnh độ phân giải thấp, sau đó các lớp được “mở khóa” hoặc thêm vào. Một giải pháp khác là thêm các kết nối bổ sung giữa các lớp và huấn luyện nhiều độ phân giải cùng lúc - xem bài báo <a href="https://arxiv.org/abs/1903.06048">Multi-Scale Gradient GANs</a> để biết chi tiết.</li>
+</ul>
+<h2 id="style-transfer">Style Transfer</h2>
+<p>GAN là một cách tuyệt vời để tạo ra hình ảnh nghệ thuật. Một kỹ thuật thú vị khác là <strong>style transfer</strong>, kỹ thuật này lấy một <strong>hình ảnh nội dung</strong> và vẽ lại nó theo một phong cách khác, áp dụng các bộ lọc từ <strong>hình ảnh phong cách</strong>.</p>
+<p>Cách hoạt động như sau:
+* Chúng ta bắt đầu với một hình ảnh nhiễu ngẫu nhiên (hoặc với hình ảnh nội dung, nhưng để dễ hiểu hơn thì bắt đầu từ nhiễu ngẫu nhiên)
+* Mục tiêu của chúng ta là tạo ra một hình ảnh gần với cả hình ảnh nội dung và hình ảnh phong cách. Điều này được xác định bởi hai hàm loss:
+   - <strong>Content loss</strong> được tính dựa trên các đặc trưng được trích xuất bởi CNN tại một số lớp từ hình ảnh hiện tại và hình ảnh nội dung
+   - <strong>Style loss</strong> được tính giữa hình ảnh hiện tại và hình ảnh phong cách theo cách thông minh sử dụng ma trận Gram (chi tiết hơn trong <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/StyleTransfer.ipynb">notebook ví dụ</a>)
+* Để làm hình ảnh mượt hơn và loại bỏ nhiễu, giới thiệu <strong>Variation loss</strong>, tính khoảng cách trung bình giữa các pixel lân cận
+* Vòng lặp tối ưu chính điều chỉnh hình ảnh hiện tại bằng cách sử dụng gradient descent (hoặc một thuật toán tối ưu khác) để giảm thiểu tổng loss, là tổng có trọng số của cả ba loại loss.</p>
+<h2 id="vi-du-style-transfer">✍️ Ví dụ: <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/StyleTransfer.ipynb">Style Transfer</a></h2>
+<h2 id="cau-hoi-sau-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/20">Câu hỏi sau bài giảng</a></h2>
+<h2 id="ket-luan">Kết luận</h2>
+<p>Trong bài học này, bạn đã tìm hiểu về GANs và cách huấn luyện chúng. Bạn cũng đã tìm hiểu về những thách thức đặc biệt mà loại mạng nơ-ron này có thể gặp phải và một số chiến lược để vượt qua chúng.</p>
+<h2 id="thu-thach">🚀 Thử thách</h2>
+<p>Chạy qua <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/StyleTransfer.ipynb">notebook Style Transfer</a> sử dụng hình ảnh của riêng bạn.</p>
+<h2 id="on-tap-tu-hoc">Ôn tập &amp; Tự học</h2>
+<p>Để tham khảo, hãy đọc thêm về GANs trong các tài liệu sau:</p>
+<ul>
+<li>Marco Pasini, <a href="https://towardsdatascience.com/10-lessons-i-learned-training-generative-adversarial-networks-gans-for-a-year-c9071159628">10 Bài học tôi học được khi huấn luyện GANs trong một năm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/StyleGAN">StyleGAN</a>, một kiến trúc GAN <em>de facto</em> đáng xem xét</li>
+<li><a href="https://soshnikov.com/scienceart/creating-generative-art-using-gan-on-azureml/">Tạo nghệ thuật sinh bằng GANs trên Azure ML</a></li>
+</ul>
+<h2 id="bai-tap">Bài tập</h2>
+<p>Xem lại một trong hai notebook liên quan đến bài học này và huấn luyện lại GAN với hình ảnh của riêng bạn. Bạn có thể tạo ra gì?</p>
+<hr />
+  </article>
+</main>
+</body>
+</html>
