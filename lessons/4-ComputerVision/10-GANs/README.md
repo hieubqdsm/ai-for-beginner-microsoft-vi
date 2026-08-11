@@ -1,14 +1,14 @@
 # Mạng Generative Adversarial (GAN)
 
-Trong phần trước, chúng ta đã tìm hiểu về **mô hình sinh**: các mô hình có thể tạo ra hình ảnh mới tương tự như những hình ảnh trong tập dữ liệu huấn luyện. VAE là một ví dụ điển hình của mô hình sinh.
+Trong phần trước, tìm hiểu về **mô hình sinh**: các mô hình có thể tạo ra hình ảnh mới tương tự như những hình ảnh trong tập dữ liệu huấn luyện. VAE là một ví dụ điển hình của mô hình sinh.
 
 ## [Câu hỏi trước bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/19)
 
-Tuy nhiên, nếu chúng ta cố gắng tạo ra thứ gì đó thực sự ý nghĩa, như một bức tranh với độ phân giải hợp lý, bằng VAE, chúng ta sẽ thấy rằng việc huấn luyện không hội tụ tốt. Đối với trường hợp này, chúng ta nên tìm hiểu về một kiến trúc khác được thiết kế đặc biệt cho các mô hình sinh - **Mạng Generative Adversarial**, hay GAN.
+Tuy nhiên, nếu chúng ta cố gắng tạo ra thứ gì đó thực sự ý nghĩa, như một bức tranh với độ phân giải hợp lý, bằng VAE, thấy rằng việc huấn luyện không hội tụ tốt. Đối với trường hợp này, nên tìm hiểu về một kiến trúc khác được thiết kế đặc biệt cho các mô hình sinh - **Mạng Generative Adversarial**, hay GAN.
 
 Ý tưởng chính của GAN là có hai mạng nơ-ron được huấn luyện đối kháng lẫn nhau:
 
-<img src="../../../translated_images/vi/gan_architecture.8f3a5ab62b8d5d69.webp" width="70%"/>
+<img src=“../../../translated_images/vi/gan_architecture.8f3a5ab62b8d5d69.webp” width=“70%”/>
 
 > Hình ảnh bởi [Dmitry Soshnikov](http://soshnikov.com)
 
@@ -22,17 +22,17 @@ Kiến trúc của discriminator không khác gì so với một mạng phân lo
 
 > ✅ Một GAN dựa trên mạng tích chập được gọi là [DCGAN](https://arxiv.org/pdf/1511.06434.pdf)
 
-Một CNN discriminator bao gồm các lớp sau: một số lớp tích chập+kết hợp (với kích thước không gian giảm dần) và một hoặc nhiều lớp fully-connected để tạo "vector đặc trưng", cuối cùng là bộ phân loại nhị phân.
+Một CNN discriminator bao gồm các lớp sau: một số lớp tích chập+kết hợp (với kích thước không gian giảm dần) và một hoặc nhiều lớp fully-connected để tạo “vector đặc trưng”, cuối cùng là bộ phân loại nhị phân.
 
-> ✅ 'Pooling' trong ngữ cảnh này là một kỹ thuật giảm kích thước hình ảnh. "Các lớp pooling giảm kích thước dữ liệu bằng cách kết hợp đầu ra của các cụm neuron tại một lớp thành một neuron duy nhất ở lớp tiếp theo." - [nguồn](https://wikipedia.org/wiki/Convolutional_neural_network#Pooling_layers)
+> ✅ 'Pooling' trong ngữ cảnh này là một kỹ thuật giảm kích thước hình ảnh. “Các lớp pooling giảm kích thước dữ liệu bằng cách kết hợp đầu ra của các cụm neuron tại một lớp thành một neuron duy nhất ở lớp tiếp theo.” - [nguồn](https://wikipedia.org/wiki/Convolutional_neural_network#Pooling_layers)
 
 ### Generator
 
-Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector tiềm ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần *decoder* của [autoencoder](../09-Autoencoders/README.md).
+Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần *decoder* của [autoencoder](../09-Autoencoders/README.md).
 
 > ✅ Vì lớp tích chập được triển khai như một bộ lọc tuyến tính quét qua hình ảnh, deconvolution về cơ bản tương tự như tích chập và có thể được triển khai bằng cùng logic lớp.
 
-<img src="../../../translated_images/vi/gan_arch_detail.46b95fd366f8e543.webp" width="70%"/>
+<img src=“../../../translated_images/vi/gan_arch_detail.46b95fd366f8e543.webp” width=“70%”/>
 
 > Hình ảnh bởi [Dmitry Soshnikov](http://soshnikov.com)
 
@@ -43,7 +43,7 @@ GAN được gọi là **đối kháng** vì có sự cạnh tranh liên tục g
 Quá trình huấn luyện diễn ra trong hai giai đoạn:
 
 * **Huấn luyện discriminator**. Nhiệm vụ này khá đơn giản: chúng ta tạo một batch hình ảnh bằng generator, gán nhãn 0, tức là hình ảnh giả, và lấy một batch hình ảnh từ tập dữ liệu đầu vào (với nhãn 1, hình ảnh thật). Chúng ta thu được một *discriminator loss* và thực hiện backprop.
-* **Huấn luyện generator**. Điều này hơi phức tạp hơn một chút, vì chúng ta không biết đầu ra mong đợi cho generator trực tiếp. Chúng ta lấy toàn bộ mạng GAN bao gồm generator nối tiếp với discriminator, cung cấp cho nó một số vector ngẫu nhiên và mong đợi kết quả là 1 (tương ứng với hình ảnh thật). Sau đó, chúng ta đóng băng các tham số của discriminator (không muốn nó được huấn luyện ở bước này) và thực hiện backprop.
+* **Huấn luyện generator**. Điều này hơi phức tạp hơn một chút, vì biết đầu ra mong đợi cho generator trực tiếp. Chúng ta lấy toàn bộ mạng GAN bao gồm generator nối tiếp với discriminator, cung cấp cho nó một số vector ngẫu nhiên và mong đợi kết quả là 1 (tương ứng với hình ảnh thật). Sau đó, đóng băng các tham số của discriminator (không muốn nó được huấn luyện ở bước này) và thực hiện backprop.
 
 Trong quá trình này, cả generator và discriminator loss đều không giảm đáng kể. Trong tình huống lý tưởng, chúng nên dao động, tương ứng với việc cả hai mạng cải thiện hiệu suất của mình.
 
@@ -58,8 +58,8 @@ GAN được biết đến là đặc biệt khó huấn luyện. Dưới đây 
 
 * **Mode Collapse**. Thuật ngữ này ám chỉ việc generator học cách tạo ra một hình ảnh thành công duy nhất để đánh lừa discriminator, thay vì tạo ra nhiều hình ảnh khác nhau.
 * **Nhạy cảm với siêu tham số**. Thường bạn có thể thấy rằng GAN không hội tụ chút nào, và sau đó đột ngột giảm tốc độ học dẫn đến hội tụ.
-* Giữ **cân bằng** giữa generator và discriminator. Trong nhiều trường hợp, discriminator loss có thể giảm xuống 0 tương đối nhanh, dẫn đến generator không thể tiếp tục huấn luyện. Để khắc phục điều này, chúng ta có thể thử đặt các tốc độ học khác nhau cho generator và discriminator, hoặc bỏ qua việc huấn luyện discriminator nếu loss đã quá thấp.
-* Huấn luyện cho **độ phân giải cao**. Phản ánh cùng vấn đề như với autoencoders, vấn đề này xảy ra vì việc tái tạo quá nhiều lớp của mạng tích chập dẫn đến các lỗi. Vấn đề này thường được giải quyết bằng cách **phát triển dần**, khi đầu tiên một vài lớp được huấn luyện trên hình ảnh độ phân giải thấp, sau đó các lớp được "mở khóa" hoặc thêm vào. Một giải pháp khác là thêm các kết nối bổ sung giữa các lớp và huấn luyện nhiều độ phân giải cùng lúc - xem bài báo [Multi-Scale Gradient GANs](https://arxiv.org/abs/1903.06048) để biết chi tiết.
+* Giữ **cân bằng** giữa generator và discriminator. Trong nhiều trường hợp, discriminator loss có thể giảm xuống 0 tương đối nhanh, dẫn đến generator không thể tiếp tục huấn luyện. Để khắc phục điều này, thử đặt các tốc độ học khác nhau cho generator và discriminator, hoặc bỏ qua việc huấn luyện discriminator nếu loss đã quá thấp.
+* Huấn luyện cho **độ phân giải cao**. Phản ánh cùng vấn đề như với autoencoders, vấn đề này xảy ra vì việc tái tạo quá nhiều lớp của mạng tích chập dẫn đến các lỗi. Vấn đề này thường được giải quyết bằng cách **phát triển dần**, khi đầu tiên một vài lớp được huấn luyện trên hình ảnh độ phân giải thấp, sau đó các lớp được “mở khóa” hoặc thêm vào. Một giải pháp khác là thêm các kết nối bổ sung giữa các lớp và huấn luyện nhiều độ phân giải cùng lúc - xem bài báo [Multi-Scale Gradient GANs](https://arxiv.org/abs/1903.06048) để biết chi tiết.
 
 ## Style Transfer
 
@@ -70,7 +70,7 @@ Cách hoạt động như sau:
 * Mục tiêu của chúng ta là tạo ra một hình ảnh gần với cả hình ảnh nội dung và hình ảnh phong cách. Điều này được xác định bởi hai hàm loss:
    - **Content loss** được tính dựa trên các đặc trưng được trích xuất bởi CNN tại một số lớp từ hình ảnh hiện tại và hình ảnh nội dung
    - **Style loss** được tính giữa hình ảnh hiện tại và hình ảnh phong cách theo cách thông minh sử dụng ma trận Gram (chi tiết hơn trong [notebook ví dụ](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/StyleTransfer.ipynb))
-* Để làm hình ảnh mượt hơn và loại bỏ nhiễu, chúng ta cũng giới thiệu **Variation loss**, tính khoảng cách trung bình giữa các pixel lân cận
+* Để làm hình ảnh mượt hơn và loại bỏ nhiễu, giới thiệu **Variation loss**, tính khoảng cách trung bình giữa các pixel lân cận
 * Vòng lặp tối ưu chính điều chỉnh hình ảnh hiện tại bằng cách sử dụng gradient descent (hoặc một thuật toán tối ưu khác) để giảm thiểu tổng loss, là tổng có trọng số của cả ba loại loss.
 
 ## ✍️ Ví dụ: [Style Transfer](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/StyleTransfer.ipynb)

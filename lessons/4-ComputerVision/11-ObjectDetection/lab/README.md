@@ -4,7 +4,7 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 
 ## Nhiệm vụ
 
-Đếm số lượng người trên luồng camera giám sát là một nhiệm vụ quan trọng, giúp chúng ta ước tính số lượng khách hàng trong cửa hàng, giờ cao điểm tại nhà hàng, v.v. Để giải quyết nhiệm vụ này, chúng ta cần có khả năng phát hiện đầu người từ nhiều góc độ khác nhau. Để huấn luyện mô hình phát hiện đối tượng nhằm phát hiện đầu người, chúng ta có thể sử dụng [Hollywood Heads Dataset](https://www.di.ens.fr/willow/research/headdetection/).
+Đếm số lượng người trên luồng camera giám sát là một nhiệm vụ quan trọng, giúp chúng ta ước tính số lượng khách hàng trong cửa hàng, giờ cao điểm tại nhà hàng, v.v. Để giải quyết nhiệm vụ này, có khả năng phát hiện đầu người từ nhiều góc độ khác nhau. Để huấn luyện mô hình phát hiện đối tượng nhằm phát hiện đầu người, sử dụng [Hollywood Heads Dataset](https://www.di.ens.fr/willow/research/headdetection/).
 
 ## Bộ dữ liệu
 

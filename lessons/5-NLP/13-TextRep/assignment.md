@@ -1,4 +1,4 @@
-# Bài tập: Sổ tay (Notebooks)
+# Bài tập: Notebook (Notebooks)
 
 Sử dụng các sổ tay liên quan đến bài học này (có thể là phiên bản PyTorch hoặc TensorFlow), chạy lại chúng với bộ dữ liệu của riêng bạn, có thể lấy từ Kaggle, và nhớ ghi nguồn. Viết lại sổ tay để làm nổi bật những phát hiện của bạn. Hãy thử sử dụng một số bộ dữ liệu sáng tạo có thể mang lại bất ngờ, chẳng hạn như [bộ dữ liệu về các lần nhìn thấy UFO này](https://www.kaggle.com/datasets/NUFORC/ufo-sightings) từ NUFORC.
 

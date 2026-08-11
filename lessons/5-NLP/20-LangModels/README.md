@@ -1,6 +1,6 @@
 # Các Mô Hình Ngôn Ngữ Lớn Được Huấn Luyện Trước
 
-Trong tất cả các nhiệm vụ trước đây, chúng ta đã huấn luyện một mạng nơ-ron để thực hiện một nhiệm vụ cụ thể bằng cách sử dụng tập dữ liệu có nhãn. Với các mô hình transformer lớn, như BERT, chúng ta sử dụng mô hình ngôn ngữ theo cách tự giám sát để xây dựng một mô hình ngôn ngữ, sau đó được chuyên biệt hóa cho các nhiệm vụ cụ thể với việc huấn luyện thêm theo từng lĩnh vực. Tuy nhiên, đã có minh chứng rằng các mô hình ngôn ngữ lớn cũng có thể giải quyết nhiều nhiệm vụ mà KHÔNG cần huấn luyện theo từng lĩnh vực. Một nhóm các mô hình có khả năng làm điều này được gọi là **GPT**: Generative Pre-Trained Transformer.
+Trong tất cả các nhiệm vụ trước đây, huấn luyện một mạng nơ-ron để thực hiện một nhiệm vụ cụ thể bằng cách sử dụng tập dữ liệu có nhãn. Với các mô hình transformer lớn, như BERT, mô hình ngôn ngữ theo cách tự giám sát để xây dựng một mô hình ngôn ngữ, sau đó được chuyên biệt hóa cho các nhiệm vụ cụ thể với việc huấn luyện thêm theo từng lĩnh vực. Tuy nhiên, đã có minh chứng rằng các mô hình ngôn ngữ lớn cũng có thể giải quyết nhiều nhiệm vụ mà KHÔNG cần huấn luyện theo từng lĩnh vực. Một nhóm các mô hình có khả năng làm điều này được gọi là **GPT**: Generative Pre-Trained Transformer.
 
 ## [Câu hỏi trước bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/39)
 
@@ -14,7 +14,7 @@ Các mạng sinh văn bản hoạt động bằng cách dự đoán xác suất 
 
 > Bạn có thể đọc thêm về xác suất trong [Chương trình học Khoa học Dữ liệu cho Người Mới Bắt Đầu](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/1-Introduction/04-stats-and-probability).
 
-Chất lượng của mô hình sinh ngôn ngữ có thể được định nghĩa bằng **độ phức tạp**. Đây là một thước đo nội tại cho phép chúng ta đánh giá chất lượng mô hình mà không cần bất kỳ tập dữ liệu cụ thể nào. Nó dựa trên khái niệm *xác suất của một câu* - mô hình gán xác suất cao cho một câu có khả năng là thực (tức là mô hình không **bối rối** bởi câu đó), và xác suất thấp cho các câu ít hợp lý hơn (ví dụ: *Can it does what?*). Khi chúng ta đưa cho mô hình các câu từ tập văn bản thực, chúng ta mong đợi chúng có xác suất cao và **độ phức tạp** thấp. Về mặt toán học, nó được định nghĩa là nghịch đảo chuẩn hóa của xác suất tập kiểm tra:
+Chất lượng của mô hình sinh ngôn ngữ có thể được định nghĩa bằng **độ phức tạp**. Đây là một thước đo nội tại cho phép chúng ta đánh giá chất lượng mô hình mà không cần bất kỳ tập dữ liệu cụ thể nào. Nó dựa trên khái niệm *xác suất của một câu* - mô hình gán xác suất cao cho một câu có khả năng là thực (tức là mô hình không **bối rối** bởi câu đó), và xác suất thấp cho các câu ít hợp lý hơn (ví dụ: *Can it does what?*). Khi chúng ta đưa cho mô hình các câu từ tập văn bản thực, mong đợi chúng có xác suất cao và **độ phức tạp** thấp. Về mặt toán học, nó được định nghĩa là nghịch đảo chuẩn hóa của xác suất tập kiểm tra:
 $$
 \mathrm{Perplexity}(W) = \sqrt[N]{1\over P(W_1,...,W_N)}
 $$ 
@@ -25,7 +25,7 @@ $$
 
 GPT không phải là một mô hình duy nhất, mà là một tập hợp các mô hình được phát triển và huấn luyện bởi [OpenAI](https://openai.com).
 
-Trong các mô hình GPT, chúng ta có:
+Trong các mô hình GPT, có:
 
 | [GPT-2](https://huggingface.co/docs/transformers/model_doc/gpt2#openai-gpt2) | [GPT 3](https://openai.com/research/language-models-are-few-shot-learners) | [GPT-4](https://openai.com/gpt-4) |
 | -- | -- | -- |

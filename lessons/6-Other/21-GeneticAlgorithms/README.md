@@ -55,13 +55,13 @@ Thuật toán Di truyền được sử dụng để giải quyết nhiều vấ
 
 ## 🚀 Thử thách
 
-"Thuật toán di truyền dễ triển khai, nhưng hành vi của chúng rất khó hiểu." [nguồn](https://wikipedia.org/wiki/Genetic_algorithm) Hãy nghiên cứu để tìm một triển khai của thuật toán di truyền, chẳng hạn như giải một câu đố Sudoku, và giải thích cách nó hoạt động dưới dạng phác thảo hoặc sơ đồ luồng.
+“Thuật toán di truyền dễ triển khai, nhưng hành vi của chúng rất khó hiểu.” [nguồn](https://wikipedia.org/wiki/Genetic_algorithm) Hãy nghiên cứu để tìm một triển khai của thuật toán di truyền, chẳng hạn như giải một câu đố Sudoku, và giải thích cách nó hoạt động dưới dạng phác thảo hoặc sơ đồ luồng.
 
 ## [Câu hỏi sau bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/42)
 
 ## Ôn tập & Tự học
 
-Xem [video tuyệt vời này](https://www.youtube.com/watch?v=qv6UVOQ0F44) nói về cách máy tính có thể học chơi Super Mario bằng mạng nơ-ron được huấn luyện bởi thuật toán di truyền. Chúng ta sẽ tìm hiểu thêm về việc máy tính học chơi các trò chơi như vậy [trong phần tiếp theo](../22-DeepRL/README.md).
+Xem [video tuyệt vời này](https://www.youtube.com/watch?v=qv6UVOQ0F44) nói về cách máy tính có thể học chơi Super Mario bằng mạng nơ-ron được huấn luyện bởi thuật toán di truyền. tìm hiểu thêm về việc máy tính học chơi các trò chơi như vậy [trong phần tiếp theo](../22-DeepRL/README.md).
 
 ## [Bài tập: Phương trình Diophantine](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/6-Other/21-GeneticAlgorithms/Diophantine.ipynb)
 

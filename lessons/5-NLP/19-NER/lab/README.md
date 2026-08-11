@@ -8,7 +8,7 @@ Trong bài thực hành này, bạn cần huấn luyện mô hình nhận dạng
 
 ## Bộ dữ liệu
 
-Để huấn luyện mô hình NER, chúng ta cần một bộ dữ liệu được gắn nhãn đúng với các thực thể y khoa. [Bộ dữ liệu BC5CDR](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-3-cdr/) chứa các thực thể bệnh và hóa chất được gắn nhãn từ hơn 1500 bài báo. Bạn có thể tải bộ dữ liệu này sau khi đăng ký tại trang web của họ.
+Để huấn luyện mô hình NER, một bộ dữ liệu được gắn nhãn đúng với các thực thể y khoa. [Bộ dữ liệu BC5CDR](https://biocreative.bioinformatics.udel.edu/tasks/biocreative-v/track-3-cdr/) chứa các thực thể bệnh và hóa chất được gắn nhãn từ hơn 1500 bài báo. Bạn có thể tải bộ dữ liệu này sau khi đăng ký tại trang web của họ.
 
 Bộ dữ liệu BC5CDR trông như sau:
 
@@ -31,7 +31,7 @@ Lần thử đầu tiên với NER có thể được thực hiện bằng cách
 
 Vì chúng ta dự định áp dụng NER vào kịch bản y khoa, nên việc sử dụng mô hình BERT được huấn luyện trên các văn bản y khoa là hợp lý. Microsoft Research đã phát hành một mô hình được huấn luyện trước gọi là [PubMedBERT][PubMedBERT] ([bài báo][PubMedBERT-Pub]), được tinh chỉnh bằng các văn bản từ kho [PubMed](https://pubmed.ncbi.nlm.nih.gov/).
 
-Tiêu chuẩn *de facto* để huấn luyện các mô hình transformer là thư viện [Hugging Face Transformers](https://huggingface.co/). Thư viện này cũng chứa một kho các mô hình được huấn luyện trước do cộng đồng duy trì, bao gồm PubMedBERT. Để tải và sử dụng mô hình này, chúng ta chỉ cần vài dòng mã:
+Tiêu chuẩn *de facto* để huấn luyện các mô hình transformer là thư viện [Hugging Face Transformers](https://huggingface.co/). Thư viện này cũng chứa một kho các mô hình được huấn luyện trước do cộng đồng duy trì, bao gồm PubMedBERT. Để tải và sử dụng mô hình này, chỉ cần vài dòng mã:
 
 ```python
 model_name = "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract"

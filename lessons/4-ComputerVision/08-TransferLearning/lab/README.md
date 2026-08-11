@@ -4,11 +4,11 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 
 ## Nhiệm vụ
 
-Hãy tưởng tượng bạn cần phát triển một ứng dụng cho nhà trẻ thú cưng để phân loại tất cả các thú cưng. Một trong những tính năng tuyệt vời của ứng dụng này là tự động nhận diện giống loài từ một bức ảnh. Trong bài tập này, chúng ta sẽ sử dụng transfer learning để phân loại hình ảnh thú cưng thực tế từ bộ dữ liệu [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/).
+Hãy tưởng tượng bạn cần phát triển một ứng dụng cho nhà trẻ thú cưng để phân loại tất cả các thú cưng. Một trong những tính năng tuyệt vời của ứng dụng này là tự động nhận diện giống loài từ một bức ảnh. Trong bài tập này, sử dụng transfer learning để phân loại hình ảnh thú cưng thực tế từ bộ dữ liệu [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/).
 
 ## Bộ dữ liệu
 
-Chúng ta sẽ sử dụng bộ dữ liệu gốc [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/), bao gồm 35 giống chó và mèo khác nhau.
+sử dụng bộ dữ liệu gốc [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/), bao gồm 35 giống chó và mèo khác nhau.
 
 Để tải bộ dữ liệu, sử dụng đoạn mã sau:
 

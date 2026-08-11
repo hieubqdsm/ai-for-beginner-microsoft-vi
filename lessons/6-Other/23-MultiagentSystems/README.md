@@ -26,13 +26,13 @@ Hiện nay, các hệ thống đa tác nhân được sử dụng trong nhiều 
 * Trong mô hình hóa hệ thống, cách tiếp cận đa tác nhân được sử dụng để mô phỏng hành vi của một mô hình phức tạp. Ví dụ, cách tiếp cận đa tác nhân đã được sử dụng thành công để dự đoán sự lây lan của bệnh COVID-19 trên toàn thế giới. Cách tiếp cận tương tự có thể được sử dụng để mô hình hóa giao thông trong thành phố và xem nó phản ứng như thế nào với các thay đổi trong quy tắc giao thông.
 * Trong các hệ thống tự động hóa phức tạp, mỗi thiết bị có thể hoạt động như một tác nhân độc lập, điều này làm cho toàn bộ hệ thống ít đơn lẻ hơn và mạnh mẽ hơn.
 
-Chúng ta sẽ không dành nhiều thời gian để đi sâu vào các hệ thống đa tác nhân, nhưng hãy xem xét một ví dụ về **Mô Hình Đa Tác Nhân**.
+không dành nhiều thời gian để đi sâu vào các hệ thống đa tác nhân, nhưng hãy xem xét một ví dụ về **Mô Hình Đa Tác Nhân**.
 
 ## NetLogo
 
 [NetLogo](https://ccl.northwestern.edu/netlogo/) là một môi trường mô hình hóa đa tác nhân dựa trên phiên bản sửa đổi của ngôn ngữ lập trình [Logo](https://en.wikipedia.org/wiki/Logo_(programming_language)). Ngôn ngữ này được phát triển để dạy các khái niệm lập trình cho trẻ em, và nó cho phép bạn điều khiển một tác nhân gọi là **rùa**, có thể di chuyển và để lại dấu vết phía sau. Điều này cho phép tạo ra các hình học phức tạp, là một cách rất trực quan để hiểu hành vi của một tác nhân.
 
-Trong NetLogo, chúng ta có thể tạo nhiều rùa bằng cách sử dụng lệnh `create-turtles`. Sau đó, chúng ta có thể ra lệnh cho tất cả các rùa thực hiện một số hành động (trong ví dụ dưới đây - di chuyển 10 điểm về phía trước):
+Trong NetLogo, tạo nhiều rùa bằng cách sử dụng lệnh `create-turtles`. Sau đó, ra lệnh cho tất cả các rùa thực hiện một số hành động (trong ví dụ dưới đây - di chuyển 10 điểm về phía trước):
 
 ```
 create-turtles 10
@@ -41,9 +41,9 @@ ask turtles [
 ]
 ```
 
-Tất nhiên, sẽ không thú vị nếu tất cả các rùa làm cùng một việc, vì vậy chúng ta có thể `ask` các nhóm rùa, ví dụ như những con ở gần một điểm nhất định. Chúng ta cũng có thể tạo các rùa thuộc các *giống* khác nhau bằng cách sử dụng lệnh `breed [cats cat]`. Ở đây `cat` là tên của một giống, và chúng ta cần chỉ định cả từ số ít và số nhiều, vì các lệnh khác nhau sử dụng các dạng khác nhau để rõ ràng.
+Tất nhiên, sẽ không thú vị nếu tất cả các rùa làm cùng một việc, vì vậy `ask` các nhóm rùa, ví dụ như những con ở gần một điểm nhất định. có thể tạo các rùa thuộc các *giống* khác nhau bằng cách sử dụng lệnh `breed [cats cat]`. Ở đây `cat` là tên của một giống, và chỉ định cả từ số ít và số nhiều, vì các lệnh khác nhau sử dụng các dạng khác nhau để rõ ràng.
 
-> ✅ Chúng ta sẽ không đi sâu vào việc học ngôn ngữ NetLogo - bạn có thể truy cập tài nguyên tuyệt vời [Beginner's Interactive NetLogo Dictionary](https://ccl.northwestern.edu/netlogo/bind/) nếu bạn muốn tìm hiểu thêm.
+> ✅ không đi sâu vào việc học ngôn ngữ NetLogo - bạn có thể truy cập tài nguyên tuyệt vời [Beginner's Interactive NetLogo Dictionary](https://ccl.northwestern.edu/netlogo/bind/) nếu bạn muốn tìm hiểu thêm.
 
 Bạn có thể [tải xuống](https://ccl.northwestern.edu/netlogo/download.shtml) và cài đặt NetLogo để thử nghiệm.
 
@@ -51,7 +51,7 @@ Bạn có thể [tải xuống](https://ccl.northwestern.edu/netlogo/download.sh
 
 Một điều tuyệt vời về NetLogo là nó chứa một thư viện các mô hình hoạt động mà bạn có thể thử. Đi tới **File &rightarrow; Models Library**, và bạn có nhiều danh mục mô hình để lựa chọn.
 
-<img alt="Thư viện Mô Hình NetLogo" src="../../../translated_images/vi/NetLogo-ModelLib.efe023afb4763c05.webp" width="60%"/>
+<img alt=“Thư viện Mô Hình NetLogo” src=“../../../translated_images/vi/NetLogo-ModelLib.efe023afb4763c05.webp” width=“60%”/>
 
 > Ảnh chụp màn hình thư viện mô hình của Dmitry Soshnikov
 

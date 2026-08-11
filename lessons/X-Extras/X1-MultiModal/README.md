@@ -10,15 +10,15 @@ Sau thành công của các mô hình transformer trong việc giải quyết c�
 
 > *Hình ảnh từ [bài viết blog này](https://openai.com/blog/clip/)*
 
-Mô hình được huấn luyện trên các hình ảnh thu thập từ Internet và các chú thích của chúng. Với mỗi batch, chúng ta lấy N cặp (hình ảnh, văn bản) và chuyển đổi chúng thành các biểu diễn vector I, ..., T. Những biểu diễn này sau đó được ghép nối với nhau. Hàm mất mát được định nghĩa để tối đa hóa độ tương đồng cosine giữa các vector tương ứng với một cặp (ví dụ: I và T), và giảm thiểu độ tương đồng cosine giữa tất cả các cặp khác. Đây là lý do tại sao phương pháp này được gọi là **đối lập**.
+Mô hình được huấn luyện trên các hình ảnh thu thập từ Internet và các chú thích của chúng. Với mỗi batch, lấy N cặp (hình ảnh, văn bản) và chuyển đổi chúng thành các biểu diễn vector I, ..., T. Những biểu diễn này sau đó được ghép nối với nhau. Hàm mất mát được định nghĩa để tối đa hóa độ tương đồng cosine giữa các vector tương ứng với một cặp (ví dụ: I và T), và giảm thiểu độ tương đồng cosine giữa tất cả các cặp khác. Đây là lý do tại sao phương pháp này được gọi là **đối lập**.
 
 Thư viện/mô hình CLIP có sẵn tại [GitHub của OpenAI](https://github.com/openai/CLIP). Phương pháp này được mô tả trong [bài viết blog này](https://openai.com/blog/clip/) và chi tiết hơn trong [bài báo này](https://arxiv.org/pdf/2103.00020.pdf).
 
-Khi mô hình này đã được huấn luyện trước, chúng ta có thể cung cấp cho nó một batch hình ảnh và một batch gợi ý văn bản, và nó sẽ trả về tensor với các xác suất. CLIP có thể được sử dụng cho một số nhiệm vụ:
+Khi mô hình này đã được huấn luyện trước, cung cấp cho nó một batch hình ảnh và một batch gợi ý văn bản, và nó sẽ trả về tensor với các xác suất. CLIP có thể được sử dụng cho một số nhiệm vụ:
 
 **Phân loại Hình ảnh**
 
-Giả sử chúng ta cần phân loại hình ảnh giữa, ví dụ, mèo, chó và con người. Trong trường hợp này, chúng ta có thể cung cấp cho mô hình một hình ảnh và một loạt các gợi ý văn bản: "*một bức ảnh của một con mèo*", "*một bức ảnh của một con chó*", "*một bức ảnh của một con người*". Trong vector kết quả gồm 3 xác suất, chúng ta chỉ cần chọn chỉ số có giá trị cao nhất.
+Giả sử phân loại hình ảnh giữa, ví dụ, mèo, chó và con người. Trong trường hợp này, cung cấp cho mô hình một hình ảnh và một loạt các gợi ý văn bản: “*một bức ảnh của một con mèo*”, “*một bức ảnh của một con chó*”, “*một bức ảnh của một con người*”. Trong vector kết quả gồm 3 xác suất, chỉ cần chọn chỉ số có giá trị cao nhất.
 
 ![CLIP cho Phân loại Hình ảnh](../../../translated_images/vi/clip-class.3af42ef0b2b19369.webp)
 
@@ -26,7 +26,7 @@ Giả sử chúng ta cần phân loại hình ảnh giữa, ví dụ, mèo, chó
 
 **Tìm kiếm Hình ảnh Dựa trên Văn Bản**
 
-Chúng ta cũng có thể làm ngược lại. Nếu chúng ta có một tập hợp hình ảnh, chúng ta có thể đưa tập hợp này vào mô hình và một gợi ý văn bản - điều này sẽ trả về hình ảnh giống nhất với gợi ý đã cho.
+có thể làm ngược lại. Nếu chúng ta có một tập hợp hình ảnh, đưa tập hợp này vào mô hình và một gợi ý văn bản - điều này sẽ trả về hình ảnh giống nhất với gợi ý đã cho.
 
 ## ✍️ Ví dụ: [Sử dụng CLIP cho Phân loại Hình ảnh và Tìm kiếm Hình ảnh](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/X-Extras/X1-MultiModal/Clip.ipynb)
 
@@ -34,19 +34,19 @@ Mở notebook [Clip.ipynb](https://colab.research.google.com/github/hieubqdsm/ai
 
 ## Tạo Hình ảnh với VQGAN+CLIP
 
-CLIP cũng có thể được sử dụng để **tạo hình ảnh** từ một gợi ý văn bản. Để làm điều này, chúng ta cần một **mô hình tạo hình ảnh** có khả năng tạo ra hình ảnh dựa trên một vector đầu vào. Một trong những mô hình như vậy được gọi là [VQGAN](https://compvis.github.io/taming-transformers/) (Vector-Quantized GAN).
+CLIP cũng có thể được sử dụng để **tạo hình ảnh** từ một gợi ý văn bản. Để làm điều này, một **mô hình tạo hình ảnh** có khả năng tạo ra hình ảnh dựa trên một vector đầu vào. Một trong những mô hình như vậy được gọi là [VQGAN](https://compvis.github.io/taming-transformers/) (Vector-Quantized GAN).
 
 Những ý tưởng chính của VQGAN khác biệt so với [GAN](../../4-ComputerVision/10-GANs/README.md) thông thường bao gồm:
 * Sử dụng kiến trúc transformer tự hồi quy để tạo ra một chuỗi các phần hình ảnh giàu ngữ cảnh tạo thành hình ảnh. Những phần hình ảnh này được học bởi [CNN](../../4-ComputerVision/07-ConvNets/README.md).
-* Sử dụng bộ phân biệt hình ảnh con để phát hiện liệu các phần của hình ảnh là "thật" hay "giả" (khác với cách tiếp cận "tất cả hoặc không có gì" trong GAN truyền thống).
+* Sử dụng bộ phân biệt hình ảnh con để phát hiện liệu các phần của hình ảnh là “thật” hay “giả” (khác với cách tiếp cận “tất cả hoặc không có gì” trong GAN truyền thống).
 
 Tìm hiểu thêm về VQGAN tại trang web [Taming Transformers](https://compvis.github.io/taming-transformers/).
 
-Một trong những khác biệt quan trọng giữa VQGAN và GAN truyền thống là GAN truyền thống có thể tạo ra một hình ảnh khá tốt từ bất kỳ vector đầu vào nào, trong khi VQGAN có thể tạo ra một hình ảnh không nhất quán. Do đó, chúng ta cần hướng dẫn thêm quá trình tạo hình ảnh, và điều này có thể được thực hiện bằng cách sử dụng CLIP.
+Một trong những khác biệt quan trọng giữa VQGAN và GAN truyền thống là GAN truyền thống có thể tạo ra một hình ảnh khá tốt từ bất kỳ vector đầu vào nào, trong khi VQGAN có thể tạo ra một hình ảnh không nhất quán. Do đó, hướng dẫn thêm quá trình tạo hình ảnh, và điều này có thể được thực hiện bằng cách sử dụng CLIP.
 
 ![Kiến trúc VQGAN+CLIP](../../../translated_images/vi/vqgan.5027fe05051dfa31.webp)
 
-Để tạo ra một hình ảnh tương ứng với một gợi ý văn bản, chúng ta bắt đầu với một vector mã hóa ngẫu nhiên được đưa qua VQGAN để tạo ra một hình ảnh. Sau đó, CLIP được sử dụng để tạo ra một hàm mất mát cho biết mức độ phù hợp của hình ảnh với gợi ý văn bản. Mục tiêu sau đó là giảm thiểu hàm mất mát này, sử dụng lan truyền ngược để điều chỉnh các tham số vector đầu vào.
+Để tạo ra một hình ảnh tương ứng với một gợi ý văn bản, bắt đầu với một vector mã hóa ngẫu nhiên được đưa qua VQGAN để tạo ra một hình ảnh. Sau đó, CLIP được sử dụng để tạo ra một hàm mất mát cho biết mức độ phù hợp của hình ảnh với gợi ý văn bản. Mục tiêu sau đó là giảm thiểu hàm mất mát này, sử dụng lan truyền ngược để điều chỉnh các tham số vector đầu vào.
 
 Một thư viện tuyệt vời triển khai VQGAN+CLIP là [Pixray](http://github.com/pixray/pixray)
 

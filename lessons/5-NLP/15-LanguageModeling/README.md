@@ -4,11 +4,11 @@ Các biểu diễn ngữ nghĩa, như Word2Vec và GloVe, thực chất là bư�
 
 ## [Câu hỏi trước bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/29)
 
-Ý tưởng chính đằng sau mô hình ngôn ngữ là huấn luyện chúng trên các tập dữ liệu không gán nhãn theo cách không giám sát. Điều này quan trọng vì chúng ta có một lượng lớn văn bản không gán nhãn, trong khi lượng văn bản có gán nhãn luôn bị giới hạn bởi công sức mà chúng ta có thể bỏ ra để gán nhãn. Thông thường, chúng ta có thể xây dựng các mô hình ngôn ngữ có khả năng **dự đoán từ bị thiếu** trong văn bản, bởi vì việc che giấu một từ ngẫu nhiên trong văn bản và sử dụng nó làm mẫu huấn luyện là rất dễ dàng.
+Ý tưởng chính đằng sau mô hình ngôn ngữ là huấn luyện chúng trên các tập dữ liệu không gán nhãn theo cách không giám sát. Điều này quan trọng vì chúng ta có một lượng lớn văn bản không gán nhãn, trong khi lượng văn bản có gán nhãn luôn bị giới hạn bởi công sức mà bỏ ra để gán nhãn. Thông thường, xây dựng các mô hình ngôn ngữ có khả năng **dự đoán từ bị thiếu** trong văn bản, bởi vì việc che giấu một từ ngẫu nhiên trong văn bản và sử dụng nó làm mẫu huấn luyện là rất dễ dàng.
 
 ## Huấn luyện Biểu diễn
 
-Trong các ví dụ trước, chúng ta đã sử dụng các biểu diễn ngữ nghĩa được huấn luyện sẵn, nhưng sẽ rất thú vị khi xem cách các biểu diễn này được huấn luyện. Có một số ý tưởng có thể được sử dụng:
+Trong các ví dụ trước, sử dụng các biểu diễn ngữ nghĩa được huấn luyện sẵn, nhưng sẽ rất thú vị khi xem cách các biểu diễn này được huấn luyện. Có một số ý tưởng có thể được sử dụng:
 
 * **Mô hình ngôn ngữ N-Gram**, khi chúng ta dự đoán một token bằng cách nhìn vào N token trước đó (N-gram).
 * **Continuous Bag-of-Words** (CBoW), khi chúng ta dự đoán token ở giữa $W_0$ trong một chuỗi token $W_{-N}$, ..., $W_N$.
@@ -27,7 +27,7 @@ Tiếp tục học tập qua các notebook sau:
 
 ## Kết luận
 
-Trong bài học trước, chúng ta đã thấy rằng các biểu diễn từ hoạt động như một phép màu! Giờ đây, chúng ta biết rằng việc huấn luyện các biểu diễn từ không phải là một nhiệm vụ quá phức tạp, và chúng ta có thể tự huấn luyện các biểu diễn từ cho văn bản chuyên ngành nếu cần.
+Trong bài học trước, thấy rằng các biểu diễn từ hoạt động như một phép màu! Giờ đây, rằng việc huấn luyện các biểu diễn từ không phải là một nhiệm vụ quá phức tạp, và tự huấn luyện các biểu diễn từ cho văn bản chuyên ngành nếu cần.
 
 ## [Câu hỏi sau bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/30)
 

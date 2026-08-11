@@ -39,7 +39,7 @@ conda activate ai4beg
 python 01-hello-ai-world.py
 ```
 
-**Đối với sổ tay Jupyter (.ipynb):**
+**Đối với notebook Jupyter (.ipynb):**
 ```bash
 jupyter notebook 03-image-classifier.ipynb
 ```
@@ -48,7 +48,7 @@ jupyter notebook 03-image-classifier.ipynb
 
 Chúng tôi khuyên bạn nên làm theo thứ tự các ví dụ:
 
-1. **Bắt đầu với "Hello AI World"** - Học cơ bản về nhận dạng mẫu
+1. **Bắt đầu với “Hello AI World”** - Học cơ bản về nhận dạng mẫu
 2. **Xây dựng Mạng Nơ-ron Đơn giản** - Hiểu cách mạng nơ-ron hoạt động
 3. **Thử nghiệm Bộ phân loại hình ảnh** - Xem AI hoạt động với hình ảnh thực
 4. **Phân tích cảm xúc văn bản** - Khám phá xử lý ngôn ngữ tự nhiên

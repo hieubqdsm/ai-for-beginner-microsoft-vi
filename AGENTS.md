@@ -4,8 +4,8 @@
 
 AI for Beginners là một chương trình học kéo dài 12 tuần với 24 bài học, bao gồm các kiến thức cơ bản về Trí tuệ Nhân tạo. Kho tài liệu giáo dục này bao gồm các bài học thực hành sử dụng Jupyter Notebooks, bài kiểm tra và các phòng thí nghiệm thực hành. Chương trình học bao gồm:
 
-- AI biểu tượng với Đại diện Kiến thức và Hệ thống Chuyên gia
-- Mạng Neural và Học sâu với TensorFlow và PyTorch
+- AI ký hiệu với Đại diện Kiến thức và Hệ thống Chuyên gia
+- Mạng nơ-ron và Học sâu với TensorFlow và PyTorch
 - Kỹ thuật và kiến trúc Thị giác Máy tính
 - Xử lý Ngôn ngữ Tự nhiên (NLP) bao gồm transformers và BERT
 - Các chủ đề chuyên biệt: Thuật toán Di truyền, Học Tăng cường, Hệ thống Đa Tác nhân
@@ -72,7 +72,7 @@ npm run lint   # Lint and fix files
    - Mở trực tiếp các tệp `.ipynb` trong VS Code
 
 3. **Phát triển trên đám mây:**
-   - **GitHub Codespaces:** Nhấp vào "Code" → "Codespaces" → "Create codespace on main"
+   - **GitHub Codespaces:** Nhấp vào “Code” → “Codespaces” → “Create codespace on main”
    - **Binder:** Sử dụng huy hiệu Binder trên README để khởi chạy trong trình duyệt
    - Lưu ý: Binder có tài nguyên hạn chế và một số hạn chế truy cập web
 
@@ -208,7 +208,7 @@ Xem `etc/CONTRIBUTING.md` để biết các nhu cầu hiện tại:
 - Các phần Học Tăng cường Sâu
 - Cải tiến Phát hiện Đối tượng
 - Ví dụ Nhận dạng Thực thể Được đặt tên
-- Mẫu đào tạo nhúng tùy chỉnh
+- Mẫu huấn luyện embedding tùy chỉnh
 
 ## Cấu hình môi trường
 
@@ -253,8 +253,8 @@ Không yêu cầu biến môi trường đặc biệt cho việc sử dụng cơ
 **Vấn đề:** GPU không được phát hiện trong notebook
 - **Giải pháp:** 
   - Xác minh cài đặt CUDA: `nvidia-smi`
-  - Kiểm tra GPU PyTorch: `python -c "import torch; print(torch.cuda.is_available())"`
-  - Kiểm tra GPU TensorFlow: `python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"`
+  - Kiểm tra GPU PyTorch: `python -c “import torch; print(torch.cuda.is_available())”`
+  - Kiểm tra GPU TensorFlow: `python -c “import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))”`
 
 **Vấn đề:** Ứng dụng kiểm tra không khởi động
 - **Giải pháp:**

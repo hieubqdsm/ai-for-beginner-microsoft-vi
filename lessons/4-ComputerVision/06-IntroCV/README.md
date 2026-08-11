@@ -6,7 +6,7 @@
 
 Một trong những nhiệm vụ đơn giản nhất của thị giác máy tính là **phân loại hình ảnh**.
 
-Thị giác máy tính thường được coi là một nhánh của AI. Ngày nay, hầu hết các nhiệm vụ thị giác máy tính đều được giải quyết bằng mạng nơ-ron. Chúng ta sẽ tìm hiểu thêm về loại mạng nơ-ron đặc biệt được sử dụng cho thị giác máy tính, [mạng nơ-ron tích chập](../07-ConvNets/README.md), trong phần này.
+Thị giác máy tính thường được coi là một nhánh của AI. Ngày nay, hầu hết các nhiệm vụ thị giác máy tính đều được giải quyết bằng mạng nơ-ron. tìm hiểu thêm về loại mạng nơ-ron đặc biệt được sử dụng cho thị giác máy tính, [mạng nơ-ron tích chập](../07-ConvNets/README.md), trong phần này.
 
 Tuy nhiên, trước khi bạn đưa hình ảnh vào mạng nơ-ron, trong nhiều trường hợp, việc sử dụng một số kỹ thuật thuật toán để cải thiện hình ảnh là điều hợp lý.
 
@@ -69,7 +69,7 @@ Trong [OpenCV Notebook](https://colab.research.google.com/github/hieubqdsm/ai-fo
 
 > Hình ảnh từ [OpenCV.ipynb](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb)
 
-* **Phát hiện chuyển động trong video bằng sự khác biệt giữa các khung hình**. Nếu camera cố định, thì các khung hình từ luồng camera sẽ khá giống nhau. Vì các khung hình được biểu diễn dưới dạng mảng, chỉ cần trừ các mảng của hai khung hình liên tiếp, chúng ta sẽ nhận được sự khác biệt pixel, điều này sẽ thấp đối với các khung hình tĩnh và trở nên cao hơn khi có chuyển động đáng kể trong hình ảnh.
+* **Phát hiện chuyển động trong video bằng sự khác biệt giữa các khung hình**. Nếu camera cố định, thì các khung hình từ luồng camera sẽ khá giống nhau. Vì các khung hình được biểu diễn dưới dạng mảng, chỉ cần trừ các mảng của hai khung hình liên tiếp, nhận được sự khác biệt pixel, điều này sẽ thấp đối với các khung hình tĩnh và trở nên cao hơn khi có chuyển động đáng kể trong hình ảnh.
 
 ![Hình ảnh các khung hình video và sự khác biệt giữa các khung hình](../../../translated_images/vi/frame-difference.706f805491a0883c.webp)
 
@@ -106,7 +106,7 @@ Xem [video này](https://docs.microsoft.com/shows/ai-show/ai-show--2021-opencv-a
 
 Trong bài thực hành này, bạn sẽ quay một video với các cử chỉ đơn giản, và mục tiêu của bạn là trích xuất các chuyển động lên/xuống/trái/phải bằng dòng quang học.
 
-<img src="../../../translated_images/vi/palm-movement.341495f0e9c47da3.webp" width="30%" alt="Khung hình chuyển động lòng bàn tay"/>
+<img src=“../../../translated_images/vi/palm-movement.341495f0e9c47da3.webp” width=“30%” alt=“Khung hình chuyển động lòng bàn tay”/>
 
 ---
 

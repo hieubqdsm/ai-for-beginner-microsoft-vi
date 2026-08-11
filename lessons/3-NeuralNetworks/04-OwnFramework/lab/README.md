@@ -4,7 +4,7 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 
 ## Nhiệm vụ
 
-Giải quyết bài toán phân loại chữ số viết tay MNIST bằng cách sử dụng perceptron 1 lớp, 2 lớp và 3 lớp. Sử dụng framework mạng nơ-ron mà chúng ta đã phát triển trong bài học.
+Giải quyết bài toán phân loại chữ số viết tay MNIST bằng cách sử dụng perceptron 1 lớp, 2 lớp và 3 lớp. Sử dụng framework mạng nơ-ron mà phát triển trong bài học.
 
 ## Notebook khởi đầu
 

@@ -1,4 +1,4 @@
-# Bài tập: Sổ tay (Notebooks)
+# Bài tập: Notebook (Notebooks)
 
 Sử dụng các sổ tay liên quan đến bài học này (có thể là phiên bản PyTorch hoặc TensorFlow), chạy lại chúng với bộ dữ liệu của riêng bạn, có thể lấy từ Kaggle, và nhớ ghi nguồn. Viết lại sổ tay để làm nổi bật những phát hiện của bạn. Thử sử dụng một loại bộ dữ liệu khác và ghi lại những phát hiện của bạn, ví dụ như sử dụng văn bản như [bộ dữ liệu cuộc thi Kaggle này về các tweet thời tiết](https://www.kaggle.com/competitions/crowdflower-weather-twitter/data?select=train.csv).
 

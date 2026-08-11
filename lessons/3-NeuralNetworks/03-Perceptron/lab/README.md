@@ -4,15 +4,15 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 
 ## Nhiệm vụ
 
-Sử dụng mã mà chúng ta đã phát triển trong bài học này để phân loại nhị phân các chữ số viết tay MNIST, tạo một bộ phân loại đa lớp có thể nhận diện bất kỳ chữ số nào. Tính độ chính xác phân loại trên tập dữ liệu huấn luyện và kiểm tra, và in ra ma trận nhầm lẫn.
+Sử dụng mã mà phát triển trong bài học này để phân loại nhị phân các chữ số viết tay MNIST, tạo một bộ phân loại đa lớp có thể nhận diện bất kỳ chữ số nào. Tính độ chính xác phân loại trên tập dữ liệu huấn luyện và kiểm tra, và in ra ma trận nhầm lẫn.
 
 ## Gợi ý
 
-1. Đối với mỗi chữ số, tạo một tập dữ liệu cho bộ phân loại nhị phân "chữ số này so với tất cả các chữ số khác".
+1. Đối với mỗi chữ số, tạo một tập dữ liệu cho bộ phân loại nhị phân “chữ số này so với tất cả các chữ số khác”.
 1. Huấn luyện 10 perceptron khác nhau để phân loại nhị phân (mỗi perceptron cho một chữ số).
 1. Định nghĩa một hàm để phân loại một chữ số đầu vào.
 
-> **Gợi ý**: Nếu chúng ta kết hợp các trọng số của cả 10 perceptron vào một ma trận, chúng ta có thể áp dụng cả 10 perceptron lên các chữ số đầu vào chỉ bằng một phép nhân ma trận. Chữ số có khả năng cao nhất có thể được tìm thấy chỉ bằng cách áp dụng phép `argmax` trên đầu ra.
+> **Gợi ý**: Nếu chúng ta kết hợp các trọng số của cả 10 perceptron vào một ma trận, áp dụng cả 10 perceptron lên các chữ số đầu vào chỉ bằng một phép nhân ma trận. Chữ số có khả năng cao nhất có thể được tìm thấy chỉ bằng cách áp dụng phép `argmax` trên đầu ra.
 
 ## Notebook Bắt Đầu
 

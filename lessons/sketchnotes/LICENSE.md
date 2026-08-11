@@ -2,7 +2,7 @@ Quyền Chia Sẻ Tương Tự 4.0 Quốc Tế
 
 =======================================================================
 
-Tổ chức Creative Commons ("Creative Commons") không phải là một công ty luật và không cung cấp dịch vụ pháp lý hoặc tư vấn pháp lý. Việc phân phối các giấy phép công cộng của Creative Commons không tạo ra mối quan hệ luật sư-khách hàng hoặc bất kỳ mối quan hệ nào khác. Creative Commons cung cấp các giấy phép và thông tin liên quan trên cơ sở "nguyên trạng". Creative Commons không đưa ra bất kỳ bảo đảm nào liên quan đến giấy phép của mình, bất kỳ tài liệu nào được cấp phép theo các điều khoản và điều kiện của họ, hoặc bất kỳ thông tin liên quan nào. Creative Commons từ chối mọi trách nhiệm pháp lý đối với thiệt hại phát sinh từ việc sử dụng chúng trong phạm vi tối đa có thể.
+Tổ chức Creative Commons (“Creative Commons”) không phải là một công ty luật và không cung cấp dịch vụ pháp lý hoặc tư vấn pháp lý. Việc phân phối các giấy phép công cộng của Creative Commons không tạo ra mối quan hệ luật sư-khách hàng hoặc bất kỳ mối quan hệ nào khác. Creative Commons cung cấp các giấy phép và thông tin liên quan trên cơ sở “nguyên trạng”. Creative Commons không đưa ra bất kỳ bảo đảm nào liên quan đến giấy phép của mình, bất kỳ tài liệu nào được cấp phép theo các điều khoản và điều kiện của họ, hoặc bất kỳ thông tin liên quan nào. Creative Commons từ chối mọi trách nhiệm pháp lý đối với thiệt hại phát sinh từ việc sử dụng chúng trong phạm vi tối đa có thể.
 
 Sử dụng Giấy Phép Công Cộng Creative Commons
 
@@ -18,7 +18,7 @@ Giấy phép công cộng Creative Commons cung cấp một bộ điều khoản
 
 Giấy Phép Công Cộng Creative Commons Attribution-ShareAlike 4.0 Quốc Tế
 
-Bằng việc thực hiện các Quyền Được Cấp Phép (được định nghĩa dưới đây), Bạn chấp nhận và đồng ý bị ràng buộc bởi các điều khoản và điều kiện của Giấy Phép Công Cộng Creative Commons Attribution-ShareAlike 4.0 Quốc Tế này ("Giấy Phép Công Cộng"). Trong phạm vi Giấy Phép Công Cộng này có thể được hiểu như một hợp đồng, Bạn được cấp các Quyền Được Cấp Phép để đổi lấy việc Bạn chấp nhận các điều khoản và điều kiện này, và Người Cấp Phép cấp cho Bạn các quyền đó để đổi lấy lợi ích mà Người Cấp Phép nhận được từ việc cung cấp Tài Liệu Được Cấp Phép theo các điều khoản và điều kiện này.
+Bằng việc thực hiện các Quyền Được Cấp Phép (được định nghĩa dưới đây), Bạn chấp nhận và đồng ý bị ràng buộc bởi các điều khoản và điều kiện của Giấy Phép Công Cộng Creative Commons Attribution-ShareAlike 4.0 Quốc Tế này (“Giấy Phép Công Cộng”). Trong phạm vi Giấy Phép Công Cộng này có thể được hiểu như một hợp đồng, Bạn được cấp các Quyền Được Cấp Phép để đổi lấy việc Bạn chấp nhận các điều khoản và điều kiện này, và Người Cấp Phép cấp cho Bạn các quyền đó để đổi lấy lợi ích mà Người Cấp Phép nhận được từ việc cung cấp Tài Liệu Được Cấp Phép theo các điều khoản và điều kiện này.
 
 Mục 1 -- Định Nghĩa.
 
@@ -46,7 +46,7 @@ Mục 1 -- Định Nghĩa.
 
   l. Quyền Cơ Sở Dữ Liệu Sui Generis có nghĩa là các quyền khác ngoài bản quyền phát sinh từ Chỉ Thị 96/9/EC của Nghị Viện Châu Âu và Hội Đồng ngày 11 tháng 3 năm 1996 về bảo vệ pháp lý cơ sở dữ liệu, như được sửa đổi và/hoặc thay thế, cũng như các quyền tương đương về cơ bản ở bất kỳ nơi nào trên thế giới.
 
-  m. Bạn có nghĩa là cá nhân hoặc tổ chức thực hiện Quyền Được Cấp Phép theo Giấy Phép Công Cộng này. "Của Bạn" có nghĩa tương ứng.
+  m. Bạn có nghĩa là cá nhân hoặc tổ chức thực hiện Quyền Được Cấp Phép theo Giấy Phép Công Cộng này. “Của Bạn” có nghĩa tương ứng.
 Quyền, sau đó cơ sở dữ liệu mà Bạn có Quyền Cơ Sở Dữ Liệu Sui Generis (nhưng không phải nội dung cá nhân của nó) là Tài Liệu Được Chuyển Đổi,
 
 bao gồm cho các mục đích của Mục 3(b); và  
@@ -106,7 +106,7 @@ d. Không có điều gì trong Giấy Phép Công này cấu thành hoặc có 
 
 =======================================================================
 
-Creative Commons không phải là một bên trong các giấy phép công của mình. Tuy nhiên, Creative Commons có thể chọn áp dụng một trong các giấy phép công của mình cho tài liệu mà nó xuất bản và trong những trường hợp đó sẽ được coi là “Người Cấp Phép.” Văn bản của các giấy phép công Creative Commons được dành cho phạm vi công cộng theo CC0 Public Domain Dedication. Ngoại trừ mục đích hạn chế để chỉ ra rằng tài liệu được chia sẻ theo giấy phép công Creative Commons hoặc như được phép khác theo các chính sách của Creative Commons được công bố tại creativecommons.org/policies, Creative Commons không cho phép sử dụng nhãn hiệu "Creative Commons" hoặc bất kỳ nhãn hiệu hoặc logo nào khác của Creative Commons mà không có sự đồng ý bằng văn bản trước, bao gồm, nhưng không giới hạn, liên quan đến bất kỳ sửa đổi trái phép nào đối với bất kỳ giấy phép công nào của mình hoặc bất kỳ thỏa thuận, hiểu biết, hoặc hợp đồng nào khác liên quan đến việc sử dụng tài liệu được cấp phép. Để tránh hiểu nhầm, đoạn này không phải là một phần của các giấy phép công.
+Creative Commons không phải là một bên trong các giấy phép công của mình. Tuy nhiên, Creative Commons có thể chọn áp dụng một trong các giấy phép công của mình cho tài liệu mà nó xuất bản và trong những trường hợp đó sẽ được coi là “Người Cấp Phép.” Văn bản của các giấy phép công Creative Commons được dành cho phạm vi công cộng theo CC0 Public Domain Dedication. Ngoại trừ mục đích hạn chế để chỉ ra rằng tài liệu được chia sẻ theo giấy phép công Creative Commons hoặc như được phép khác theo các chính sách của Creative Commons được công bố tại creativecommons.org/policies, Creative Commons không cho phép sử dụng nhãn hiệu “Creative Commons” hoặc bất kỳ nhãn hiệu hoặc logo nào khác của Creative Commons mà không có sự đồng ý bằng văn bản trước, bao gồm, nhưng không giới hạn, liên quan đến bất kỳ sửa đổi trái phép nào đối với bất kỳ giấy phép công nào của mình hoặc bất kỳ thỏa thuận, hiểu biết, hoặc hợp đồng nào khác liên quan đến việc sử dụng tài liệu được cấp phép. Để tránh hiểu nhầm, đoạn này không phải là một phần của các giấy phép công.
 
 Creative Commons có thể được liên hệ tại creativecommons.org.
 

@@ -2,14 +2,14 @@
 
 ## [Câu hỏi trước bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/35)
 
-Một trong những vấn đề quan trọng nhất trong lĩnh vực NLP là **dịch máy**, một nhiệm vụ thiết yếu làm nền tảng cho các công cụ như Google Translate. Trong phần này, chúng ta sẽ tập trung vào dịch máy, hoặc nói chung hơn, vào bất kỳ nhiệm vụ *sequence-to-sequence* nào (còn được gọi là **chuyển đổi câu**).
+Một trong những vấn đề quan trọng nhất trong lĩnh vực NLP là **dịch máy**, một nhiệm vụ thiết yếu làm nền tảng cho các công cụ như Google Translate. Trong phần này, tập trung vào dịch máy, hoặc nói chung hơn, vào bất kỳ nhiệm vụ *sequence-to-sequence* nào (còn được gọi là **chuyển đổi câu**).
 
 Với RNNs, sequence-to-sequence được thực hiện bởi hai mạng hồi quy, trong đó một mạng, **encoder**, nén một chuỗi đầu vào thành trạng thái ẩn, trong khi mạng khác, **decoder**, mở rộng trạng thái ẩn này thành kết quả đã dịch. Có một số vấn đề với cách tiếp cận này:
 
 * Trạng thái cuối cùng của mạng encoder gặp khó khăn trong việc nhớ phần đầu của câu, dẫn đến chất lượng mô hình kém đối với các câu dài.
 * Tất cả các từ trong một chuỗi đều có tác động như nhau đến kết quả. Tuy nhiên, trong thực tế, các từ cụ thể trong chuỗi đầu vào thường có tác động lớn hơn đến các đầu ra tuần tự so với các từ khác.
 
-**Cơ chế Attention** cung cấp một cách để cân nhắc tác động ngữ cảnh của từng vector đầu vào lên từng dự đoán đầu ra của RNN. Cách nó được thực hiện là tạo các đường tắt giữa các trạng thái trung gian của RNN đầu vào và RNN đầu ra. Theo cách này, khi tạo ra ký hiệu đầu ra y<sub>t</sub>, chúng ta sẽ xem xét tất cả các trạng thái ẩn đầu vào h<sub>i</sub>, với các hệ số trọng số khác nhau &alpha;<sub>t,i</sub>.
+**Cơ chế Attention** cung cấp một cách để cân nhắc tác động ngữ cảnh của từng vector đầu vào lên từng dự đoán đầu ra của RNN. Cách nó được thực hiện là tạo các đường tắt giữa các trạng thái trung gian của RNN đầu vào và RNN đầu ra. Theo cách này, khi tạo ra ký hiệu đầu ra y<sub>t</sub>, xem xét tất cả các trạng thái ẩn đầu vào h<sub>i</sub>, với các hệ số trọng số khác nhau &alpha;<sub>t,i</sub>.
 
 ![Hình ảnh mô tả mô hình encoder/decoder với lớp attention cộng](../../../translated_images/vi/encoder-decoder-attention.7a726296894fb567.webp)
 
@@ -36,32 +36,32 @@ Một trong những ý tưởng chính đằng sau transformers là tránh tính
 * mã hóa vị trí
 * sử dụng cơ chế self-attention để nắm bắt các mẫu thay vì RNNs (hoặc CNNs) (đó là lý do tại sao bài báo giới thiệu transformers được gọi là *[Attention is all you need](https://arxiv.org/abs/1706.03762)*)
 
-### Mã hóa/nhúng vị trí
+### Mã hóa/embedding vị trí
 
 Ý tưởng của mã hóa vị trí như sau. 
 1. Khi sử dụng RNNs, vị trí tương đối của các token được biểu thị bằng số bước, do đó không cần phải biểu thị rõ ràng. 
-2. Tuy nhiên, khi chuyển sang attention, chúng ta cần biết vị trí tương đối của các token trong một chuỗi. 
-3. Để có mã hóa vị trí, chúng ta bổ sung chuỗi token của mình bằng một chuỗi vị trí của token trong chuỗi (tức là một chuỗi số 0,1,...).
-4. Sau đó, chúng ta trộn vị trí của token với vector nhúng của token. Để chuyển đổi vị trí (số nguyên) thành vector, chúng ta có thể sử dụng các phương pháp khác nhau:
+2. Tuy nhiên, khi chuyển sang attention, biết vị trí tương đối của các token trong một chuỗi. 
+3. Để có mã hóa vị trí, bổ sung chuỗi token của mình bằng một chuỗi vị trí của token trong chuỗi (tức là một chuỗi số 0,1,...).
+4. Sau đó, trộn vị trí của token với vector embedding của token. Để chuyển đổi vị trí (số nguyên) thành vector, sử dụng các phương pháp khác nhau:
 
-* Nhúng có thể huấn luyện, tương tự như nhúng token. Đây là cách tiếp cận chúng ta xem xét ở đây. Chúng ta áp dụng các lớp nhúng lên cả token và vị trí của chúng, tạo ra các vector nhúng có cùng kích thước, sau đó cộng chúng lại với nhau.
+* Embedding có thể huấn luyện, tương tự như embedding token. Đây là cách tiếp cận chúng ta xem xét ở đây. Chúng ta áp dụng các lớp embedding lên cả token và vị trí của chúng, tạo ra các vector embedding có cùng kích thước, sau đó cộng chúng lại với nhau.
 * Hàm mã hóa vị trí cố định, như được đề xuất trong bài báo gốc.
 
-<img src="../../../translated_images/vi/pos-embedding.e41ce9b6cf6078af.webp" width="50%"/>
+<img src=“../../../translated_images/vi/pos-embedding.e41ce9b6cf6078af.webp” width=“50%”/>
 
 > Hình ảnh của tác giả
 
-Kết quả mà chúng ta nhận được với nhúng vị trí là nhúng cả token gốc và vị trí của nó trong một chuỗi.
+Kết quả mà chúng ta nhận được với embedding vị trí là embedding cả token gốc và vị trí của nó trong một chuỗi.
 
 ### Multi-Head Self-Attention
 
-Tiếp theo, chúng ta cần nắm bắt một số mẫu trong chuỗi của mình. Để làm điều này, transformers sử dụng cơ chế **self-attention**, về cơ bản là attention được áp dụng cho cùng một chuỗi làm đầu vào và đầu ra. Việc áp dụng self-attention cho phép chúng ta xem xét **ngữ cảnh** trong câu và xem các từ nào có liên quan đến nhau. Ví dụ, nó cho phép chúng ta thấy các từ nào được tham chiếu bởi các đại từ như *it*, và cũng xem xét ngữ cảnh:
+Tiếp theo, nắm bắt một số mẫu trong chuỗi của mình. Để làm điều này, transformers sử dụng cơ chế **self-attention**, về cơ bản là attention được áp dụng cho cùng một chuỗi làm đầu vào và đầu ra. Việc áp dụng self-attention cho phép chúng ta xem xét **ngữ cảnh** trong câu và xem các từ nào có liên quan đến nhau. Ví dụ, nó cho phép các từ nào được tham chiếu bởi các đại từ như *it*, và cũng xem xét ngữ cảnh:
 
 ![](../../../translated_images/vi/CoreferenceResolution.861924d6d384a7d6.webp)
 
 > Hình ảnh từ [Blog của Google](https://research.googleblog.com/2017/08/transformer-novel-neural-network.html)
 
-Trong transformers, chúng ta sử dụng **Multi-Head Attention** để cung cấp cho mạng khả năng nắm bắt nhiều loại phụ thuộc khác nhau, ví dụ: mối quan hệ từ ngữ dài hạn so với ngắn hạn, đồng tham chiếu so với một thứ khác, v.v.
+Trong transformers, **Multi-Head Attention** để cung cấp cho mạng khả năng nắm bắt nhiều loại phụ thuộc khác nhau, ví dụ: mối quan hệ từ ngữ dài hạn so với ngắn hạn, đồng tham chiếu so với một thứ khác, v.v.
 
 [Notebook TensorFlow](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/18-Transformers/TransformersTF.ipynb) chứa thêm chi tiết về việc triển khai các lớp transformer.
 

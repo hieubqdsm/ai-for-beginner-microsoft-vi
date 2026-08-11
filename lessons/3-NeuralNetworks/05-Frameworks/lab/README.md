@@ -7,7 +7,7 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 Giải quyết hai bài toán phân loại bằng cách sử dụng mạng kết nối đầy đủ đơn lớp và đa lớp với PyTorch hoặc TensorFlow:
 
 1. **[Phân loại hoa Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** - một ví dụ về bài toán với dữ liệu đầu vào dạng bảng, có thể được xử lý bằng các phương pháp học máy cổ điển. Mục tiêu của bạn là phân loại các loài hoa Iris thành 3 nhóm dựa trên 4 tham số số học.
-1. **Phân loại chữ số viết tay MNIST** mà chúng ta đã thấy trước đây.
+1. **Phân loại chữ số viết tay MNIST** mà thấy trước đây.
 
 Hãy thử các kiến trúc mạng khác nhau để đạt được độ chính xác tốt nhất có thể.
 

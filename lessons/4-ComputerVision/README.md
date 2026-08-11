@@ -2,7 +2,7 @@
 
 ![Tóm tắt nội dung Thị giác Máy tính dưới dạng hình vẽ](../../translated_images/vi/ai-computervision.6506ebebac3fbf76.webp)
 
-Trong phần này, chúng ta sẽ tìm hiểu về:
+Trong phần này, tìm hiểu về:
 
 * [Giới thiệu về Thị giác Máy tính và OpenCV](06-IntroCV/README.md)
 * [Mạng Nơ-ron Tích chập](07-ConvNets/README.md)

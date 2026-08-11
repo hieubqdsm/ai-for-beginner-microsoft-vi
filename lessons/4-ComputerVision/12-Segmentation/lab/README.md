@@ -4,11 +4,11 @@ Bài tập thực hành từ [AI for Beginners Curriculum](https://github.com/mi
 
 ## Nhiệm vụ
 
-Trong sản xuất video, ví dụ như dự báo thời tiết, chúng ta thường cần cắt hình ảnh của một người từ camera và đặt nó lên một cảnh quay khác. Điều này thường được thực hiện bằng kỹ thuật **chroma key**, khi một người được quay trước nền màu đồng nhất, sau đó nền này sẽ bị loại bỏ. Trong bài thực hành này, chúng ta sẽ huấn luyện một mô hình mạng nơ-ron để cắt ra hình dáng của người.
+Trong sản xuất video, ví dụ như dự báo thời tiết, thường cần cắt hình ảnh của một người từ camera và đặt nó lên một cảnh quay khác. Điều này thường được thực hiện bằng kỹ thuật **chroma key**, khi một người được quay trước nền màu đồng nhất, sau đó nền này sẽ bị loại bỏ. Trong bài thực hành này, huấn luyện một mô hình mạng nơ-ron để cắt ra hình dáng của người.
 
 ## Bộ Dữ Liệu
 
-Chúng ta sẽ sử dụng [Segmentation Full Body MADS Dataset](https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-mads-dataset) từ Kaggle. Tải bộ dữ liệu này thủ công từ Kaggle.
+sử dụng [Segmentation Full Body MADS Dataset](https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-mads-dataset) từ Kaggle. Tải bộ dữ liệu này thủ công từ Kaggle.
 
 ## Notebook Bắt Đầu
 
@@ -16,7 +16,7 @@ Bắt đầu bài thực hành bằng cách mở [BodySegmentation.ipynb](https:
 
 ## Kết Quả Đạt Được
 
-Phân đoạn cơ thể người chỉ là một trong những nhiệm vụ phổ biến mà chúng ta có thể thực hiện với hình ảnh của con người. Các nhiệm vụ quan trọng khác bao gồm **phát hiện khung xương** và **phát hiện tư thế**. Hãy tìm hiểu thư viện [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) để xem cách thực hiện những nhiệm vụ này.
+Phân đoạn cơ thể người chỉ là một trong những nhiệm vụ phổ biến mà thực hiện với hình ảnh của con người. Các nhiệm vụ quan trọng khác bao gồm **phát hiện khung xương** và **phát hiện tư thế**. Hãy tìm hiểu thư viện [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) để xem cách thực hiện những nhiệm vụ này.
 
 ---
 

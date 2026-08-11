@@ -175,7 +175,7 @@ Hướng dẫn này giúp bạn giải quyết các vấn đề thường gặp 
 
 **Giải pháp:**
 1. **Khởi động lại kernel.**  
-   Sử dụng nút "Restart Kernel" trong Jupyter.
+   Sử dụng nút “Restart Kernel” trong Jupyter.
 2. **Kiểm tra mức sử dụng bộ nhớ.**  
    Đóng các ứng dụng không sử dụng.
 3. **Chạy notebook trên nền tảng đám mây.**  
@@ -255,7 +255,7 @@ Hướng dẫn này giúp bạn giải quyết các vấn đề thường gặp 
 - Mỗi module thường có README riêng. Bắt đầu từ đó để biết cách thiết lập và sử dụng.
 
 ### Làm thế nào để báo cáo lỗi hoặc yêu cầu tính năng?
-- [Mở một vấn đề trên GitHub](https://github.com/microsoft/AI-For-Beginners/issues/new) với mô tả rõ ràng và các bước để tái hiện.
+- [Mở một vấn đề trên GitHub](https://github.com/microsoft/AI-For-Beginners/issues/new) với mô tả rõ ràng và các bước để hồi tiếp.
 
 ### Tôi có thể yêu cầu trợ giúp nếu vấn đề của tôi không được liệt kê?
 - Có! Tìm kiếm các vấn đề hiện có trước, và nếu không tìm thấy vấn đề của bạn, hãy tạo một vấn đề mới.

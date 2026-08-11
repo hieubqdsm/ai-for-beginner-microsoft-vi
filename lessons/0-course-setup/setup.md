@@ -21,7 +21,7 @@ Tuy nhiên, nếu bạn muốn học khóa học này như một dự án tự h
 * Các notebook thường chứa một số thử thách yêu cầu bạn chỉnh sửa mã một chút để thử nghiệm.
 * Làm bài kiểm tra sau bài giảng.
 * Nếu có bài thực hành đi kèm với module - hoàn thành bài tập.
-* Tham gia [Bảng thảo luận](https://github.com/microsoft/AI-For-Beginners/discussions) để "học cùng nhau".
+* Tham gia [Bảng thảo luận](https://github.com/microsoft/AI-For-Beginners/discussions) để “học cùng nhau”.
 
 > Để học thêm, chúng tôi khuyến nghị bạn theo dõi các module và lộ trình học [Microsoft Learn](https://docs.microsoft.com/en-us/users/dmitrysoshnikov-9132/collections/31zgizg2p418yo/?WT.mc_id=academic-77998-cacaste).
 

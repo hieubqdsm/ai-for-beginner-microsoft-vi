@@ -1,6 +1,6 @@
 # Phát Hiện Đối Tượng
 
-Các mô hình phân loại hình ảnh mà chúng ta đã làm việc trước đây nhận một hình ảnh và đưa ra kết quả phân loại, chẳng hạn như lớp 'số' trong bài toán MNIST. Tuy nhiên, trong nhiều trường hợp, chúng ta không chỉ muốn biết rằng một bức ảnh có chứa các đối tượng - mà còn muốn xác định vị trí chính xác của chúng. Đây chính là mục đích của **phát hiện đối tượng**.
+Các mô hình phân loại hình ảnh mà làm việc trước đây nhận một hình ảnh và đưa ra kết quả phân loại, chẳng hạn như lớp 'số' trong bài toán MNIST. Tuy nhiên, trong nhiều trường hợp, chỉ muốn biết rằng một bức ảnh có chứa các đối tượng - mà còn muốn xác định vị trí chính xác của chúng. Đây chính là mục đích của **phát hiện đối tượng**.
 
 ## [Câu hỏi trước bài giảng](https://ff-quizzes.netlify.app/en/ai/quiz/21)
 
@@ -10,7 +10,7 @@ Các mô hình phân loại hình ảnh mà chúng ta đã làm việc trước 
 
 ## Một Cách Tiếp Cận Đơn Giản Để Phát Hiện Đối Tượng
 
-Giả sử chúng ta muốn tìm một con mèo trong một bức ảnh, một cách tiếp cận rất đơn giản để phát hiện đối tượng sẽ là:
+Giả sử tìm một con mèo trong một bức ảnh, một cách tiếp cận rất đơn giản để phát hiện đối tượng sẽ là:
 
 1. Chia bức ảnh thành nhiều ô nhỏ.
 2. Chạy phân loại hình ảnh trên từng ô.
@@ -20,7 +20,7 @@ Giả sử chúng ta muốn tìm một con mèo trong một bức ảnh, một c
 
 > *Hình ảnh từ [Notebook Bài Tập](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection.ipynb)*
 
-Tuy nhiên, cách tiếp cận này còn xa mới đạt được lý tưởng, vì nó chỉ cho phép thuật toán xác định hộp bao đối tượng một cách rất không chính xác. Để có vị trí chính xác hơn, chúng ta cần chạy một loại **hồi quy** để dự đoán tọa độ của các hộp bao - và để làm điều đó, chúng ta cần các tập dữ liệu cụ thể.
+Tuy nhiên, cách tiếp cận này còn xa mới đạt được lý tưởng, vì nó chỉ cho phép thuật toán xác định hộp bao đối tượng một cách rất không chính xác. Để có vị trí chính xác hơn, chạy một loại **hồi quy** để dự đoán tọa độ của các hộp bao - và để làm điều đó, các tập dữ liệu cụ thể.
 
 ## Hồi Quy Cho Phát Hiện Đối Tượng
 
@@ -39,7 +39,7 @@ Bạn có thể gặp các tập dữ liệu sau cho nhiệm vụ này:
 
 ### Intersection over Union
 
-Trong khi đối với phân loại hình ảnh, việc đo lường hiệu suất của thuật toán khá dễ dàng, thì đối với phát hiện đối tượng, chúng ta cần đo lường cả độ chính xác của lớp, cũng như độ chính xác của vị trí hộp bao được suy ra. Đối với yếu tố sau, chúng ta sử dụng chỉ số **Intersection over Union** (IoU), đo lường mức độ chồng lấp giữa hai hộp (hoặc hai khu vực bất kỳ).
+Trong khi đối với phân loại hình ảnh, việc đo lường hiệu suất của thuật toán khá dễ dàng, thì đối với phát hiện đối tượng, đo lường cả độ chính xác của lớp, cũng như độ chính xác của vị trí hộp bao được suy ra. Đối với yếu tố sau, chỉ số **Intersection over Union** (IoU), đo lường mức độ chồng lấp giữa hai hộp (hoặc hai khu vực bất kỳ).
 
 ![IoU](../../../translated_images/vi/iou_equation.9a4751d40fff4e11.webp)
 
@@ -49,13 +49,13 @@ Trong khi đối với phân loại hình ảnh, việc đo lường hiệu su�
 
 ### Độ Chính Xác Trung Bình
 
-Giả sử chúng ta muốn đo lường mức độ nhận diện tốt của một lớp đối tượng $C$ nào đó. Để đo lường điều này, chúng ta sử dụng chỉ số **Độ Chính Xác Trung Bình** (Average Precision - AP), được tính như sau:
+Giả sử đo lường mức độ nhận diện tốt của một lớp đối tượng $C$ nào đó. Để đo lường điều này, chỉ số **Độ Chính Xác Trung Bình** (Average Precision - AP), được tính như sau:
 
 1. Xem xét đường cong Precision-Recall thể hiện độ chính xác phụ thuộc vào giá trị ngưỡng phát hiện (từ 0 đến 1).
-2. Tùy thuộc vào ngưỡng, chúng ta sẽ phát hiện được nhiều hoặc ít đối tượng trong hình ảnh, và các giá trị precision và recall khác nhau.
+2. Tùy thuộc vào ngưỡng, phát hiện được nhiều hoặc ít đối tượng trong hình ảnh, và các giá trị precision và recall khác nhau.
 3. Đường cong sẽ trông như thế này:
 
-<img src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecall.png"/>
+<img src=“https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecall.png”/>
 
 > *Hình ảnh từ [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*
 
@@ -69,7 +69,7 @@ $$
 
 Chúng ta chỉ xem xét các phát hiện mà IoU vượt qua một giá trị nhất định. Ví dụ, trong tập dữ liệu PASCAL VOC, thường giả định $\mbox{IoU Threshold} = 0.5$, trong khi trong COCO, AP được đo lường cho các giá trị khác nhau của $\mbox{IoU Threshold}$.
 
-<img src="https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecallIoU.png"/>
+<img src=“https://github.com/shwars/NeuroWorkshop/raw/master/images/ObjDetectionPrecisionRecallIoU.png”/>
 
 > *Hình ảnh từ [NeuroWorkshop](http://github.com/shwars/NeuroWorkshop)*
 
@@ -83,7 +83,7 @@ Chỉ số chính cho Phát Hiện Đối Tượng được gọi là **Độ Ch
 Có hai loại thuật toán phát hiện đối tượng chính:
 
 * **Mạng Đề Xuất Vùng** (R-CNN, Fast R-CNN, Faster R-CNN). Ý tưởng chính là tạo ra các **Vùng Quan Tâm** (ROI) và chạy CNN trên chúng, tìm kiếm kích hoạt tối đa. Điều này hơi giống với cách tiếp cận đơn giản, ngoại trừ việc các ROI được tạo ra một cách thông minh hơn. Một trong những nhược điểm lớn của các phương pháp này là chúng chậm, vì cần nhiều lần chạy bộ phân loại CNN trên hình ảnh.
-* Các phương pháp **Một Lần Duy Nhất** (YOLO, SSD, RetinaNet). Trong các kiến trúc này, chúng ta thiết kế mạng để dự đoán cả lớp và ROI trong một lần chạy.
+* Các phương pháp **Một Lần Duy Nhất** (YOLO, SSD, RetinaNet). Trong các kiến trúc này, thiết kế mạng để dự đoán cả lớp và ROI trong một lần chạy.
 
 ### R-CNN: CNN Dựa Trên Vùng
 

@@ -11,7 +11,7 @@ Khi bạn gửi yêu cầu kéo, một bot CLA sẽ tự động xác định xe
 ## Cách Đóng góp
 
 ### 1. Sửa lỗi chính tả / lỗi mã
-Nếu bạn tìm thấy lỗi chính tả hoặc lỗi trong bất kỳ sổ tay Jupyter hoặc tập tin markdown bài học nào:
+Nếu bạn tìm thấy lỗi chính tả hoặc lỗi trong bất kỳ notebook Jupyter hoặc tập tin markdown bài học nào:
 1. Fork kho lưu trữ.
 2. Sửa lỗi chính tả hoặc liên kết hỏng.
 3. Gửi Yêu cầu Kéo với mô tả rõ ràng về sửa chữa.

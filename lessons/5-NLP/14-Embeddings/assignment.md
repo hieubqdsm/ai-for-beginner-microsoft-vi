@@ -1,4 +1,4 @@
-# Bài tập: Sổ tay (Notebooks)
+# Bài tập: Notebook (Notebooks)
 
 Sử dụng các sổ tay liên quan đến bài học này (có thể là phiên bản PyTorch hoặc TensorFlow), chạy lại chúng với bộ dữ liệu của riêng bạn, có thể lấy từ Kaggle, và nhớ ghi nguồn. Viết lại sổ tay để làm nổi bật những phát hiện của bạn. Thử sử dụng một loại bộ dữ liệu khác và ghi lại những phát hiện của bạn, sử dụng văn bản như [lời bài hát của Beatles](https://www.kaggle.com/datasets/jenlooper/beatles-lyrics).
 
