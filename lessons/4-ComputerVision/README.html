@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thị giác Máy tính</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+.main {
+  margin-left: 280px;
+  padding: 40px 56px 80px;
+  max-width: 980px;
+}
+.content { max-width: 820px; }
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../examples/README.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../lessons/1-Intro/README.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../lessons/2-Symbolic/README.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../lessons/3-NeuralNetworks/03-Perceptron/README.html">Perceptron</a></li>
+    <li><a href="../../lessons/3-NeuralNetworks/04-OwnFramework/README.html">MLP & tự xây framework</a></li>
+    <li><a href="../../lessons/3-NeuralNetworks/05-Frameworks/README.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../lessons/4-ComputerVision/07-ConvNets/README.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../lessons/4-ComputerVision/08-TransferLearning/README.html">Transfer Learning</a></li>
+    <li><a href="../../lessons/4-ComputerVision/09-Autoencoders/README.html">Autoencoders & VAE</a></li>
+    <li><a href="../../lessons/4-ComputerVision/10-GANs/README.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../lessons/4-ComputerVision/12-Segmentation/README.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../lessons/5-NLP/14-Embeddings/README.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../lessons/5-NLP/15-LanguageModeling/README.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../lessons/5-NLP/16-RNN/README.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../lessons/5-NLP/18-Transformers/README.html">Transformers & BERT</a></li>
+    <li><a href="../../lessons/5-NLP/19-NER/README.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../lessons/5-NLP/20-LangModels/README.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../lessons/6-Other/21-GeneticAlgorithms/README.html">Thuật toán di truyền</a></li>
+    <li><a href="../../lessons/6-Other/22-DeepRL/README.html">Học tăng cường sâu</a></li>
+    <li><a href="../../lessons/6-Other/23-MultiagentSystems/README.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../lessons/7-Ethics/README.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../lessons/X-Extras/X1-MultiModal/README.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="thi-giac-may-tinh">Thị giác Máy tính</h1>
+<p><img alt="Tóm tắt nội dung Thị giác Máy tính dưới dạng hình vẽ" src="../../translated_images/vi/ai-computervision.6506ebebac3fbf76.webp" /></p>
+<p>Trong phần này, tìm hiểu về:</p>
+<ul>
+<li><a href="/lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu về Thị giác Máy tính và OpenCV</a></li>
+<li><a href="/lessons/4-ComputerVision/07-ConvNets/README.html">Mạng Nơ-ron Tích chập</a></li>
+<li><a href="/lessons/4-ComputerVision/08-TransferLearning/README.html">Mạng được Huấn luyện sẵn và Học Chuyển giao</a> </li>
+<li><a href="/lessons/4-ComputerVision/09-Autoencoders/README.html">Bộ mã hóa tự động</a></li>
+<li><a href="/lessons/4-ComputerVision/10-GANs/README.html">Mạng Đối kháng Tạo sinh</a></li>
+<li><a href="/lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện Đối tượng</a></li>
+<li><a href="/lessons/4-ComputerVision/12-Segmentation/README.html">Phân đoạn Ngữ nghĩa</a></li>
+</ul>
+<hr />
+<p><strong>Tuyên bố miễn trừ trách nhiệm</strong>:<br />
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI <a href="https://github.com/Azure/co-op-translator">Co-op Translator</a>. Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ bản địa nên được coi là nguồn tham khảo chính thức. Đối với các thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp từ con người. Chúng tôi không chịu trách nhiệm cho bất kỳ sự hiểu lầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.</p>
+  </article>
+</main>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xử lý Ngôn ngữ Tự nhiên</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+.main {
+  margin-left: 280px;
+  padding: 40px 56px 80px;
+  max-width: 980px;
+}
+.content { max-width: 820px; }
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../examples/README.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../lessons/1-Intro/README.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../lessons/2-Symbolic/README.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../lessons/3-NeuralNetworks/03-Perceptron/README.html">Perceptron</a></li>
+    <li><a href="../../lessons/3-NeuralNetworks/04-OwnFramework/README.html">MLP & tự xây framework</a></li>
+    <li><a href="../../lessons/3-NeuralNetworks/05-Frameworks/README.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../lessons/4-ComputerVision/07-ConvNets/README.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../lessons/4-ComputerVision/08-TransferLearning/README.html">Transfer Learning</a></li>
+    <li><a href="../../lessons/4-ComputerVision/09-Autoencoders/README.html">Autoencoders & VAE</a></li>
+    <li><a href="../../lessons/4-ComputerVision/10-GANs/README.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../lessons/4-ComputerVision/12-Segmentation/README.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../lessons/5-NLP/14-Embeddings/README.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../lessons/5-NLP/15-LanguageModeling/README.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../lessons/5-NLP/16-RNN/README.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../lessons/5-NLP/18-Transformers/README.html">Transformers & BERT</a></li>
+    <li><a href="../../lessons/5-NLP/19-NER/README.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../lessons/5-NLP/20-LangModels/README.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../lessons/6-Other/21-GeneticAlgorithms/README.html">Thuật toán di truyền</a></li>
+    <li><a href="../../lessons/6-Other/22-DeepRL/README.html">Học tăng cường sâu</a></li>
+    <li><a href="../../lessons/6-Other/23-MultiagentSystems/README.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../lessons/7-Ethics/README.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../lessons/X-Extras/X1-MultiModal/README.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="xu-ly-ngon-ngu-tu-nhien">Xử lý Ngôn ngữ Tự nhiên</h1>
+<p><img alt="Tóm tắt các nhiệm vụ NLP bằng hình vẽ phác thảo" src="../../translated_images/vi/ai-nlp.b22dcb8ca4707cea.webp" /></p>
+<p>Trong phần này, tập trung vào việc sử dụng Mạng Nơ-ron để xử lý các nhiệm vụ liên quan đến <strong>Xử lý Ngôn ngữ Tự nhiên (NLP)</strong>. Có nhiều vấn đề NLP mà máy tính có thể giải quyết:</p>
+<ul>
+<li><strong>Phân loại văn bản</strong> là một bài toán phân loại điển hình liên quan đến các chuỗi văn bản. Ví dụ bao gồm phân loại email thành spam hoặc không spam, hoặc phân loại các bài viết thành thể thao, kinh doanh, chính trị, v.v. Ngoài ra, khi phát triển chatbot, thường cần hiểu người dùng muốn nói gì — trong trường hợp này chúng ta xử lý <strong>phân loại ý định</strong>. Thường thì, trong phân loại ý định xử lý nhiều loại khác nhau.</li>
+<li><strong>Phân tích đánh giá cảm xúc</strong> là một bài toán hồi quy điển hình, trong đó gán một số (một điểm cảm xúc) tương ứng với mức độ tích cực/tiêu cực của ý nghĩa câu. Phiên bản nâng cao hơn của phân tích cảm xúc là <strong>phân tích cảm xúc dựa trên khía cạnh</strong> (ABSA), trong đó chúng ta gán cảm xúc không phải cho toàn bộ câu mà cho các phần khác nhau của nó (các khía cạnh), ví dụ <em>Ở nhà hàng này, tôi thích ẩm thực, nhưng không khí lại tồi tệ</em>.</li>
+<li><strong>Nhận diện Thực thể Có tên</strong> (NER) đề cập đến bài toán trích xuất các thực thể nhất định từ văn bản. Ví dụ, cần hiểu rằng trong câu <em>Tôi cần bay đến Paris vào ngày mai</em> thì từ <em>ngày mai</em> đề cập đến NGÀY THÁNG, và <em>Paris</em> là một ĐỊA ĐIỂM.  </li>
+<li><strong>Trích xuất từ khóa</strong> tương tự như NER, nhưng trích xuất tự động các từ quan trọng với ý nghĩa của câu, không sử dụng tiền huấn luyện cho các loại thực thể cụ thể.</li>
+<li><strong>Phân cụm văn bản</strong> có thể hữu ích khi nhóm các câu tương tự lại với nhau, ví dụ như các yêu cầu giống nhau trong cuộc trò chuyện hỗ trợ kỹ thuật.</li>
+<li><strong>Trả lời câu hỏi</strong> đề cập đến khả năng của mô hình trả lời một câu hỏi cụ thể. Mô hình nhận đầu vào là đoạn văn bản và câu hỏi, và cần cung cấp vị trí trong văn bản chứa câu trả lời cho câu hỏi (hoặc, đôi khi, tạo ra văn bản câu trả lời).</li>
+<li><strong>Tạo văn bản</strong> là khả năng của mô hình tạo ra văn bản mới. Nó có thể được coi là bài toán phân loại dự đoán ký tự/từ tiếp theo dựa trên một <em>đoạn kích thích văn bản</em>. Các mô hình tạo văn bản tiên tiến, như GPT-3, có thể giải các nhiệm vụ NLP khác như phân loại bằng kỹ thuật gọi là <a href="https://towardsdatascience.com/software-3-0-how-prompting-will-change-the-rules-of-the-game-a982fbfe1e0">lập trình kích thích</a> hoặc <a href="https://medium.com/swlh/openai-gpt-3-and-prompt-engineering-dcdc2c5fcd29">kỹ thuật kích thích</a></li>
+<li><strong>Tóm tắt văn bản</strong> là kỹ thuật khi bạn muốn máy tính “đọc” văn bản dài và tóm tắt nó trong vài câu.</li>
+<li><strong>Dịch máy</strong> có thể được xem như sự kết hợp của việc hiểu văn bản trong một ngôn ngữ, và tạo văn bản trong một ngôn ngữ khác.</li>
+</ul>
+<p>Ban đầu, hầu hết các nhiệm vụ NLP được giải quyết bằng các phương pháp truyền thống như ngữ pháp. Ví dụ, trong dịch máy người ta dùng bộ phân tích cú pháp để chuyển câu ban đầu thành cây cú pháp, rồi trích xuất các cấu trúc ngữ nghĩa cấp cao hơn để biểu diễn ý nghĩa câu, và dựa trên ý nghĩa này và ngữ pháp ngôn ngữ đích kết quả được tạo ra. Ngày nay, nhiều nhiệm vụ NLP được giải quyết hiệu quả hơn bằng cách sử dụng mạng nơ-ron.</p>
+<blockquote>
+<p>Nhiều phương pháp NLP cổ điển được cài đặt trong thư viện Python <a href="https://www.nltk.org">Natural Language Processing Toolkit (NLTK)</a>. Có một cuốn <a href="https://www.nltk.org/book/">Sách NLTK</a> tuyệt vời trực tuyến hướng dẫn cách giải quyết các nhiệm vụ NLP khác nhau bằng NLTK.</p>
+</blockquote>
+<p>Trong khóa học này, chủ yếu tập trung vào việc sử dụng Mạng Nơ-ron cho NLP, và sử dụng NLTK khi cần.</p>
+<p>học về việc sử dụng mạng nơ-ron để xử lý dữ liệu bảng và hình ảnh. Sự khác biệt chính giữa các loại dữ liệu đó và văn bản là văn bản là một chuỗi có độ dài thay đổi, trong khi kích thước đầu vào trong trường hợp hình ảnh đã biết trước. Trong khi mạng tích chập có thể trích xuất mẫu từ dữ liệu đầu vào, các mẫu trong văn bản phức tạp hơn. Ví dụ, có sự phủ định tách rời ra khỏi chủ ngữ với khoảng cách bất kỳ bao nhiêu từ (ví dụ <em>Tôi không thích cam</em>, vs. <em>Tôi không thích những quả cam to nhiều màu sắc và ngon</em>), và điều đó vẫn phải được hiểu là một mẫu duy nhất. Do đó, để xử lý ngôn ngữ giới thiệu các loại mạng nơ-ron mới, như <em>mạng hồi tiếp</em> và <em>transformers</em>.</p>
+<h2 id="cai-at-thu-vien">Cài đặt Thư viện</h2>
+<p>Nếu bạn sử dụng cài đặt Python cục bộ để chạy khóa học này, bạn có thể cần cài đặt tất cả các thư viện cần thiết cho NLP bằng các lệnh sau:</p>
+<p><strong>Dành cho PyTorch</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>requirements-pytorch.txt
+</code></pre></div>
+
+<p><strong>Dành cho TensorFlow</strong></p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>pip<span style="color: #BBB"> </span>install<span style="color: #BBB"> </span>-r<span style="color: #BBB"> </span>requirements-tf.txt
+</code></pre></div>
+
+<blockquote>
+<p>Bạn có thể thử NLP với TensorFlow trên <a href="https://docs.microsoft.com/learn/modules/intro-natural-language-processing-tensorflow/?WT.mc_id=academic-77998-cacaste">Microsoft Learn</a></p>
+</blockquote>
+<h2 id="canh-bao-gpu">Cảnh báo GPU</h2>
+<p>Trong phần này, trong một số ví dụ huấn luyện các mô hình khá lớn.
+* <strong>Sử dụng máy tính có GPU</strong>: Nên chạy notebook của bạn trên máy tính có GPU để giảm thời gian chờ khi làm việc với các mô hình lớn.
+* <strong>Hạn chế bộ nhớ GPU</strong>: Chạy trên GPU có thể dẫn đến tình trạng hết bộ nhớ GPU, đặc biệt khi huấn luyện các mô hình lớn.
+* <strong>Tiêu thụ bộ nhớ GPU</strong>: Lượng bộ nhớ GPU sử dụng trong quá trình huấn luyện phụ thuộc vào nhiều yếu tố, bao gồm kích thước minibatch.
+* <strong>Giảm kích thước Minibatch</strong>: Nếu gặp vấn đề về bộ nhớ GPU, hãy cân nhắc giảm kích thước minibatch trong code của bạn như một giải pháp tiềm năng.
+* <strong>Giải phóng bộ nhớ GPU của TensorFlow</strong>: Các phiên bản TensorFlow cũ có thể không giải phóng bộ nhớ GPU đúng cách khi huấn luyện nhiều mô hình trong một kernel Python. Để quản lý hiệu quả bộ nhớ GPU, bạn có thể cấu hình TensorFlow để cấp phát bộ nhớ GPU chỉ khi cần.
+* <strong>Bao gồm mã code</strong>: Để đặt TensorFlow chỉ tăng bộ nhớ GPU khi cần, hãy bao gồm đoạn mã sau trong notebook của bạn:</p>
+<div class="codehilite" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>physical_devices <span style="color: #666">=</span> tf<span style="color: #666">.</span>config<span style="color: #666">.</span>list_physical_devices(<span style="color: #BA2121">&#39;GPU&#39;</span>) 
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(physical_devices)<span style="color: #666">&gt;0</span>:
+    tf<span style="color: #666">.</span>config<span style="color: #666">.</span>experimental<span style="color: #666">.</span>set_memory_growth(physical_devices[<span style="color: #666">0</span>], <span style="color: #008000; font-weight: bold">True</span>) 
+</code></pre></div>
+
+<p>Nếu bạn quan tâm đến việc học NLP từ góc nhìn ML cổ điển, hãy truy cập <a href="https://github.com/microsoft/ML-For-Beginners/tree/main/6-NLP">bộ bài học này</a></p>
+<h2 id="trong-phan-nay">Trong Phần này</h2>
+<p>Trong phần này học về:</p>
+<ul>
+<li><a href="/lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản dưới dạng tensor</a></li>
+<li><a href="/lessons/5-NLP/14-Embeddings/README.html">Word Embeddings</a></li>
+<li><a href="/lessons/5-NLP/15-LanguageModeling/README.html">Mô hình Ngôn ngữ</a></li>
+<li><a href="/lessons/5-NLP/16-RNN/README.html">Mạng Nơ-ron Hồi tiếp</a></li>
+<li><a href="/lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng Sinh tạo</a></li>
+<li><a href="/lessons/5-NLP/18-Transformers/README.html">Transformers</a></li>
+</ul>
+<hr />
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+<p><strong>Tuyên bố miễn trừ trách nhiệm</strong>:
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI <a href="https://github.com/Azure/co-op-translator">Co-op Translator</a>. Mặc dù chúng tôi cố gắng đảm bảo độ chính xác, xin lưu ý rằng bản dịch tự động có thể chứa lỗi hoặc sai sót. Tài liệu gốc bằng ngôn ngữ gốc nên được coi là nguồn tin chính thức. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp bởi con người. Chúng tôi không chịu trách nhiệm về bất kỳ hiểu lầm hoặc giải thích sai nào phát sinh từ việc sử dụng bản dịch này.</p>
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
+  </article>
+</main>
+</body>
+</html>

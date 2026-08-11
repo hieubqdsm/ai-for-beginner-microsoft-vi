@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Các Kiến Trúc CNN Nổi Tiếng</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+.main {
+  margin-left: 280px;
+  padding: 40px 56px 80px;
+  max-width: 980px;
+}
+.content { max-width: 820px; }
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../../../index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="../../../index.html">🏠 Trang chủ</a></li>
+    <li><a href="../../../examples/README.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="../../../lessons/1-Intro/README.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="../../../lessons/2-Symbolic/README.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/03-Perceptron/README.html">Perceptron</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/04-OwnFramework/README.html">MLP & tự xây framework</a></li>
+    <li><a href="../../../lessons/3-NeuralNetworks/05-Frameworks/README.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="../../../lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/07-ConvNets/README.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/08-TransferLearning/README.html">Transfer Learning</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/09-Autoencoders/README.html">Autoencoders & VAE</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/10-GANs/README.html">GANs & chuyển phong cách</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện đối tượng</a></li>
+    <li><a href="../../../lessons/4-ComputerVision/12-Segmentation/README.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="../../../lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="../../../lessons/5-NLP/14-Embeddings/README.html">Word2Vec & GloVe</a></li>
+    <li><a href="../../../lessons/5-NLP/15-LanguageModeling/README.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="../../../lessons/5-NLP/16-RNN/README.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="../../../lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="../../../lessons/5-NLP/18-Transformers/README.html">Transformers & BERT</a></li>
+    <li><a href="../../../lessons/5-NLP/19-NER/README.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="../../../lessons/5-NLP/20-LangModels/README.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="../../../lessons/6-Other/21-GeneticAlgorithms/README.html">Thuật toán di truyền</a></li>
+    <li><a href="../../../lessons/6-Other/22-DeepRL/README.html">Học tăng cường sâu</a></li>
+    <li><a href="../../../lessons/6-Other/23-MultiagentSystems/README.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="../../../lessons/7-Ethics/README.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="../../../lessons/X-Extras/X1-MultiModal/README.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="../../../CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="../../../troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<h1 id="cac-kien-truc-cnn-noi-tieng">Các Kiến Trúc CNN Nổi Tiếng</h1>
+<h3 id="vgg-16">VGG-16</h3>
+<p>VGG-16 là một mạng đạt độ chính xác 92.7% trong phân loại top-5 của ImageNet vào năm 2014. Nó có cấu trúc các lớp như sau:</p>
+<p><img alt="ImageNet Layers" src="../../../translated_images/vi/vgg-16-arch1.d901a5583b3a51ba.webp" /></p>
+<p>Như bạn có thể thấy, VGG tuân theo kiến trúc hình kim tự tháp truyền thống, bao gồm một chuỗi các lớp tích chập và lớp pooling.</p>
+<p><img alt="ImageNet Pyramid" src="../../../translated_images/vi/vgg-16-arch.64ff2137f50dd49f.webp" /></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://www.researchgate.net/figure/Vgg16-model-structure-To-get-the-VGG-NIN-model-we-replace-the-2-nd-4-th-6-th-7-th_fig2_335194493">Researchgate</a></p>
+</blockquote>
+<h3 id="resnet">ResNet</h3>
+<p>ResNet là một họ các mô hình được đề xuất bởi Microsoft Research vào năm 2015. Ý tưởng chính của ResNet là sử dụng <strong>khối dư thừa</strong>:</p>
+<p><img src=“../../../translated_images/vi/resnet-block.aba4ccbcc0944434.webp” width=“300”/></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://arxiv.org/pdf/1512.03385.pdf">bài báo này</a></p>
+</blockquote>
+<p>Lý do sử dụng đường dẫn nhận dạng là để lớp của chúng ta dự đoán <strong>sự khác biệt</strong> giữa kết quả của lớp trước đó và đầu ra của khối dư thừa - do đó có tên gọi <em>residual</em>. Những khối này dễ huấn luyện hơn nhiều, và người ta có thể xây dựng các mạng với hàng trăm khối như vậy (các biến thể phổ biến nhất là ResNet-52, ResNet-101 và ResNet-152).</p>
+<p>Bạn cũng có thể nghĩ rằng mạng này có khả năng điều chỉnh độ phức tạp của nó theo dữ liệu. Ban đầu, khi bạn bắt đầu huấn luyện mạng, giá trị trọng số nhỏ, và phần lớn tín hiệu đi qua các lớp nhận dạng. Khi quá trình huấn luyện tiến triển và trọng số trở nên lớn hơn, tầm quan trọng của các tham số mạng tăng lên, và mạng điều chỉnh để phù hợp với khả năng biểu đạt cần thiết để phân loại chính xác các hình ảnh huấn luyện.</p>
+<h3 id="google-inception">Google Inception</h3>
+<p>Kiến trúc Google Inception đưa ý tưởng này tiến xa hơn, và xây dựng mỗi lớp mạng như một sự kết hợp của nhiều đường dẫn khác nhau:</p>
+<p><img src=“../../../translated_images/vi/inception.a6605b85bcbc6f52.webp” width=“400”/></p>
+<blockquote>
+<p>Hình ảnh từ <a href="https://www.researchgate.net/figure/Inception-module-with-dimension-reductions-left-and-schema-for-Inception-ResNet-v1_fig2_355547454">Researchgate</a></p>
+</blockquote>
+<p>Ở đây, nhấn mạnh vai trò của các tích chập 1x1, bởi vì ban đầu chúng có vẻ không hợp lý. Tại sao chạy qua hình ảnh với bộ lọc 1x1? Tuy nhiên, bạn cần nhớ rằng các bộ lọc tích chập cũng hoạt động với nhiều kênh độ sâu (ban đầu là màu RGB, trong các lớp tiếp theo là các kênh cho các bộ lọc khác nhau), và tích chập 1x1 được sử dụng để trộn các kênh đầu vào này với nhau bằng các trọng số có thể huấn luyện. Nó cũng có thể được xem như là giảm mẫu (pooling) trên chiều kênh.</p>
+<p>Đây là <a href="https://medium.com/analytics-vidhya/talented-mr-1x1-comprehensive-look-at-1x1-convolution-in-deep-learning-f6b355825578">một bài viết blog hay</a> về chủ đề này, và <a href="https://arxiv.org/pdf/1312.4400.pdf">bài báo gốc</a>.</p>
+<h3 id="mobilenet">MobileNet</h3>
+<p>MobileNet là một họ các mô hình có kích thước giảm, phù hợp cho các thiết bị di động. Hãy sử dụng chúng nếu bạn thiếu tài nguyên và có thể chấp nhận hy sinh một chút độ chính xác. Ý tưởng chính đằng sau chúng là <strong>tích chập phân tách theo chiều sâu</strong>, cho phép biểu diễn các bộ lọc tích chập bằng sự kết hợp của các tích chập không gian và tích chập 1x1 trên các kênh độ sâu. Điều này làm giảm đáng kể số lượng tham số, khiến mạng nhỏ hơn về kích thước, và cũng dễ huấn luyện hơn với ít dữ liệu.</p>
+<p>Đây là <a href="https://medium.com/analytics-vidhya/image-classification-with-mobilenet-cc6fbb2cd470">một bài viết blog hay về MobileNet</a>.</p>
+<h2 id="ket-luan">Kết Luận</h2>
+<p>Trong bài học này, bạn đã học được khái niệm chính đằng sau các mạng nơ-ron thị giác máy tính - mạng tích chập. Các kiến trúc thực tế hỗ trợ phân loại hình ảnh, phát hiện đối tượng, và thậm chí cả các mạng tạo hình ảnh đều dựa trên CNN, chỉ với nhiều lớp hơn và một số mẹo huấn luyện bổ sung.</p>
+<h2 id="thu-thach">🚀 Thử Thách</h2>
+<p>Trong các notebook đi kèm, có các ghi chú ở cuối về cách đạt được độ chính xác cao hơn. Hãy thử nghiệm để xem liệu bạn có thể đạt được độ chính xác cao hơn không.</p>
+<h2 id="cau-hoi-sau-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/14">Câu hỏi sau bài giảng</a></h2>
+<h2 id="on-tap-tu-hoc">Ôn Tập &amp; Tự Học</h2>
+<p>Mặc dù CNN thường được sử dụng cho các nhiệm vụ Thị Giác Máy Tính, chúng cũng rất tốt trong việc trích xuất các mẫu có kích thước cố định. Ví dụ, nếu xử lý âm thanh, có thể muốn sử dụng CNN để tìm kiếm một số mẫu cụ thể trong tín hiệu âm thanh - trong trường hợp này các bộ lọc sẽ là 1 chiều (và CNN này sẽ được gọi là 1D-CNN). Ngoài ra, đôi khi 3D-CNN được sử dụng để trích xuất các đặc điểm trong không gian đa chiều, chẳng hạn như các sự kiện nhất định xảy ra trong video - CNN có thể nắm bắt các mẫu thay đổi đặc điểm theo thời gian. Hãy ôn tập và tự học về các nhiệm vụ khác mà CNN có thể thực hiện.</p>
+<h2 id="bai-tap"><a href="/lessons/4-ComputerVision/07-ConvNets/lab/README.html">Bài tập</a></h2>
+<p>Trong bài thực hành này, bạn sẽ phân loại các giống mèo và chó khác nhau. Những hình ảnh này phức tạp hơn so với tập dữ liệu MNIST, có kích thước lớn hơn, và có hơn 10 lớp.</p>
+<hr />
+  </article>
+</main>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trí tuệ Nhân tạo cho Người mới bắt đầu — Giáo trình hoàn chỉnh</title>
+<style>
+:root {
+  --c-primary: #0078D4;
+  --c-bg: #ffffff;
+  --c-sidebar-bg: #f6f8fa;
+  --c-text: #24292f;
+  --c-muted: #57606a;
+  --c-border: #d0d7de;
+  --c-code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--c-sidebar-bg);
+  border-right: 1px solid var(--c-border);
+  overflow-y: auto;
+  padding: 20px 18px;
+  font-size: 14px;
+}
+.sidebar .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 4px;
+  text-decoration: none;
+  display: block;
+}
+.sidebar .brand-sub { color: var(--c-muted); font-size: 12px; margin-bottom: 16px; }
+.sidebar ul { list-style: none; padding: 0; margin: 0 0 4px 0; }
+.sidebar li { margin: 0; }
+.sidebar > ul > li > strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--c-muted);
+  margin: 14px 0 6px 4px;
+}
+.sidebar a {
+  color: var(--c-text);
+  text-decoration: none;
+  display: block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+.sidebar a:hover { background: #eaeef2; color: var(--c-primary); }
+.sidebar .sep { border-top: 1px solid var(--c-border); margin: 12px 0; }
+.main {
+  margin-left: 280px;
+  padding: 40px 56px 80px;
+  max-width: 980px;
+}
+.content { max-width: 820px; }
+.content h1 { color: var(--c-primary); border-bottom: 2px solid var(--c-border); padding-bottom: 8px; margin-top: 0; }
+.content h2 { border-bottom: 1px solid var(--c-border); padding-bottom: 6px; margin-top: 36px; }
+.content h3 { margin-top: 28px; }
+.content img { max-width: 100%; height: auto; }
+.content table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+.content th, .content td { border: 1px solid var(--c-border); padding: 6px 12px; text-align: left; }
+.content th { background: var(--c-sidebar-bg); }
+.content code {
+  background: var(--c-code-bg); padding: 2px 6px; border-radius: 4px;
+  font-family: 'Consolas','SF Mono',Menlo,monospace; font-size: 0.9em;
+}
+.content pre {
+  background: var(--c-code-bg); padding: 14px 16px; border-radius: 6px;
+  overflow-x: auto; border: 1px solid var(--c-border);
+}
+.content pre code { background: none; padding: 0; font-size: 0.88em; }
+.content blockquote {
+  border-left: 4px solid var(--c-primary);
+  background: #f0f6ff;
+  margin: 14px 0; padding: 8px 16px; color: var(--c-text);
+}
+.content a { color: var(--c-primary); }
+.content hr { border: none; border-top: 1px solid var(--c-border); margin: 28px 0; }
+.content .ipynb-badge {
+  display: inline-block; background:#fbbc05; color:#000;
+  font-size:11px; padding:2px 8px; border-radius:10px; text-decoration:none;
+  margin-left:8px; font-weight:600;
+}
+@media (max-width: 900px) {
+  .sidebar { position: static; width: auto; height: auto; border-right: none; border-bottom: 1px solid var(--c-border); }
+  .main { margin-left: 0; padding: 20px; }
+}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']]}, svg: {fontCache: 'global'}};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="./index.html">AI cho Người mới bắt đầu</a>
+  <div class="brand-sub">Bản dịch tiếng Việt · Microsoft</div>
+  <ul>
+    <li><a href="./index.html">🏠 Trang chủ</a></li>
+    <li><a href="./examples/README.html">📚 Ví dụ cho người mới</a></li>
+    <li><strong>Giới thiệu</strong></li>
+    <li><a href="./lessons/1-Intro/README.html">Lịch sử & giới thiệu AI</a></li>
+    <li><strong>AI ký hiệu</strong></li>
+    <li><a href="./lessons/2-Symbolic/README.html">Biểu diễn tri thức & hệ chuyên gia</a></li>
+    <li><strong>Mạng nơ-ron</strong></li>
+    <li><a href="./lessons/3-NeuralNetworks/03-Perceptron/README.html">Perceptron</a></li>
+    <li><a href="./lessons/3-NeuralNetworks/04-OwnFramework/README.html">MLP & tự xây framework</a></li>
+    <li><a href="./lessons/3-NeuralNetworks/05-Frameworks/README.html">PyTorch / TensorFlow</a></li>
+    <li><strong>Thị giác máy tính</strong></li>
+    <li><a href="./lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu CV & OpenCV</a></li>
+    <li><a href="./lessons/4-ComputerVision/07-ConvNets/README.html">Mạng tích chập (CNN)</a></li>
+    <li><a href="./lessons/4-ComputerVision/08-TransferLearning/README.html">Transfer Learning</a></li>
+    <li><a href="./lessons/4-ComputerVision/09-Autoencoders/README.html">Autoencoders & VAE</a></li>
+    <li><a href="./lessons/4-ComputerVision/10-GANs/README.html">GANs & chuyển phong cách</a></li>
+    <li><a href="./lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện đối tượng</a></li>
+    <li><a href="./lessons/4-ComputerVision/12-Segmentation/README.html">Phân vùng ảnh (U-Net)</a></li>
+    <li><strong>Xử lý ngôn ngữ tự nhiên</strong></li>
+    <li><a href="./lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản (TF-IDF)</a></li>
+    <li><a href="./lessons/5-NLP/14-Embeddings/README.html">Word2Vec & GloVe</a></li>
+    <li><a href="./lessons/5-NLP/15-LanguageModeling/README.html">Mô hình ngôn ngữ</a></li>
+    <li><a href="./lessons/5-NLP/16-RNN/README.html">Mạng hồi tiếp (RNN)</a></li>
+    <li><a href="./lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng hồi tiếp sinh</a></li>
+    <li><a href="./lessons/5-NLP/18-Transformers/README.html">Transformers & BERT</a></li>
+    <li><a href="./lessons/5-NLP/19-NER/README.html">Nhận dạng thực thể (NER)</a></li>
+    <li><a href="./lessons/5-NLP/20-LangModels/README.html">LLM & kỹ thuật prompt</a></li>
+    <li><strong>Kỹ thuật AI khác</strong></li>
+    <li><a href="./lessons/6-Other/21-GeneticAlgorithms/README.html">Thuật toán di truyền</a></li>
+    <li><a href="./lessons/6-Other/22-DeepRL/README.html">Học tăng cường sâu</a></li>
+    <li><a href="./lessons/6-Other/23-MultiagentSystems/README.html">Hệ đa tác nhân</a></li>
+    <li><strong>Đạo đức AI</strong></li>
+    <li><a href="./lessons/7-Ethics/README.html">Đạo đức & AI có trách nhiệm</a></li>
+    <li><strong>Nâng cao</strong></li>
+    <li><a href="./lessons/X-Extras/X1-MultiModal/README.html">Multi-Modal (CLIP, VQGAN)</a></li>
+    <li class="sep"></li>
+    <li><a href="./CONTRIBUTING.html">Đóng góp</a></li>
+    <li><a href="./troubleshoot.html">Khắc phục sự cố</a></li>
+    <li><a href="https://github.com/microsoft/AI-For-Beginners" target="_blank">🔗 Kho gốc (Microsoft)</a></li>
+  </ul>
+</aside>
+<main class="main">
+  <article class="content">
+<p><a href="https://github.com/microsoft/AI-For-Beginners/blob/main/LICENSE"><img alt="Giấy phép GitHub" src="./assets/badges/AI-For-Beginners_4.svg" /></a>
+<a href="https://GitHub.com/microsoft/AI-For-Beginners/graphs/contributors/"><img alt="Người đóng góp GitHub" src="./assets/badges/AI-For-Beginners.svg" /></a>
+<a href="https://GitHub.com/microsoft/AI-For-Beginners/issues/"><img alt="Vấn đề GitHub" src="./assets/badges/AI-For-Beginners_3.svg" /></a>
+<a href="https://GitHub.com/microsoft/AI-For-Beginners/pulls/"><img alt="Yêu cầu kéo GitHub" src="./assets/badges/AI-For-Beginners_2.svg" /></a>
+<a href="http://makeapullrequest.com"><img alt="Chào mừng PR" src="./assets/badges/PRs-welcome-brightgreen.svg.svg" /></a></p>
+<p><a href="https://GitHub.com/microsoft/AI-For-Beginners/watchers/"><img alt="Người xem GitHub" src="./assets/badges/AI-For-Beginners_6.svg" /></a>
+<a href="https://GitHub.com/microsoft/AI-For-Beginners/network/"><img alt="Forks GitHub" src="./assets/badges/AI-For-Beginners_1.svg" /></a>
+<a href="https://GitHub.com/microsoft/AI-For-Beginners/stargazers/"><img alt="Sao GitHub" src="./assets/badges/AI-For-Beginners_5.svg" /></a>
+<a href="https://mybinder.org/v2/gh/microsoft/ai-for-beginners/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a>
+<a href="https://gitter.im/Microsoft/ai-for-beginners?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img alt="Gitter" src="https://badges.gitter.im/Microsoft/ai-for-beginners.svg" /></a></p>
+<p><a href="https://discord.gg/nTYy5BXMWG"><img alt="Microsoft Foundry Discord" src="https://dcbadge.limes.pink/api/server/nTYy5BXMWG" /></a></p>
+<h1 id="tri-tue-nhan-tao-cho-nguoi-moi-bat-au-giao-trinh-hoan-chinh">Trí tuệ Nhân tạo cho Người mới bắt đầu — Giáo trình hoàn chỉnh</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Sketchnote bởi @girlie_mac https://twitter.com/girlie_mac" src="./assets/external/ai-overview.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">AI For Beginners — <em>Sketchnote bởi <a href="https://twitter.com/girlie_mac">@girlie_mac</a></em></td>
+</tr>
+</tbody>
+</table>
+<p>Khám phá thế giới <strong>Trí tuệ Nhân tạo</strong> (AI) qua giáo trình 12 tuần, 24 bài học! Khóa học gồm bài giảng thực hành, bài kiểm tra và lab. Nội dung thiết kế thân thiện với người mới bắt đầu, sử dụng TensorFlow và PyTorch, đồng thời đề cập đến các vấn đề đạo đức trong AI.</p>
+<h3 id="ho-tro-a-ngon-ngu">🌐 Hỗ Trợ Đa Ngôn Ngữ</h3>
+<h4 id="ho-tro-qua-github-action-tu-ong-luon-cap-nhat">Hỗ trợ qua GitHub Action (Tự động &amp; Luôn Cập Nhật)</h4>
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE START -->
+<p>Đây là bản dịch tiếng Việt của khóa học <strong>AI for Beginners</strong> (Microsoft). Bản gốc tiếng Anh và hơn 50 ngôn ngữ khác có tại <a href="https://github.com/microsoft/AI-For-Beginners">kho mã nguồn chính thức</a>.</p>
+<!-- CO-OP TRANSLATOR LANGUAGES TABLE END -->
+
+<p><strong>Nếu bạn muốn có thêm các ngôn ngữ dịch được hỗ trợ, danh sách có tại <a href="https://github.com/Azure/co-op-translator/blob/main/getting_started/supported-languages.html">đây</a></strong></p>
+<h2 id="tham-gia-cong-ong">Tham gia Cộng đồng</h2>
+<p><a href="https://discord.gg/nTYy5BXMWG"><img alt="Microsoft Foundry Discord" src="https://dcbadge.limes.pink/api/server/nTYy5BXMWG" /></a></p>
+<h2 id="noi-dung-khoa-hoc">Nội dung khóa học</h2>
+<p><strong><a href="http://soshnikov.com/courses/ai-for-beginners/mindmap.html">Sơ đồ tư duy khóa học</a></strong></p>
+<p>Trong khóa học này, bạn sẽ tìm hiểu:</p>
+<ul>
+<li>Các hướng tiếp cận khác nhau với Trí tuệ Nhân tạo, bao gồm phương pháp <strong>AI ký hiệu</strong> cổ điển với <strong>biểu diễn tri thức</strong> và suy luận (<a href="https://en.wikipedia.org/wiki/Symbolic_artificial_intelligence">GOFAI</a>).</li>
+<li><strong>Mạng nơ-ron</strong> và <strong>học sâu</strong> — lõi của AI hiện đại. Các khái niệm được minh họa qua code trong hai framework phổ biến nhất: <a href="http://Tensorflow.org">TensorFlow</a> và <a href="http://pytorch.org">PyTorch</a>.</li>
+<li><strong>Kiến trúc mạng nơ-ron</strong> xử lý hình ảnh và văn bản. Khóa học đề cập đến các mô hình gần đây, dù có thể chưa cập nhật những kiến trúc tiên tiến nhất.</li>
+<li>Các hướng tiếp cận AI ít phổ biến hơn, như <strong>thuật toán di truyền</strong> và <strong>hệ đa tác nhân</strong>.</li>
+</ul>
+<p>Những nội dung <strong>không</strong> nằm trong phạm vi khóa học:</p>
+<blockquote>
+<p><a href="https://learn.microsoft.com/en-us/collections/7w28iy2xrqzdj0?WT.mc_id=academic-77998-bethanycheum">Toàn bộ tài nguyên bổ sung của khóa học nằm trong bộ sưu tập Microsoft Learn</a></p>
+</blockquote>
+<ul>
+<li><strong>Ứng dụng AI trong kinh doanh</strong>. Tham khảo lộ trình học <a href="https://docs.microsoft.com/learn/paths/introduction-ai-for-business-users/?WT.mc_id=academic-77998-bethanycheum">Giới thiệu AI cho người dùng doanh nghiệp</a> trên Microsoft Learn, hoặc <a href="https://www.microsoft.com/ai/ai-business-school/?WT.mc_id=academic-77998-bethanycheum">AI Business School</a> phát triển cùng <a href="https://www.insead.edu/">INSEAD</a>.</li>
+<li><strong>Học máy cổ điển</strong>, đã được trình bày kỹ trong giáo trình <a href="http://github.com/Microsoft/ML-for-Beginners">Machine Learning for Beginners</a>.</li>
+<li>Ứng dụng AI thực tế dựng bằng <strong><a href="https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=academic-77998-bethanycheum">Cognitive Services</a></strong>. Tham khảo các module Microsoft Learn về <a href="https://docs.microsoft.com/learn/paths/create-computer-vision-solutions-azure-cognitive-services/?WT.mc_id=academic-77998-bethanycheum">thị giác máy tính</a>, <a href="https://docs.microsoft.com/learn/paths/explore-natural-language-processing/?WT.mc_id=academic-77998-bethanycheum">xử lý ngôn ngữ tự nhiên</a>, <strong><a href="https://learn.microsoft.com/en-us/training/paths/develop-ai-solutions-azure-openai/?WT.mc_id=academic-77998-bethanycheum">Generative AI với Azure OpenAI Service</a></strong> và các module khác.</li>
+<li>Các <strong>framework ML trên cloud</strong>, như <a href="https://azure.microsoft.com/services/machine-learning/?WT.mc_id=academic-77998-bethanycheum">Azure Machine Learning</a>, <a href="https://learn.microsoft.com/en-us/training/paths/get-started-fabric/?WT.mc_id=academic-77998-bethanycheum">Microsoft Fabric</a>, hoặc <a href="https://docs.microsoft.com/learn/paths/data-engineer-azure-databricks?WT.mc_id=academic-77998-bethanycheum">Azure Databricks</a>. Tham khảo lộ trình <a href="https://docs.microsoft.com/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=academic-77998-bethanycheum">Build and operate machine learning solutions with Azure Machine Learning</a> và <a href="https://docs.microsoft.com/learn/paths/build-operate-machine-learning-solutions-azure-databricks/?WT.mc_id=academic-77998-bethanycheum">Build and Operate Machine Learning Solutions with Azure Databricks</a>.</li>
+<li><strong>AI hội thoại</strong> và <strong>chatbot</strong>. Có lộ trình riêng <a href="https://docs.microsoft.com/learn/paths/create-conversational-ai-solutions/?WT.mc_id=academic-77998-bethanycheum">Create conversational AI solutions</a>; tham khảo thêm <a href="https://soshnikov.com/azure/hello-bot-conversational-ai-on-microsoft-platform/">bài blog này</a> để biết thêm chi tiết.</li>
+<li><strong>Toán học nền tảng của học sâu</strong>. Khuyên đọc <a href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618">Deep Learning</a> của Ian Goodfellow, Yoshua Bengio và Aaron Courville, có bản online tại <a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a>.</li>
+</ul>
+<p>Giới thiệu nhẹ nhàng về chủ đề <em>AI trên cloud</em>, tham khảo lộ trình <a href="https://docs.microsoft.com/learn/paths/get-started-with-artificial-intelligence-on-azure/?WT.mc_id=academic-77998-bethanycheum">Get started with artificial intelligence on Azure</a>.</p>
+<h1 id="muc-luc">Mục lục</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Bài học</th>
+<th style="text-align: center;">PyTorch/Keras/TensorFlow</th>
+<th>Lab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><a href="/lessons/0-course-setup/setup.html">Cài đặt khóa học</a></td>
+<td style="text-align: center;"><a href="/lessons/0-course-setup/how-to-run.html">Cài đặt môi trường phát triển</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">I</td>
+<td style="text-align: center;"><a href="/lessons/1-Intro/README.html"><strong>Giới thiệu về AI</strong></a></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;"><a href="/lessons/1-Intro/README.html">Giới thiệu và Lịch sử AI</a></td>
+<td style="text-align: center;">-</td>
+<td>-</td>
+</tr>
+<tr>
+<td style="text-align: center;">II</td>
+<td style="text-align: center;"><strong>AI ký hiệu</strong></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">02</td>
+<td style="text-align: center;"><a href="/lessons/2-Symbolic/README.html">Biểu diễn tri thức và hệ chuyên gia</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/2-Symbolic/Animals.ipynb">Hệ chuyên gia</a> /  <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/2-Symbolic/FamilyOntology.ipynb">Ontology</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/2-Symbolic/MSConceptGraph.ipynb">Đồ thị khái niệm</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">III</td>
+<td style="text-align: center;"><a href="/lessons/3-NeuralNetworks/README.html"><strong>Giới thiệu về mạng nơ-ron</strong></a></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">03</td>
+<td style="text-align: center;"><a href="/lessons/3-NeuralNetworks/03-Perceptron/README.html">Perceptron</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/03-Perceptron/Perceptron.ipynb">Notebook</a></td>
+<td><a href="/lessons/3-NeuralNetworks/03-Perceptron/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">04</td>
+<td style="text-align: center;"><a href="/lessons/3-NeuralNetworks/04-OwnFramework/README.html">Multi-Layer Perceptron và tự xây framework</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/OwnFramework.ipynb">Notebook</a></td>
+<td><a href="/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">05</td>
+<td style="text-align: center;"><a href="/lessons/3-NeuralNetworks/05-Frameworks/README.html">Giới thiệu framework (PyTorch/TensorFlow) và overfitting</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroKeras.ipynb">Keras</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroKerasTF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/3-NeuralNetworks/05-Frameworks/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">IV</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/README.html"><strong>Thị giác máy tính</strong></a></td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/learn/modules/intro-computer-vision-pytorch/?WT.mc_id=academic-77998-cacaste">PyTorch</a> / <a href="https://docs.microsoft.com/learn/modules/intro-computer-vision-TensorFlow/?WT.mc_id=academic-77998-cacaste">TensorFlow</a></td>
+<td><a href="https://learn.microsoft.com/en-us/collections/7w28iy2xrqzdj0?WT.mc_id=academic-77998-bethanycheum">Khám phá thị giác máy tính trên Microsoft Azure</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">06</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/06-IntroCV/README.html">Giới thiệu thị giác máy tính. OpenCV</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/06-IntroCV/OpenCV.ipynb">Notebook</a></td>
+<td><a href="/lessons/4-ComputerVision/06-IntroCV/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">07</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/07-ConvNets/README.html">Mạng nơ-ron tích chập (CNN)</a> &amp;  <a href="/lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.html">Kiến trúc CNN</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/07-ConvNets/ConvNetsPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/07-ConvNets/ConvNetsTF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/4-ComputerVision/07-ConvNets/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">08</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/08-TransferLearning/README.html">Mạng đã huấn luyện trước và transfer learning</a> &amp; <a href="/lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.html">Các thủ thuật huấn luyện</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/08-TransferLearning/TransferLearningPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/08-TransferLearning/IntroKerasTF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/4-ComputerVision/08-TransferLearning/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">09</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/09-Autoencoders/README.html">Autoencoder và VAE</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/09-Autoencoders/AutoEncodersPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/09-Autoencoders/AutoencodersTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/10-GANs/README.html">GAN &amp; chuyển phong cách nghệ thuật</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/GANPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/10-GANs/GANTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/11-ObjectDetection/README.html">Phát hiện đối tượng</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/11-ObjectDetection/ObjectDetection.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/4-ComputerVision/11-ObjectDetection/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;"><a href="/lessons/4-ComputerVision/12-Segmentation/README.html">Phân vùng ngữ nghĩa. U-Net</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/12-Segmentation/SemanticSegmentationPytorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/4-ComputerVision/12-Segmentation/SemanticSegmentationTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">V</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/README.html"><strong>Xử lý ngôn ngữ tự nhiên</strong></a></td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/learn/modules/intro-natural-language-processing-pytorch/?WT.mc_id=academic-77998-cacaste">PyTorch</a> / <a href="https://docs.microsoft.com/learn/modules/intro-natural-language-processing-TensorFlow/?WT.mc_id=academic-77998-cacaste">TensorFlow</a></td>
+<td><a href="https://learn.microsoft.com/en-us/collections/7w28iy2xrqzdj0?WT.mc_id=academic-77998-bethanycheum">Khám phá xử lý ngôn ngữ tự nhiên trên Microsoft Azure</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/13-TextRep/README.html">Biểu diễn văn bản. BoW/TF-IDF</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/13-TextRep/TextRepresentationPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/13-TextRep/TextRepresentationTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/14-Embeddings/README.html">Embedding từ ngữ nghĩa. Word2Vec và GloVe</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/14-Embeddings/EmbeddingsPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/14-Embeddings/EmbeddingsTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/15-LanguageModeling/README.html">Mô hình ngôn ngữ. Tự huấn luyện embedding</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/15-LanguageModeling/CBoW-PyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/15-LanguageModeling/CBoW-TF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/5-NLP/15-LanguageModeling/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/16-RNN/README.html">Mạng nơ-ron hồi tiếp (RNN)</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/16-RNN/RNNPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/16-RNN/RNNTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/17-GenerativeNetworks/README.html">Mạng hồi tiếp sinh</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/17-GenerativeNetworks/GenerativePyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/17-GenerativeNetworks/GenerativeTF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/5-NLP/17-GenerativeNetworks/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/18-Transformers/README.html">Transformers. BERT</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/18-Transformers/TransformersPyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/18-Transformers/TransformersTF.ipynb">TensorFlow</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/19-NER/README.html">Nhận dạng thực thể có tên (NER)</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/19-NER/NER-TF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/5-NLP/19-NER/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;"><a href="/lessons/5-NLP/20-LangModels/README.html">Mô hình ngôn ngữ lớn, kỹ thuật prompt và few-shot</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/5-NLP/20-LangModels/GPT-PyTorch.ipynb">PyTorch</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">VI</td>
+<td style="text-align: center;"><strong>Các kỹ thuật AI khác</strong></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;"><a href="/lessons/6-Other/21-GeneticAlgorithms/README.html">Thuật toán di truyền</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/6-Other/21-GeneticAlgorithms/Genetic.ipynb">Notebook</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;"><a href="/lessons/6-Other/22-DeepRL/README.html">Học tăng cường sâu</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/6-Other/22-DeepRL/CartPole-RL-PyTorch.ipynb">PyTorch</a> / <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/6-Other/22-DeepRL/CartPole-RL-TF.ipynb">TensorFlow</a></td>
+<td><a href="/lessons/6-Other/22-DeepRL/lab/README.html">Lab</a></td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;"><a href="/lessons/6-Other/23-MultiagentSystems/README.html">Hệ đa tác nhân</a></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">VII</td>
+<td style="text-align: center;"><strong>Đạo đức AI</strong></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;"><a href="/lessons/7-Ethics/README.html">Đạo đức AI và AI có trách nhiệm</a></td>
+<td style="text-align: center;"><a href="https://docs.microsoft.com/learn/paths/responsible-ai-business-principles/?WT.mc_id=academic-77998-cacaste">Microsoft Learn: Nguyên tắc AI có trách nhiệm</a></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">IX</td>
+<td style="text-align: center;"><strong>Phần bổ sung</strong></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;"><a href="/lessons/X-Extras/X1-MultiModal/README.html">Mạng đa phương thức, CLIP và VQGAN</a></td>
+<td style="text-align: center;"><a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/X-Extras/X1-MultiModal/Clip.ipynb">Notebook</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cau-truc-moi-bai-hoc">Cấu trúc mỗi bài học</h2>
+<ul>
+<li>Tài liệu đọc trước</li>
+<li>Notebook Jupyter có thể thực thi, thường dành riêng cho từng framework (<strong>PyTorch</strong> hoặc <strong>TensorFlow</strong>). Notebook cũng chứa nhiều nội dung lý thuyết, nên để hiểu rõ chủ đề cần chạy ít nhất một phiên bản (PyTorch hoặc TensorFlow).</li>
+<li><strong>Lab</strong> thực hành cho một số chủ đề, giúp áp dụng kiến thức vừa học vào bài toán cụ thể.</li>
+<li>Một số chương có liên kết tới các module <a href="https://learn.microsoft.com/en-us/collections/7w28iy2xrqzdj0?WT.mc_id=academic-77998-bethanycheum"><strong>MS Learn</strong></a> về chủ đề liên quan.</li>
+</ul>
+<h2 id="bat-au">Bắt đầu</h2>
+<h3 id="moi-lam-quen-voi-ai-bat-au-tu-ay">🎯 Mới làm quen với AI? Bắt đầu từ đây!</h3>
+<p>Nếu bạn hoàn toàn mới với AI và muốn xem các ví dụ nhanh, thực hành, hãy mở <a href="/examples/README.html"><strong>Ví dụ cho người mới bắt đầu</strong></a>! Gồm:</p>
+<ul>
+<li>🌟 <strong>Hello AI World</strong> — Chương trình AI đầu tiên (nhận dạng mẫu)</li>
+<li>🧠 <strong>Mạng nơ-ron đơn giản</strong> — Xây mạng nơ-ron từ đầu</li>
+<li>🖼️ <strong>Bộ phân loại ảnh</strong> — Phân loại ảnh kèm chú thích chi tiết</li>
+<li>💬 <strong>Phân tích cảm xúc văn bản</strong> — Phân tích văn bản tích cực/tiêu cực</li>
+</ul>
+<p>Các ví dụ này giúp bạn nắm khái niệm AI trước khi đi sâu vào giáo trình đầy đủ.</p>
+<h3 id="thiet-lap-moi-truong-cho-giao-trinh">📚 Thiết lập môi trường cho giáo trình</h3>
+<ul>
+<li>Đã chuẩn bị sẵn <a href="/lessons/0-course-setup/setup.html">bài học thiết lập</a> giúp bạn cấu hình môi trường phát triển.</li>
+<li>Dành cho giảng viên: <a href="/lessons/0-course-setup/for-teachers.html">hướng dẫn thiết lập giáo trình</a>.</li>
+<li>Cách <a href="/lessons/0-course-setup/how-to-run.html">chạy code trong VS Code hoặc Codespace</a>.</li>
+</ul>
+<p>Các bước tham gia:</p>
+<ol>
+<li><strong>Fork</strong> kho mã nguồn: nhấn nút “Fork” ở góc trên bên phải trang này.</li>
+<li><strong>Clone</strong>: <code>git clone https://github.com/microsoft/AI-For-Beginners.git</code></li>
+<li>Đừng quên <strong>đánh dấu sao</strong> (🌟) repo để dễ tìm lại sau.</li>
+</ol>
+<h2 id="gap-go-cong-ong-hoc-vien">Gặp gỡ cộng đồng học viên</h2>
+<p>Tham gia <a href="https://aka.ms/genai-discord?WT.mc_id=academic-105485-bethanycheum">server Discord AI chính thức</a> để gặp gỡ và kết nối với các học viên khác, cũng như nhận hỗ trợ.</p>
+<p>Nếu có phản hồi sản phẩm hoặc câu hỏi khi xây dựng, hãy truy cập <a href="https://aka.ms/foundry/forum">Diễn đàn nhà phát triển Azure AI Foundry</a>.</p>
+<h2 id="bai-kiem-tra">Bài kiểm tra</h2>
+<blockquote>
+<p><strong>Lưu ý về bài kiểm tra</strong>: Toàn bộ bài kiểm tra nằm trong thư mục <code>etc/quiz-app</code>, hoặc <a href="https://ff-quizzes.netlify.app/">trực tuyến tại đây</a>. Các bài kiểm tra được liên kết từ bên trong mỗi bài học; ứng dụng quiz có thể chạy cục bộ hoặc triển khai trên Azure — xem hướng dẫn trong thư mục <code>quiz-app</code>. Đang trong quá trình dịch sang các ngôn ngữ khác.</p>
+</blockquote>
+<h2 id="ong-gop">Đóng góp</h2>
+<p>Có đề xuất hoặc phát hiện lỗi chính tả/lỗi code? Hãy mở issue hoặc gửi pull request.</p>
+<h2 id="loi-cam-on-ac-biet">Lời cảm ơn đặc biệt</h2>
+<ul>
+<li><strong>✍️ Tác giả chính:</strong> <a href="http://soshnikov.com">Dmitry Soshnikov</a>, Tiến sĩ</li>
+<li><strong>🔥 Biên tập viên:</strong> <a href="https://twitter.com/jenlooper">Jen Looper</a>, Tiến sĩ</li>
+<li><strong>🎨 Minh họa sketchnote:</strong> <a href="https://twitter.com/girlie_mac">Tomomi Imura</a></li>
+<li><strong>✅ Người tạo bài kiểm tra:</strong> <a href="https://github.com/CinnamonXI">Lateefah Bello</a>, <a href="https://studentambassadors.microsoft.com/">MLSA</a></li>
+<li><strong>🙏 Những đóng góp chính:</strong> <a href="https://github.com/Pe4enIks">Evgenii Pishchik</a></li>
+</ul>
+<h2 id="cac-giao-trinh-khac">Các giáo trình khác</h2>
+<p>Nhóm của chúng tôi còn sản xuất các giáo trình khác! Xem:</p>
+<!-- CO-OP TRANSLATOR OTHER COURSES START -->
+<h3 id="langchain">LangChain</h3>
+<p><a href="https://aka.ms/langchain4j-for-beginners"><img alt="LangChain4j for Beginners" src="./assets/badges/LangChain4j_20for_20Beginners-22C55E.svg" /></a>
+<a href="https://aka.ms/langchainjs-for-beginners?WT.mc_id=m365-94501-dwahlin"><img alt="LangChain.js for Beginners" src="./assets/badges/LangChain.js_20for_20Beginners-22C55E.svg" /></a>
+<a href="https://github.com/microsoft/langchain-for-beginners?WT.mc_id=m365-94501-dwahlin"><img alt="LangChain for Beginners" src="./assets/badges/LangChain_20for_20Beginners-22C55E.svg" /></a></p>
+<hr />
+<h3 id="azure-edge-mcp-agents">Azure / Edge / MCP / Agents</h3>
+<p><a href="https://github.com/microsoft/AZD-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="AZD for Beginners" src="./assets/badges/AZD_20for_20Beginners-0078D4.svg" /></a>
+<a href="https://github.com/microsoft/edgeai-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="Edge AI for Beginners" src="./assets/badges/Edge_20AI_20for_20Beginners-00B8E4.svg" /></a>
+<a href="https://github.com/microsoft/mcp-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="MCP for Beginners" src="./assets/badges/MCP_20for_20Beginners-009688.svg" /></a>
+<a href="https://github.com/microsoft/ai-agents-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="AI Agents for Beginners" src="./assets/badges/AI_20Agents_20for_20Beginners-00C49A.svg" /></a></p>
+<hr />
+<h3 id="chuoi-generative-ai">Chuỗi Generative AI</h3>
+<p><a href="https://github.com/microsoft/generative-ai-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="Generative AI for Beginners" src="./assets/badges/Generative_20AI_20for_20Beginners-8B5CF6.svg" /></a>
+<a href="https://github.com/microsoft/Generative-AI-for-beginners-dotnet?WT.mc_id=academic-105485-koreyst"><img alt="Generative AI (.NET)" src="./assets/badges/Generative_20AI_20_.NET.svg" />-9333EA?style=for-the-badge&amp;labelColor=E5E7EB&amp;color=9333EA)</a>
+<a href="https://github.com/microsoft/generative-ai-for-beginners-java?WT.mc_id=academic-105485-koreyst"><img alt="Generative AI (Java)" src="./assets/badges/Generative_20AI_20_Java.svg" />-C084FC?style=for-the-badge&amp;labelColor=E5E7EB&amp;color=C084FC)</a>
+<a href="https://github.com/microsoft/generative-ai-with-javascript?WT.mc_id=academic-105485-koreyst"><img alt="Generative AI (JavaScript)" src="./assets/badges/Generative_20AI_20_JavaScript.svg" />-E879F9?style=for-the-badge&amp;labelColor=E5E7EB&amp;color=E879F9)</a></p>
+<hr />
+<h3 id="hoc-cot-loi">Học cốt lõi</h3>
+<p><a href="https://aka.ms/ml-beginners?WT.mc_id=academic-105485-koreyst"><img alt="ML for Beginners" src="./assets/badges/ML_20for_20Beginners-22C55E.svg" /></a>
+<a href="https://aka.ms/datascience-beginners?WT.mc_id=academic-105485-koreyst"><img alt="Data Science for Beginners" src="./assets/badges/Data_20Science_20for_20Beginners-84CC16.svg" /></a>
+<a href="https://aka.ms/ai-beginners?WT.mc_id=academic-105485-koreyst"><img alt="AI for Beginners" src="./assets/badges/AI_20for_20Beginners-A3E635.svg" /></a>
+<a href="https://github.com/microsoft/Security-101?WT.mc_id=academic-96948-sayoung"><img alt="Cybersecurity for Beginners" src="./assets/badges/Cybersecurity_20for_20Beginners-F97316.svg" /></a>
+<a href="https://aka.ms/webdev-beginners?WT.mc_id=academic-105485-koreyst"><img alt="Web Dev for Beginners" src="./assets/badges/Web_20Dev_20for_20Beginners-EC4899.svg" /></a>
+<a href="https://aka.ms/iot-beginners?WT.mc_id=academic-105485-koreyst"><img alt="IoT for Beginners" src="./assets/badges/IoT_20for_20Beginners-14B8A6.svg" /></a>
+<a href="https://github.com/microsoft/xr-development-for-beginners?WT.mc_id=academic-105485-koreyst"><img alt="XR Development for Beginners" src="./assets/badges/XR_20Development_20for_20Beginners-38BDF8.svg" /></a></p>
+<hr />
+<h3 id="chuoi-copilot">Chuỗi Copilot</h3>
+<p><a href="https://aka.ms/GitHubCopilotAI?WT.mc_id=academic-105485-koreyst"><img alt="Copilot for AI Paired Programming" src="./assets/badges/Copilot_20for_20AI_20Paired_20Programming-FACC15.svg" /></a>
+<a href="https://github.com/microsoft/mastering-github-copilot-for-dotnet-csharp-developers?WT.mc_id=academic-105485-koreyst"><img alt="Copilot for C#/.NET" src="./assets/badges/Copilot_20for_20C_23_.NET-FBBF24.svg" /></a>
+<a href="https://github.com/microsoft/CopilotAdventures?WT.mc_id=academic-105485-koreyst"><img alt="Copilot Adventure" src="./assets/badges/Copilot_20Adventure-FDE68A.svg" /></a></p>
+<!-- CO-OP TRANSLATOR OTHER COURSES END -->
+
+<h2 id="nhan-ho-tro">Nhận hỗ trợ</h2>
+<p>Nếu vướng mắc hoặc có câu hỏi về việc xây dựng ứng dụng AI, hãy tham gia cùng các học viên và nhà phát triển dày dạn kinh nghiệm trong các cuộc thảo luận. Đây là cộng đồng hỗ trợ, nơi mọi câu hỏi đều được chào đón và kiến thức được chia sẻ rộng rãi.</p>
+<p><a href="https://discord.gg/nTYy5BXMWG"><img alt="Microsoft Foundry Discord" src="https://dcbadge.limes.pink/api/server/nTYy5BXMWG" /></a></p>
+<p>Nếu bạn có phản hồi về sản phẩm hoặc lỗi khi xây dựng, hãy truy cập:</p>
+<p><a href="https://aka.ms/foundry/forum"><img alt="Microsoft Foundry Developer Forum" src="./assets/badges/GitHub-Microsoft_Foundry_Developer_Forum-blue.svg" /></a></p>
+<hr />
+<!-- CO-OP TRANSLATOR DISCLAIMER START -->
+<p><strong>Tuyên bố miễn trừ trách nhiệm</strong>:<br />
+Tài liệu này đã được dịch bằng dịch vụ dịch thuật AI <a href="https://github.com/Azure/co-op-translator">Co-op Translator</a>. Mặc dù chúng tôi nỗ lực để đảm bảo độ chính xác, xin lưu ý rằng các bản dịch tự động có thể chứa lỗi hoặc không chính xác. Tài liệu gốc bằng ngôn ngữ mẹ đẻ nên được coi là nguồn chính xác và đáng tin cậy. Đối với thông tin quan trọng, nên sử dụng dịch vụ dịch thuật chuyên nghiệp của con người. Chúng tôi không chịu trách nhiệm về bất kỳ sự hiểu nhầm hoặc diễn giải sai nào phát sinh từ việc sử dụng bản dịch này.</p>
+<!-- CO-OP TRANSLATOR DISCLAIMER END -->
+  </article>
+</main>
+</body>
+</html>
