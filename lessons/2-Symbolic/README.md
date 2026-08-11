@@ -238,7 +238,7 @@ Trong notebook Ontology Gia đình đi kèm bài học này, có cơ hội thử
 
 Hãy tìm hiểu trên internet để khám phá những lĩnh vực mà con người đã cố gắng định lượng và mã hóa kiến thức. Tìm hiểu về Phân loại học của Bloom, và quay ngược lại lịch sử xem con người từng cố gắng hiểu thế giới của họ như thế nào. Khám phá công trình của Linnaeus trong việc tạo ra một phân loại học các sinh vật, và quan sát cách Dmitri Mendeleev đã tạo ra phương pháp mô tả và nhóm các nguyên tố hóa học. Bạn có thể tìm thêm những ví dụ thú vị nào khác?
 
-**Bài tập**: [Xây dựng một Ontology](assignment.md)
+**Bài tập**: [Xây dựng một Ontology](/lessons/2-Symbolic/assignment.md)
 
 ---
 

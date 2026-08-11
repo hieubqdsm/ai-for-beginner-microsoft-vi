@@ -42,9 +42,9 @@ trong đó f là một **hàm kích hoạt** phi tuyến.
 ## Trong Phần Này
 
 Trong phần này, tìm hiểu về:
-* [Perceptron](03-Perceptron/README.md), một trong những mô hình mạng nơ-ron đầu tiên dành cho phân loại hai lớp
-* [Mạng nhiều lớp](04-OwnFramework/README.md) với một notebook đi kèm [cách xây dựng framework của riêng chúng ta](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/OwnFramework.ipynb)
-* [Framework Mạng Nơ-ron](05-Frameworks/README.md), với các notebook sau: [PyTorch](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroPyTorch.ipynb) và [Keras/Tensorflow](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroKerasTF.ipynb)
+* [Perceptron](/lessons/3-NeuralNetworks/03-Perceptron/README.md), một trong những mô hình mạng nơ-ron đầu tiên dành cho phân loại hai lớp
+* [Mạng nhiều lớp](/lessons/3-NeuralNetworks/04-OwnFramework/README.md) với một notebook đi kèm [cách xây dựng framework của riêng chúng ta](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/OwnFramework.ipynb)
+* [Framework Mạng Nơ-ron](/lessons/3-NeuralNetworks/05-Frameworks/README.md), với các notebook sau: [PyTorch](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroPyTorch.ipynb) và [Keras/Tensorflow](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/IntroKerasTF.ipynb)
 * [Overfitting](../../../../lessons/3-NeuralNetworks/05-Frameworks)
 
 ---

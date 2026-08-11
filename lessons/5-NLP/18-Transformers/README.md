@@ -106,7 +106,7 @@ Trong bài học này, bạn đã tìm hiểu về Transformers và cơ chế At
 * [Bài viết blog](https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/), giải thích bài báo cổ điển [Attention is all you need](https://arxiv.org/abs/1706.03762) về transformers.
 * [Một loạt bài viết blog](https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality-95a6dd460452) về transformers, giải thích chi tiết kiến trúc.
 
-## [Bài tập](assignment.md)
+## [Bài tập](/lessons/5-NLP/18-Transformers/assignment.md)
 
 ---
 

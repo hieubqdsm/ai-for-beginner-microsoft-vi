@@ -70,7 +70,7 @@ Thử một số bài tập khác sử dụng bag-of-words và các mô hình d�
 
 Luyện tập kỹ năng của bạn với các kỹ thuật embedding văn bản và bag-of-words trên [Microsoft Learn](https://docs.microsoft.com/learn/modules/intro-natural-language-processing-pytorch/?WT.mc_id=academic-77998-cacaste)
 
-## [Bài tập: Notebook](assignment.md)
+## [Bài tập: Notebook](/lessons/5-NLP/13-TextRep/assignment.md)
 
 ---
 

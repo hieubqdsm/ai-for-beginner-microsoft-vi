@@ -70,7 +70,7 @@ Phiên bản cải tiến của phương pháp Policy Gradients được gọi l
 * Chính sách, xác định hành động nào cần thực hiện. Phần này được gọi là **actor**.
 * Ước tính tổng phần thưởng mà mong đợi nhận được tại trạng thái này - phần này được gọi là **critic**.
 
-Theo một cách nào đó, kiến trúc này giống với [GAN](../../4-ComputerVision/10-GANs/README.md), nơi chúng ta có hai mạng được huấn luyện đối kháng nhau. Trong mô hình actor-critic, actor đề xuất hành động cần thực hiện, và critic cố gắng đánh giá kết quả. Tuy nhiên, mục tiêu của chúng ta là huấn luyện hai mạng này đồng bộ.
+Theo một cách nào đó, kiến trúc này giống với [GAN](/lessons/4-ComputerVision/10-GANs/README.md), nơi chúng ta có hai mạng được huấn luyện đối kháng nhau. Trong mô hình actor-critic, actor đề xuất hành động cần thực hiện, và critic cố gắng đánh giá kết quả. Tuy nhiên, mục tiêu của chúng ta là huấn luyện hai mạng này đồng bộ.
 
 Vì cả phần thưởng tích lũy thực tế và kết quả trả về bởi critic trong thí nghiệm, việc xây dựng hàm mất mát để giảm thiểu sự khác biệt giữa chúng tương đối dễ dàng. Điều này sẽ cho chúng ta **critic loss**. tính **actor loss** bằng cách sử dụng cách tiếp cận tương tự như trong thuật toán policy gradient.
 
@@ -109,7 +109,7 @@ Tìm hiểu thêm về học tăng cường cổ điển trong [Chương trình 
 
 Xem [video tuyệt vời này](https://www.youtube.com/watch?v=qv6UVOQ0F44) nói về cách máy tính học chơi Super Mario.
 
-## Bài Tập: [Huấn luyện Mountain Car](lab/README.md)
+## Bài Tập: [Huấn luyện Mountain Car](/lessons/6-Other/22-DeepRL/lab/README.md)
 
 Mục tiêu của bạn trong bài tập này là huấn luyện một môi trường Gym khác - [Mountain Car](https://www.gymlibrary.ml/environments/classic_control/mountain_car/).
 

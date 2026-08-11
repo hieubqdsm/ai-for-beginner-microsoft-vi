@@ -102,7 +102,7 @@ Chọn kiến trúc mạng phù hợp cho vấn đề của bạn có thể là 
 
 > Điều quan trọng là chọn một kiến trúc đủ mạnh cho số lượng mẫu huấn luyện mà chúng ta có. Chọn mô hình quá mạnh có thể dẫn đến [overfitting](https://github.com/microsoft/AI-For-Beginners/blob/main/lessons/3-NeuralNetworks/05-Frameworks/Overfitting.md).
 
-Một cách tốt khác là sử dụng một kiến trúc có thể tự động điều chỉnh theo độ phức tạp cần thiết. Ở một mức độ nào đó, kiến trúc **ResNet** và **Inception** có khả năng tự điều chỉnh. [Tìm hiểu thêm về các kiến trúc thị giác máy tính](../07-ConvNets/CNN_Architectures.md).
+Một cách tốt khác là sử dụng một kiến trúc có thể tự động điều chỉnh theo độ phức tạp cần thiết. Ở một mức độ nào đó, kiến trúc **ResNet** và **Inception** có khả năng tự điều chỉnh. [Tìm hiểu thêm về các kiến trúc thị giác máy tính](/lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.md).
 
 ---
 

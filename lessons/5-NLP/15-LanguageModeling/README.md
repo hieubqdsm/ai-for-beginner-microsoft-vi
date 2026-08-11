@@ -37,9 +37,9 @@ Trong bài học trước, thấy rằng các biểu diễn từ hoạt động 
 * [Hướng dẫn chính thức của TensorFlow về huấn luyện mô hình Word2Vec](https://www.TensorFlow.org/tutorials/text/word2vec).
 * Sử dụng framework **gensim** để huấn luyện các biểu diễn phổ biến nhất chỉ trong vài dòng mã được mô tả [trong tài liệu này](https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html).
 
-## 🚀 [Bài tập: Huấn luyện Mô hình Skip-Gram](lab/README.md)
+## 🚀 [Bài tập: Huấn luyện Mô hình Skip-Gram](/lessons/5-NLP/15-LanguageModeling/lab/README.md)
 
-Trong phòng thí nghiệm, chúng tôi thách thức bạn chỉnh sửa mã từ bài học này để huấn luyện mô hình skip-gram thay vì CBoW. [Đọc chi tiết](lab/README.md)
+Trong phòng thí nghiệm, chúng tôi thách thức bạn chỉnh sửa mã từ bài học này để huấn luyện mô hình skip-gram thay vì CBoW. [Đọc chi tiết](/lessons/5-NLP/15-LanguageModeling/lab/README.md)
 
 ---
 

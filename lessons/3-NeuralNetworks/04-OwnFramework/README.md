@@ -78,11 +78,11 @@ Hãy tiếp tục với notebook [OwnFramework](https://colab.research.google.co
 
 Backpropagation là một thuật toán phổ biến được sử dụng trong AI và ML, đáng để nghiên cứu [chi tiết hơn](https://wikipedia.org/wiki/Backpropagation)
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md)
 
 Trong bài thực hành này, bạn được yêu cầu sử dụng khung mà bạn đã xây dựng trong bài học này để giải bài toán phân loại chữ số viết tay MNIST.
 
-* [Hướng dẫn](lab/README.md)
+* [Hướng dẫn](/lessons/3-NeuralNetworks/04-OwnFramework/lab/README.md)
 * [Notebook](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/04-OwnFramework/lab/MyFW_MNIST.ipynb)
 
 ---

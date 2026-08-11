@@ -18,7 +18,7 @@ Tuy nhiên, nếu chúng ta cố gắng tạo ra thứ gì đó thực sự ý n
 
 ### Discriminator
 
-Kiến trúc của discriminator không khác gì so với một mạng phân loại hình ảnh thông thường. Trong trường hợp đơn giản nhất, nó có thể là một bộ phân loại fully-connected, nhưng thường sẽ là một [mạng tích chập](../07-ConvNets/README.md).
+Kiến trúc của discriminator không khác gì so với một mạng phân loại hình ảnh thông thường. Trong trường hợp đơn giản nhất, nó có thể là một bộ phân loại fully-connected, nhưng thường sẽ là một [mạng tích chập](/lessons/4-ComputerVision/07-ConvNets/README.md).
 
 > ✅ Một GAN dựa trên mạng tích chập được gọi là [DCGAN](https://arxiv.org/pdf/1511.06434.pdf)
 
@@ -28,7 +28,7 @@ Một CNN discriminator bao gồm các lớp sau: một số lớp tích chập+
 
 ### Generator
 
-Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần *decoder* của [autoencoder](../09-Autoencoders/README.md).
+Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần *decoder* của [autoencoder](/lessons/4-ComputerVision/09-Autoencoders/README.md).
 
 > ✅ Vì lớp tích chập được triển khai như một bộ lọc tuyến tính quét qua hình ảnh, deconvolution về cơ bản tương tự như tích chập và có thể được triển khai bằng cùng logic lớp.
 

@@ -63,10 +63,10 @@ Chúng tôi khuyên bạn nên làm theo thứ tự các ví dụ:
 ## 🔗 Bước tiếp theo
 
 Sau khi hoàn thành các ví dụ này, hãy khám phá toàn bộ chương trình:
-- [Giới thiệu về AI](../lessons/1-Intro/README.md)
-- [Mạng Nơ-ron](../lessons/3-NeuralNetworks/README.md)
-- [Thị giác máy tính](../lessons/4-ComputerVision/README.md)
-- [Xử lý ngôn ngữ tự nhiên](../lessons/5-NLP/README.md)
+- [Giới thiệu về AI](/lessons/1-Intro/README.md)
+- [Mạng Nơ-ron](/lessons/3-NeuralNetworks/README.md)
+- [Thị giác máy tính](/lessons/4-ComputerVision/README.md)
+- [Xử lý ngôn ngữ tự nhiên](/lessons/5-NLP/README.md)
 
 ## 🤝 Đóng góp
 

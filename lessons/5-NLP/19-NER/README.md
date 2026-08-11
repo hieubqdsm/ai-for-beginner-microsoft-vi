@@ -77,9 +77,9 @@ Hoàn thành bài tập được liên kết dưới đây để huấn luyện 
 
 Đọc qua blog [Hiệu quả phi thường của Mạng Nơ-ron Hồi quy](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) và theo dõi phần Đọc thêm trong bài viết đó để nâng cao kiến thức của bạn.
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/5-NLP/19-NER/lab/README.md)
 
-Trong bài tập của bài học này, bạn sẽ phải huấn luyện một mô hình nhận diện thực thể y tế. Bạn có thể bắt đầu bằng cách huấn luyện mô hình LSTM như đã mô tả trong bài học này, và tiếp tục sử dụng mô hình BERT transformer. Đọc [hướng dẫn](lab/README.md) để biết tất cả chi tiết.
+Trong bài tập của bài học này, bạn sẽ phải huấn luyện một mô hình nhận diện thực thể y tế. Bạn có thể bắt đầu bằng cách huấn luyện mô hình LSTM như đã mô tả trong bài học này, và tiếp tục sử dụng mô hình BERT transformer. Đọc [hướng dẫn](/lessons/5-NLP/19-NER/lab/README.md) để biết tất cả chi tiết.
 
 ---
 

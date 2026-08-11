@@ -126,7 +126,7 @@ Sự phát triển mạnh mẽ gần đây trong nghiên cứu mạng nơ-ron b�
 
 > Hình ảnh của [Dmitry Soshnikov](http://soshnikov.com)
 
-Năm 2012, [Mạng Nơ-ron Tích chập](../4-ComputerVision/07-ConvNets/README.md) lần đầu tiên được sử dụng trong phân loại hình ảnh, dẫn đến sự giảm đáng kể trong lỗi phân loại (từ gần 30% xuống còn 16,4%). Năm 2015, kiến trúc ResNet từ Microsoft Research [đạt được độ chính xác ngang tầm con người](https://doi.org/10.1109/ICCV.2015.123).
+Năm 2012, [Mạng Nơ-ron Tích chập](/lessons/4-ComputerVision/07-ConvNets/README.md) lần đầu tiên được sử dụng trong phân loại hình ảnh, dẫn đến sự giảm đáng kể trong lỗi phân loại (từ gần 30% xuống còn 16,4%). Năm 2015, kiến trúc ResNet từ Microsoft Research [đạt được độ chính xác ngang tầm con người](https://doi.org/10.1109/ICCV.2015.123).
 
 Kể từ đó, Mạng Nơ-ron đã thể hiện hiệu quả rất cao trong nhiều nhiệm vụ:
 
@@ -139,7 +139,7 @@ Năm | Đạt được ngang tầm con người
 2018 | [Dịch Máy Tự động](https://arxiv.org/abs/1803.05567) (Trung Quốc sang Anh)
 2020 | [Chú thích Hình ảnh](https://arxiv.org/abs/2009.13682)
 
-Trong vài năm qua, chứng kiến những thành công lớn với các mô hình ngôn ngữ lớn, như BERT và GPT-3. Điều này chủ yếu xảy ra nhờ vào việc có rất nhiều dữ liệu văn bản tổng quát sẵn có, cho phép chúng ta huấn luyện các mô hình để nắm bắt cấu trúc và ý nghĩa của văn bản, tiền huấn luyện chúng trên các bộ sưu tập văn bản tổng quát, và sau đó chuyên môn hóa các mô hình đó cho các nhiệm vụ cụ thể hơn. tìm hiểu thêm về [Xử lý Ngôn ngữ Tự nhiên](../5-NLP/README.md) sau trong khóa học này.
+Trong vài năm qua, chứng kiến những thành công lớn với các mô hình ngôn ngữ lớn, như BERT và GPT-3. Điều này chủ yếu xảy ra nhờ vào việc có rất nhiều dữ liệu văn bản tổng quát sẵn có, cho phép chúng ta huấn luyện các mô hình để nắm bắt cấu trúc và ý nghĩa của văn bản, tiền huấn luyện chúng trên các bộ sưu tập văn bản tổng quát, và sau đó chuyên môn hóa các mô hình đó cho các nhiệm vụ cụ thể hơn. tìm hiểu thêm về [Xử lý Ngôn ngữ Tự nhiên](/lessons/5-NLP/README.md) sau trong khóa học này.
 
 ## 🚀 Thử thách
 
@@ -151,7 +151,7 @@ Hãy khám phá trên internet để xác định, theo ý kiến của bạn, A
 
 Ôn lại lịch sử của AI và ML bằng cách đọc qua [bài học này](https://github.com/microsoft/ML-For-Beginners/tree/main/1-Introduction/2-history-of-ML). Lấy một yếu tố từ bản vẽ phác thảo ở đầu bài học đó hoặc bài học này và nghiên cứu sâu hơn để hiểu bối cảnh văn hóa đã định hình sự phát triển của nó.
 
-**Bài tập**: [Game Jam](assignment.md)
+**Bài tập**: [Game Jam](/lessons/1-Intro/assignment.md)
 
 ---
 

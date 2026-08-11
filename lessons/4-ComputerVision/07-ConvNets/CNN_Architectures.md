@@ -56,7 +56,7 @@ Trong các notebook đi kèm, có các ghi chú ở cuối về cách đạt đ�
 
 Mặc dù CNN thường được sử dụng cho các nhiệm vụ Thị Giác Máy Tính, chúng cũng rất tốt trong việc trích xuất các mẫu có kích thước cố định. Ví dụ, nếu xử lý âm thanh, có thể muốn sử dụng CNN để tìm kiếm một số mẫu cụ thể trong tín hiệu âm thanh - trong trường hợp này các bộ lọc sẽ là 1 chiều (và CNN này sẽ được gọi là 1D-CNN). Ngoài ra, đôi khi 3D-CNN được sử dụng để trích xuất các đặc điểm trong không gian đa chiều, chẳng hạn như các sự kiện nhất định xảy ra trong video - CNN có thể nắm bắt các mẫu thay đổi đặc điểm theo thời gian. Hãy ôn tập và tự học về các nhiệm vụ khác mà CNN có thể thực hiện.
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/4-ComputerVision/07-ConvNets/lab/README.md)
 
 Trong bài thực hành này, bạn sẽ phân loại các giống mèo và chó khác nhau. Những hình ảnh này phức tạp hơn so với tập dữ liệu MNIST, có kích thước lớn hơn, và có hơn 10 lớp.
 

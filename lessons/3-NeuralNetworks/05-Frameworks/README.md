@@ -78,7 +78,7 @@ Nếu bạn thấy rằng overfitting xảy ra, bạn có thể làm một trong
 
  * Tăng lượng dữ liệu huấn luyện
  * Giảm độ phức tạp của mô hình
- * Sử dụng một số [kỹ thuật regularization](../../4-ComputerVision/08-TransferLearning/TrainingTricks.md), chẳng hạn như [Dropout](../../4-ComputerVision/08-TransferLearning/TrainingTricks.md#Dropout), mà xem xét sau.
+ * Sử dụng một số [kỹ thuật regularization](/lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.md), chẳng hạn như [Dropout](/lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.md#Dropout), mà xem xét sau.
 
 ## Overfitting và Sự đánh đổi Bias-Variance
 
@@ -112,11 +112,11 @@ Hãy tự hỏi bản thân các câu hỏi sau:
 - Sự khác biệt giữa TensorFlow và PyTorch là gì?
 - Sự khác biệt giữa overfitting và underfitting là gì?
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md)
 
 Trong bài thực hành này, bạn được yêu cầu giải quyết hai bài toán phân loại bằng cách sử dụng mạng fully-connected đơn lớp và đa lớp với PyTorch hoặc TensorFlow.
 
-* [Hướng dẫn](lab/README.md)
+* [Hướng dẫn](/lessons/3-NeuralNetworks/05-Frameworks/lab/README.md)
 * [Notebook](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/05-Frameworks/lab/LabFrameworks.ipynb)
 
 ---

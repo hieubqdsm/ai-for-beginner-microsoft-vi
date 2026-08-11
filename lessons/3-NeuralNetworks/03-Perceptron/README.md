@@ -84,11 +84,11 @@ Nếu bạn muốn thử xây dựng perceptron của riêng mình, hãy thử [
 
 Đây là một [bài viết thú vị về perceptron](https://towardsdatascience.com/what-is-a-perceptron-basics-of-neural-networks-c4cfea20c590).
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md)
 
 Trong bài học này, triển khai một perceptron cho nhiệm vụ phân loại nhị phân, và đã sử dụng nó để phân loại giữa hai chữ số viết tay. Trong bài thực hành này, bạn được yêu cầu giải quyết vấn đề phân loại chữ số hoàn toàn, tức là xác định chữ số nào có khả năng tương ứng với một hình ảnh cho trước.
 
-* [Hướng dẫn](lab/README.md)
+* [Hướng dẫn](/lessons/3-NeuralNetworks/03-Perceptron/lab/README.md)
 * [Notebook](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/3-NeuralNetworks/03-Perceptron/lab/PerceptronMultiClass.ipynb)
 
 ---

@@ -36,8 +36,8 @@ Mở notebook [Clip.ipynb](https://colab.research.google.com/github/hieubqdsm/ai
 
 CLIP cũng có thể được sử dụng để **tạo hình ảnh** từ một gợi ý văn bản. Để làm điều này, một **mô hình tạo hình ảnh** có khả năng tạo ra hình ảnh dựa trên một vector đầu vào. Một trong những mô hình như vậy được gọi là [VQGAN](https://compvis.github.io/taming-transformers/) (Vector-Quantized GAN).
 
-Những ý tưởng chính của VQGAN khác biệt so với [GAN](../../4-ComputerVision/10-GANs/README.md) thông thường bao gồm:
-* Sử dụng kiến trúc transformer tự hồi quy để tạo ra một chuỗi các phần hình ảnh giàu ngữ cảnh tạo thành hình ảnh. Những phần hình ảnh này được học bởi [CNN](../../4-ComputerVision/07-ConvNets/README.md).
+Những ý tưởng chính của VQGAN khác biệt so với [GAN](/lessons/4-ComputerVision/10-GANs/README.md) thông thường bao gồm:
+* Sử dụng kiến trúc transformer tự hồi quy để tạo ra một chuỗi các phần hình ảnh giàu ngữ cảnh tạo thành hình ảnh. Những phần hình ảnh này được học bởi [CNN](/lessons/4-ComputerVision/07-ConvNets/README.md).
 * Sử dụng bộ phân biệt hình ảnh con để phát hiện liệu các phần của hình ảnh là “thật” hay “giả” (khác với cách tiếp cận “tất cả hoặc không có gì” trong GAN truyền thống).
 
 Tìm hiểu thêm về VQGAN tại trang web [Taming Transformers](https://compvis.github.io/taming-transformers/).

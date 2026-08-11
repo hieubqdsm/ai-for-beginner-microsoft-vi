@@ -61,7 +61,7 @@ Thuật toán Di truyền được sử dụng để giải quyết nhiều vấ
 
 ## Ôn tập & Tự học
 
-Xem [video tuyệt vời này](https://www.youtube.com/watch?v=qv6UVOQ0F44) nói về cách máy tính có thể học chơi Super Mario bằng mạng nơ-ron được huấn luyện bởi thuật toán di truyền. tìm hiểu thêm về việc máy tính học chơi các trò chơi như vậy [trong phần tiếp theo](../22-DeepRL/README.md).
+Xem [video tuyệt vời này](https://www.youtube.com/watch?v=qv6UVOQ0F44) nói về cách máy tính có thể học chơi Super Mario bằng mạng nơ-ron được huấn luyện bởi thuật toán di truyền. tìm hiểu thêm về việc máy tính học chơi các trò chơi như vậy [trong phần tiếp theo](/lessons/6-Other/22-DeepRL/README.md).
 
 ## [Bài tập: Phương trình Diophantine](https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/6-Other/21-GeneticAlgorithms/Diophantine.ipynb)
 

@@ -61,7 +61,7 @@ Phân đoạn cơ thể chỉ là một trong những nhiệm vụ phổ biến 
 
 Bài viết [Wikipedia này](https://wikipedia.org/wiki/Image_segmentation) cung cấp một cái nhìn tổng quan tốt về các ứng dụng khác nhau của kỹ thuật này. Tìm hiểu thêm về các phân ngành của Phân đoạn theo đối tượng và Phân đoạn toàn cảnh trong lĩnh vực này.
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/4-ComputerVision/12-Segmentation/lab/README.md)
 
 Trong bài thực hành này, hãy thử **phân đoạn cơ thể con người** bằng cách sử dụng [Bộ dữ liệu Phân đoạn Toàn thân MADS](https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-mads-dataset) từ Kaggle.
 

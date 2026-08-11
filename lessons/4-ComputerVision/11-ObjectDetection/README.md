@@ -173,7 +173,7 @@ Trong bài học này, bạn đã có một cái nhìn tổng quan nhanh về t�
 * [Giới thiệu từng bước về các thuật toán phát hiện đối tượng cơ bản](https://www.analyticsvidhya.com/blog/2018/10/a-step-by-step-introduction-to-the-basic-object-detection-algorithms-part-1/)
 * [Triển khai Faster R-CNN trong Python cho phát hiện đối tượng](https://www.analyticsvidhya.com/blog/2018/11/implementation-faster-r-cnn-python-object-detection/)
 
-## [Bài tập: Phát Hiện Đối Tượng](lab/README.md)
+## [Bài tập: Phát Hiện Đối Tượng](/lessons/4-ComputerVision/11-ObjectDetection/lab/README.md)
 
 ---
 

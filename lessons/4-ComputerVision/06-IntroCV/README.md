@@ -6,7 +6,7 @@
 
 Một trong những nhiệm vụ đơn giản nhất của thị giác máy tính là **phân loại hình ảnh**.
 
-Thị giác máy tính thường được coi là một nhánh của AI. Ngày nay, hầu hết các nhiệm vụ thị giác máy tính đều được giải quyết bằng mạng nơ-ron. tìm hiểu thêm về loại mạng nơ-ron đặc biệt được sử dụng cho thị giác máy tính, [mạng nơ-ron tích chập](../07-ConvNets/README.md), trong phần này.
+Thị giác máy tính thường được coi là một nhánh của AI. Ngày nay, hầu hết các nhiệm vụ thị giác máy tính đều được giải quyết bằng mạng nơ-ron. tìm hiểu thêm về loại mạng nơ-ron đặc biệt được sử dụng cho thị giác máy tính, [mạng nơ-ron tích chập](/lessons/4-ComputerVision/07-ConvNets/README.md), trong phần này.
 
 Tuy nhiên, trước khi bạn đưa hình ảnh vào mạng nơ-ron, trong nhiều trường hợp, việc sử dụng một số kỹ thuật thuật toán để cải thiện hình ảnh là điều hợp lý.
 
@@ -102,7 +102,7 @@ Xem [video này](https://docs.microsoft.com/shows/ai-show/ai-show--2021-opencv-a
 
 Đọc thêm về dòng quang học [trong hướng dẫn tuyệt vời này](https://learnopencv.com/optical-flow-in-opencv/).
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/4-ComputerVision/06-IntroCV/lab/README.md)
 
 Trong bài thực hành này, bạn sẽ quay một video với các cử chỉ đơn giản, và mục tiêu của bạn là trích xuất các chuyển động lên/xuống/trái/phải bằng dòng quang học.
 

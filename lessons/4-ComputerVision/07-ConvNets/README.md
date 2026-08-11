@@ -54,7 +54,7 @@ Ví dụ, hãy xem kiến trúc của VGG-16, một mạng đạt được độ
 
 ## Các Kiến Trúc CNN Nổi Tiếng Nhất
 
-[Tiếp tục nghiên cứu về các kiến trúc CNN nổi tiếng nhất](CNN_Architectures.md)
+[Tiếp tục nghiên cứu về các kiến trúc CNN nổi tiếng nhất](/lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.md)
 
 ---
 

@@ -4,13 +4,13 @@
 
 Trong phần này, tìm hiểu về:
 
-* [Giới thiệu về Thị giác Máy tính và OpenCV](06-IntroCV/README.md)
-* [Mạng Nơ-ron Tích chập](07-ConvNets/README.md)
-* [Mạng được Huấn luyện sẵn và Học Chuyển giao](08-TransferLearning/README.md) 
-* [Bộ mã hóa tự động](09-Autoencoders/README.md)
-* [Mạng Đối kháng Tạo sinh](10-GANs/README.md)
-* [Phát hiện Đối tượng](11-ObjectDetection/README.md)
-* [Phân đoạn Ngữ nghĩa](12-Segmentation/README.md)
+* [Giới thiệu về Thị giác Máy tính và OpenCV](/lessons/4-ComputerVision/06-IntroCV/README.md)
+* [Mạng Nơ-ron Tích chập](/lessons/4-ComputerVision/07-ConvNets/README.md)
+* [Mạng được Huấn luyện sẵn và Học Chuyển giao](/lessons/4-ComputerVision/08-TransferLearning/README.md) 
+* [Bộ mã hóa tự động](/lessons/4-ComputerVision/09-Autoencoders/README.md)
+* [Mạng Đối kháng Tạo sinh](/lessons/4-ComputerVision/10-GANs/README.md)
+* [Phát hiện Đối tượng](/lessons/4-ComputerVision/11-ObjectDetection/README.md)
+* [Phân đoạn Ngữ nghĩa](/lessons/4-ComputerVision/12-Segmentation/README.md)
 
 ---
 

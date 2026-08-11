@@ -149,7 +149,7 @@ Chúng đều tập trung vào hành vi đơn giản của từng tác nhân, v�
 
 Ôn tập việc sử dụng loại hệ thống này trong ngành công nghiệp. Chọn một lĩnh vực như sản xuất hoặc ngành công nghiệp trò chơi điện tử và khám phá cách các hệ thống đa tác nhân có thể được sử dụng để giải quyết các vấn đề độc đáo.
 
-## [Bài tập NetLogo](assignment.md)
+## [Bài tập NetLogo](/lessons/6-Other/23-MultiagentSystems/assignment.md)
 
 ---
 

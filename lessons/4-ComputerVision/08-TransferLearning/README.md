@@ -12,7 +12,7 @@ Phương pháp này được gọi là **học chuyển giao**, bởi vì chúng
 
 Các mạng tích chập mà thảo luận trong phần trước bao gồm một số lớp, mỗi lớp được thiết kế để trích xuất một số đặc điểm từ hình ảnh, bắt đầu từ các tổ hợp pixel cấp thấp (chẳng hạn như đường ngang/dọc hoặc nét vẽ), cho đến các tổ hợp đặc điểm cấp cao hơn, tương ứng với những thứ như mắt của một ngọn lửa. Nếu chúng ta huấn luyện CNN trên một tập dữ liệu đủ lớn và đa dạng, mạng sẽ học cách trích xuất những đặc điểm chung đó.
 
-Cả Keras và PyTorch đều có các hàm để dễ dàng tải trọng số mạng nơ-ron đã được huấn luyện sẵn cho một số kiến trúc phổ biến, hầu hết được huấn luyện trên hình ảnh ImageNet. Những kiến trúc thường được sử dụng nhất được mô tả trên trang [Kiến Trúc CNN](../07-ConvNets/CNN_Architectures.md) từ bài học trước. Đặc biệt, bạn có thể cân nhắc sử dụng một trong những kiến trúc sau:
+Cả Keras và PyTorch đều có các hàm để dễ dàng tải trọng số mạng nơ-ron đã được huấn luyện sẵn cho một số kiến trúc phổ biến, hầu hết được huấn luyện trên hình ảnh ImageNet. Những kiến trúc thường được sử dụng nhất được mô tả trên trang [Kiến Trúc CNN](/lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.md) từ bài học trước. Đặc biệt, bạn có thể cân nhắc sử dụng một trong những kiến trúc sau:
 
 * **VGG-16/VGG-19** là các mô hình tương đối đơn giản nhưng vẫn mang lại độ chính xác tốt. Thường thì sử dụng VGG như một thử nghiệm đầu tiên là một lựa chọn tốt để xem học chuyển giao hoạt động như thế nào.
 * **ResNet** là một họ mô hình được đề xuất bởi Microsoft Research vào năm 2015. Chúng có nhiều lớp hơn, và do đó yêu cầu nhiều tài nguyên hơn.
@@ -71,9 +71,9 @@ Trong các notebook đi kèm, có các ghi chú ở cuối về cách kiến th�
 
 ## Ôn Tập & Tự Học
 
-Đọc qua [TrainingTricks.md](TrainingTricks.md) để nâng cao kiến thức của bạn về một số cách khác để huấn luyện mô hình.
+Đọc qua [TrainingTricks.md](/lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.md) để nâng cao kiến thức của bạn về một số cách khác để huấn luyện mô hình.
 
-## [Bài Tập](lab/README.md)
+## [Bài Tập](/lessons/4-ComputerVision/08-TransferLearning/lab/README.md)
 
 Trong bài thực hành này, sử dụng tập dữ liệu thực tế [Oxford-IIIT](https://www.robots.ox.ac.uk/~vgg/data/pets/) về thú cưng với 35 giống mèo và chó, và xây dựng một bộ phân loại học chuyển giao.
 

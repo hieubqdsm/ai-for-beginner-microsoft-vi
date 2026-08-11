@@ -7,9 +7,9 @@ Hãy bắt đầu với các tài nguyên sau:
 * [Trang Student Hub](https://docs.microsoft.com/learn/student-hub?WT.mc_id=academic-77998-cacaste) Trên trang này, bạn sẽ tìm thấy các tài nguyên dành cho người mới bắt đầu, các gói dành cho sinh viên, và thậm chí là cách để nhận voucher chứng chỉ miễn phí. Đây là một trang bạn nên đánh dấu và kiểm tra thường xuyên vì chúng tôi thay đổi nội dung ít nhất mỗi tháng một lần.
 * [Microsoft Student Learn ambassadors](https://studentambassadors.microsoft.com?WT.mc_id=academic-77998-cacaste) Tham gia cộng đồng đại sứ sinh viên toàn cầu, đây có thể là con đường dẫn bạn đến với Microsoft.
 
-**Sinh viên**, có một vài cách để sử dụng chương trình học này. Trước tiên, bạn có thể chỉ cần đọc văn bản và xem qua mã nguồn trực tiếp trên GitHub. Nếu bạn muốn chạy mã trong bất kỳ notebook nào - [đọc hướng dẫn của chúng tôi](./how-to-run.md), và tìm thêm lời khuyên về cách thực hiện [trong bài viết blog này](https://soshnikov.com/education/how-to-execute-notebooks-from-github/).
+**Sinh viên**, có một vài cách để sử dụng chương trình học này. Trước tiên, bạn có thể chỉ cần đọc văn bản và xem qua mã nguồn trực tiếp trên GitHub. Nếu bạn muốn chạy mã trong bất kỳ notebook nào - [đọc hướng dẫn của chúng tôi](/lessons/0-course-setup/how-to-run.md), và tìm thêm lời khuyên về cách thực hiện [trong bài viết blog này](https://soshnikov.com/education/how-to-execute-notebooks-from-github/).
 
-> **Note**: [Hướng dẫn cách chạy mã trong chương trình học này](./how-to-run.md)
+> **Note**: [Hướng dẫn cách chạy mã trong chương trình học này](/lessons/0-course-setup/how-to-run.md)
 
 ## Tự học
 
@@ -25,7 +25,7 @@ Tuy nhiên, nếu bạn muốn học khóa học này như một dự án tự h
 
 > Để học thêm, chúng tôi khuyến nghị bạn theo dõi các module và lộ trình học [Microsoft Learn](https://docs.microsoft.com/en-us/users/dmitrysoshnikov-9132/collections/31zgizg2p418yo/?WT.mc_id=academic-77998-cacaste).
 
-**Giáo viên**, chúng tôi đã [bao gồm một số gợi ý](./for-teachers.md) về cách sử dụng chương trình học này.
+**Giáo viên**, chúng tôi đã [bao gồm một số gợi ý](/lessons/0-course-setup/for-teachers.md) về cách sử dụng chương trình học này.
 
 ---
 

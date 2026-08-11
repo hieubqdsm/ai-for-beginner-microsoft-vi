@@ -62,7 +62,7 @@ Word2Vec đã được dùng trong một số ứng dụng thú vị, bao gồm 
 
 Đọc bài báo về Word2Vec: [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781.pdf)
 
-## [Bài tập: Notebook](assignment.md)
+## [Bài tập: Notebook](/lessons/5-NLP/14-Embeddings/assignment.md)
 
 ---
 

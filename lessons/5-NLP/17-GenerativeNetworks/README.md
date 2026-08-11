@@ -71,7 +71,7 @@ Dưới đây là một số bài viết để mở rộng kiến thức:
 * Các cách tiếp cận khác nhau để sinh văn bản với Markov Chain, LSTM và GPT-2: [bài blog](https://towardsdatascience.com/text-generation-gpt-2-lstm-markov-chain-9ea371820e1e)
 * Ví dụ sinh văn bản trong [tài liệu Keras](https://keras.io/examples/generative/lstm_character_level_text_generation/)
 
-## [Bài tập](lab/README.md)
+## [Bài tập](/lessons/5-NLP/17-GenerativeNetworks/lab/README.md)
 
 Phần trên đã xem cách sinh văn bản từng ký tự một. Trong bài thực hành, bạn sẽ khám phá việc sinh văn bản ở cấp độ từ.
 

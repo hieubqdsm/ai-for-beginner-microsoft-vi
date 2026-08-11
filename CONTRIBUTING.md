@@ -19,7 +19,7 @@ Nếu bạn tìm thấy lỗi chính tả hoặc lỗi trong bất kỳ notebook
 ### 2. Gửi Bản dịch
 Chúng tôi hoan nghênh các bản dịch bài học sang các ngôn ngữ khác! Vui lòng đặt các bản dịch dưới thư mục `translations/` sử dụng các tên thư mục hiện có ở đó (ví dụ `translations/es/`, `translations/pt-BR/`, `translations/zh-CN/`).
 
-Để biết thêm chi tiết, xem [etc/CONTRIBUTING.md](etc/CONTRIBUTING.md).
+Để biết thêm chi tiết, xem [etc/CONTRIBUTING.md](/etc/CONTRIBUTING.md).
 
 ---
 
