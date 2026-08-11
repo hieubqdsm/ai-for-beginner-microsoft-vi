@@ -184,8 +184,8 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>Mở notebook <a href="https://colab.research.google.com/github/hieubqdsm/ai-for-beginner-microsoft-vi/blob/main/lessons/X-Extras/X1-MultiModal/Clip.ipynb">Clip.ipynb</a> để xem CLIP hoạt động.</p>
 <h2 id="tao-hinh-anh-voi-vqganclip">Tạo Hình ảnh với VQGAN+CLIP</h2>
 <p>CLIP cũng có thể được sử dụng để <strong>tạo hình ảnh</strong> từ một gợi ý văn bản. Để làm điều này, một <strong>mô hình tạo hình ảnh</strong> có khả năng tạo ra hình ảnh dựa trên một vector đầu vào. Một trong những mô hình như vậy được gọi là <a href="https://compvis.github.io/taming-transformers/">VQGAN</a> (Vector-Quantized GAN).</p>
-<p>Những ý tưởng chính của VQGAN khác biệt so với <a href="/lessons/4-ComputerVision/10-GANs/index.html">GAN</a> thông thường bao gồm:
-* Sử dụng kiến trúc transformer tự hồi quy để tạo ra một chuỗi các phần hình ảnh giàu ngữ cảnh tạo thành hình ảnh. Những phần hình ảnh này được học bởi <a href="/lessons/4-ComputerVision/07-ConvNets/index.html">CNN</a>.
+<p>Những ý tưởng chính của VQGAN khác biệt so với <a href="../../../lessons/4-ComputerVision/10-GANs/index.html">GAN</a> thông thường bao gồm:
+* Sử dụng kiến trúc transformer tự hồi quy để tạo ra một chuỗi các phần hình ảnh giàu ngữ cảnh tạo thành hình ảnh. Những phần hình ảnh này được học bởi <a href="../../../lessons/4-ComputerVision/07-ConvNets/index.html">CNN</a>.
 * Sử dụng bộ phân biệt hình ảnh con để phát hiện liệu các phần của hình ảnh là “thật” hay “giả” (khác với cách tiếp cận “tất cả hoặc không có gì” trong GAN truyền thống).</p>
 <p>Tìm hiểu thêm về VQGAN tại trang web <a href="https://compvis.github.io/taming-transformers/">Taming Transformers</a>.</p>
 <p>Một trong những khác biệt quan trọng giữa VQGAN và GAN truyền thống là GAN truyền thống có thể tạo ra một hình ảnh khá tốt từ bất kỳ vector đầu vào nào, trong khi VQGAN có thể tạo ra một hình ảnh không nhất quán. Do đó, hướng dẫn thêm quá trình tạo hình ảnh, và điều này có thể được thực hiện bằng cách sử dụng CLIP.</p>

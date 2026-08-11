@@ -174,7 +174,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 * <strong>Discriminator</strong> là một mạng nhận một hình ảnh và phải xác định xem đó là hình ảnh thật (từ tập dữ liệu huấn luyện) hay là hình ảnh được tạo bởi generator. Nó về cơ bản là một bộ phân loại hình ảnh.</p>
 </blockquote>
 <h3 id="discriminator">Discriminator</h3>
-<p>Kiến trúc của discriminator không khác gì so với một mạng phân loại hình ảnh thông thường. Trong trường hợp đơn giản nhất, nó có thể là một bộ phân loại fully-connected, nhưng thường sẽ là một <a href="/lessons/4-ComputerVision/07-ConvNets/index.html">mạng tích chập</a>.</p>
+<p>Kiến trúc của discriminator không khác gì so với một mạng phân loại hình ảnh thông thường. Trong trường hợp đơn giản nhất, nó có thể là một bộ phân loại fully-connected, nhưng thường sẽ là một <a href="../../../lessons/4-ComputerVision/07-ConvNets/index.html">mạng tích chập</a>.</p>
 <blockquote>
 <p>✅ Một GAN dựa trên mạng tích chập được gọi là <a href="https://arxiv.org/pdf/1511.06434.pdf">DCGAN</a></p>
 </blockquote>
@@ -183,7 +183,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>✅ 'Pooling' trong ngữ cảnh này là một kỹ thuật giảm kích thước hình ảnh. “Các lớp pooling giảm kích thước dữ liệu bằng cách kết hợp đầu ra của các cụm neuron tại một lớp thành một neuron duy nhất ở lớp tiếp theo.” - <a href="https://wikipedia.org/wiki/Convolutional_neural_network#Pooling_layers">nguồn</a></p>
 </blockquote>
 <h3 id="generator">Generator</h3>
-<p>Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần <em>decoder</em> của <a href="/lessons/4-ComputerVision/09-Autoencoders/index.html">autoencoder</a>.</p>
+<p>Generator hơi phức tạp hơn một chút. Bạn có thể coi nó như là một discriminator đảo ngược. Bắt đầu từ một vector ẩn (thay vì vector đặc trưng), nó có một lớp fully-connected để chuyển đổi thành kích thước/hình dạng yêu cầu, sau đó là các lớp deconvolution+kết hợp. Điều này tương tự như phần <em>decoder</em> của <a href="../../../lessons/4-ComputerVision/09-Autoencoders/index.html">autoencoder</a>.</p>
 <blockquote>
 <p>✅ Vì lớp tích chập được triển khai như một bộ lọc tuyến tính quét qua hình ảnh, deconvolution về cơ bản tương tự như tích chập và có thể được triển khai bằng cùng logic lớp.</p>
 </blockquote>

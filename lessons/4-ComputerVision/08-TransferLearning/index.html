@@ -170,7 +170,7 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 </blockquote>
 <h2 id="mo-hinh-uoc-huan-luyen-san-nhu-cac-bo-trich-xuat-ac-iem">Mô Hình Được Huấn Luyện Sẵn Như Các Bộ Trích Xuất Đặc Điểm</h2>
 <p>Các mạng tích chập mà thảo luận trong phần trước bao gồm một số lớp, mỗi lớp được thiết kế để trích xuất một số đặc điểm từ hình ảnh, bắt đầu từ các tổ hợp pixel cấp thấp (chẳng hạn như đường ngang/dọc hoặc nét vẽ), cho đến các tổ hợp đặc điểm cấp cao hơn, tương ứng với những thứ như mắt của một ngọn lửa. Nếu chúng ta huấn luyện CNN trên một tập dữ liệu đủ lớn và đa dạng, mạng sẽ học cách trích xuất những đặc điểm chung đó.</p>
-<p>Cả Keras và PyTorch đều có các hàm để dễ dàng tải trọng số mạng nơ-ron đã được huấn luyện sẵn cho một số kiến trúc phổ biến, hầu hết được huấn luyện trên hình ảnh ImageNet. Những kiến trúc thường được sử dụng nhất được mô tả trên trang <a href="/lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.html">Kiến Trúc CNN</a> từ bài học trước. Đặc biệt, bạn có thể cân nhắc sử dụng một trong những kiến trúc sau:</p>
+<p>Cả Keras và PyTorch đều có các hàm để dễ dàng tải trọng số mạng nơ-ron đã được huấn luyện sẵn cho một số kiến trúc phổ biến, hầu hết được huấn luyện trên hình ảnh ImageNet. Những kiến trúc thường được sử dụng nhất được mô tả trên trang <a href="../../../lessons/4-ComputerVision/07-ConvNets/CNN_Architectures.html">Kiến Trúc CNN</a> từ bài học trước. Đặc biệt, bạn có thể cân nhắc sử dụng một trong những kiến trúc sau:</p>
 <ul>
 <li><strong>VGG-16/VGG-19</strong> là các mô hình tương đối đơn giản nhưng vẫn mang lại độ chính xác tốt. Thường thì sử dụng VGG như một thử nghiệm đầu tiên là một lựa chọn tốt để xem học chuyển giao hoạt động như thế nào.</li>
 <li><strong>ResNet</strong> là một họ mô hình được đề xuất bởi Microsoft Research vào năm 2015. Chúng có nhiều lớp hơn, và do đó yêu cầu nhiều tài nguyên hơn.</li>
@@ -231,8 +231,8 @@ window.MathJax = {tex: {inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$
 <p>Trong các notebook đi kèm, có các ghi chú ở cuối về cách kiến thức chuyển giao hoạt động tốt nhất với dữ liệu huấn luyện tương đối giống nhau (chẳng hạn như một loại động vật mới). Hãy thử nghiệm với các loại hình ảnh hoàn toàn mới để xem mô hình kiến thức chuyển giao của bạn hoạt động tốt hay kém như thế nào.</p>
 <h2 id="cau-hoi-sau-bai-giang"><a href="https://ff-quizzes.netlify.app/en/ai/quiz/16">Câu hỏi sau bài giảng</a></h2>
 <h2 id="on-tap-tu-hoc">Ôn Tập &amp; Tự Học</h2>
-<p>Đọc qua <a href="/lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.html">TrainingTricks.md</a> để nâng cao kiến thức của bạn về một số cách khác để huấn luyện mô hình.</p>
-<h2 id="bai-tap"><a href="/lessons/4-ComputerVision/08-TransferLearning/lab/index.html">Bài Tập</a></h2>
+<p>Đọc qua <a href="../../../lessons/4-ComputerVision/08-TransferLearning/TrainingTricks.html">TrainingTricks.md</a> để nâng cao kiến thức của bạn về một số cách khác để huấn luyện mô hình.</p>
+<h2 id="bai-tap"><a href="../../../lessons/4-ComputerVision/08-TransferLearning/lab/index.html">Bài Tập</a></h2>
 <p>Trong bài thực hành này, sử dụng tập dữ liệu thực tế <a href="https://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-IIIT</a> về thú cưng với 35 giống mèo và chó, và xây dựng một bộ phân loại học chuyển giao.</p>
 <hr />
   </article>
